@@ -80,16 +80,17 @@ char	**ft_split(char const *s, char c)
 	return (strs);
 }
 
-/*#include <stdio.h>
+#include <stdio.h>
 
 int	main(void)
 {
-	char *s = "021";
-	char c = '2';
+	char *s = "./a.out 42 \"44 45 46\" 47 48";
+	char c1 = ' ';
+	char c2 = '"',
 	char **output;
 
-	output = ft_split(s, c);
-	for (int i = 0; output[i] != NULL; i++)
+	output = ft_split(s, c1);
+	for (int i = 1; output[i] != NULL; i++)	
 		printf("%s\n", output[i]);
 	return (0);
-}*/
+}
