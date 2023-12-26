@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_ctrl.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/26 16:01:38 by chuleung          #+#    #+#             */
+/*   Updated: 2023/12/26 20:55:32 by chuleung         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*
@@ -59,39 +71,58 @@ int input_ctrl(char **argv_2nd_element_addr)
 	}
 }
 
-limit_chk(char *revised_argv_addr)
-{
-	
+int limit_chk(int **arr_of_int)
+{	
+	int		position;
 
-
+	position = 0;
+	while (arr_of_int + position)
+	{
+		if (((arr_of_int + position) > INT_MAX) || ((arr_of_int + position) < INT_MIN))
+			return (1);
+		position++;
+	}
+	return (0);
 }
 
-dupli_chk(char *revised_argv_addr)
+int dupli_chk(int **arr_of_int)
 {
+	int		i;
+	int		j;
 
-
-
+	i = 0;
+	while (arr_of_int[i])
+	{
+		j = i + 1;
+		while (arr_of_int[j])
+		{
+			if (arr_of_int[i][0] == arr_of_int[j][0])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
-int limit_n_dupli_ctrl(char **argv_2nd_element_addr)
+int limit_n_dupli_ctrl(char **revised_argv)
 {
-	char	*full_str;
-	char	**revised_argv;
+	char	**arr_of_int;
 	int		limit_chk_res;
 	int		dupli_chk_res;
 
-	full_str = comb_multi_strs(argv_2nd_element_addr);
-	revised_argv = ft_split(full_str, ' ');
-	limit_chk_res = limit_chk(revised_argv);
-	depuli_chk_res = dupli_chk(revised_argv);
+	arr_of_int = argv_atoi(revised_argv)
+	limit_chk_res = limit_chk(arr_of_int);
+	depuli_chk_res = dupli_chk(arr_of_int);
 	if (!limit_chk_res || !depuli_chk_res)
 	{
-		free(full_str);
+		free(arr_of_int);
 		return (1);
 	}
 	return (0);
 }
 
+/*
 int	main(void)
 {	
 	char	*s = "./a.out \"\"\"\"\"43 \"\"44 45 46 47 48";
@@ -109,5 +140,5 @@ int	main(void)
 		printf("%s\n", output[i]);
 	return (0);
 }
-
+*/
 
