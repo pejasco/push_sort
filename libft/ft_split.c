@@ -81,7 +81,7 @@ char	**ft_split(char const *s, char c)
 }
 
 
-int		multi_strs_len(char **strs)
+/*int		multi_strs_len(char **strs)
 {
 	int 	i;
 	int		j;
@@ -129,12 +129,56 @@ char	*comb_multi_strs(char **strs)
 	return (full_str);
 }
 
+char	*replace_quote_with_space(char	*str, size_t len)
+{
+	size_t		i;
+	char	*str_without_quote = NULL;
+
+	str_without_quote = (char *)malloc(sizeof(char) * (len + 1));
+	if (str_without_quote == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '"')
+			str_without_quote[i] = ' ';
+		else
+			str_without_quote[i] = str[i];
+		i++;
+	}
+	str_without_quote[i] = '\0';
+	return (str_without_quote);
+}
+
+
+
 
 #include <stdio.h>
 
 int	main(void)
-{
-	char	*s = "./a.out 42 \"44 45 46\" 47 48";
+{	
+	char	*s = "./a.out \"\"\"\"\"43 \"\"44 45 46 47 48";
+	//char	*s = "./a.out \"42 42 45 46 47 48\"";
+	//char	*s = "./a.out 42\"44 45 46\"47 48";
+	char	c = ' ';
+	char	*str_without_quote;
+	char	**output;
+	size_t	len;
+
+	len = ft_strlen(s);
+	str_without_quote = replace_quote_with_space(s, len);
+	output = ft_split(str_without_quote, c);
+	for (int i = 1; output[i] != NULL; i++)
+		printf("%s\n", output[i]);
+	return (0);
+}
+*/
+
+/*int	main(void)
+{	
+	//char	*s = "./a.out 42 \"44 45 46\" 47 48";
+	char	*s = "./a.out \"42 42 45 46 47 48\"";
+	//char	*s = "./a.out 42\"44 45 46\"47 48";
 	char	c1 = '"';
 	char	c2 = ' ';
 	char	**output_del_c1;
@@ -147,7 +191,4 @@ int	main(void)
 	for (int i = 1; output_del_c1_n_c2[i] != NULL; i++)
 		printf("%s\n", output_del_c1_n_c2[i]);
 	return (0);
-}
-
-
-
+}*/

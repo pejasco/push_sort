@@ -19,7 +19,14 @@ typedef struct s_stack
 {
     int             nbr;
     struct s_stack  *next;
-}					t_stack_node;
+}					t_stack_node
+
+//input_control.c
+int		input_ctrl(char **argv);
 
 
-
+//push_swap_utili
+int		multi_strs_len(char **strs);
+char	*comb_multi_strs(char **strs);
+char	*replace_quote_with_space(char *str, size_t len);
+#endif
