@@ -6,27 +6,43 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/26 20:55:26 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/27 12:06:43 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	**input_mgt(int argc, char **argv)
+{
+	char		*full_str;
+	char		**revised_argv;
+	int			**arry_of_ints;
+
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (NULL);
+	full_str = comb_multi_strs(argv + 1);
+	if (!input_ctrl(full_str)
+		return (NULL);
+	revised_argv = ft_split(full_str, ' ');
+	free(full_str);
+	arry_of_ints = argv_atoi(revised argv);
+	if (!limit_n_dupli_ctrl(arry_of_ints))
+		return (NULL);
+	return (arry_of_ints);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
-	char			*full_str;
-	int				**argv_atoi;	
+	int				**arry_of_ints;	
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (printf("Error\n"));
-	full_str = comb_multi_str(argv + 1);
-	revised_argv = ft_split(full_str, ' ');
-	if (!input_ctrl(full_str) || !limit_n_dupli_res(revised_argv))
-		return (printf("Error\n"));
+	arry_of_ints = input_mgt(argc, argv);
+	if (arry_of_ints = NULL)
+		printf("Error\n");
+		return (1);
 	init_stack_a(&a, argv + 1);
 	return (0);
 }

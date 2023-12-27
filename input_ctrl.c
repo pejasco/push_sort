@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:38 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/26 20:55:32 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:47:54 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,10 @@ int	input_chk(char *full_str)
 	return (0);
 }
 
-int input_ctrl(char **argv_2nd_element_addr)
+int input_ctrl(char *full_str)
 {
-	char	*full_str;
-	char	*revised_argv 
 	int		*input_chk_res;
 
-	full_str = comb_multi_strs(argv_2nd_element_addr);
 	input_chk_res = input_chk(full_str);
 	if (!input_chk_res)
 	{
@@ -71,21 +68,47 @@ int input_ctrl(char **argv_2nd_element_addr)
 	}
 }
 
-int limit_chk(int **arr_of_int)
+int limit_chk(int **revised_argv)
 {	
-	int		position;
-
-	position = 0;
-	while (arr_of_int + position)
+	long	projected_val_after_atoi;
+	int		i;
+	int		j;
+	int		sign;
+	
+	i = 0;
+	
+	sign = 1;
+	while (revised_argv[i])
 	{
-		if (((arr_of_int + position) > INT_MAX) || ((arr_of_int + position) < INT_MIN))
+		j = 0;
+		projected_val_after_atoi = ft_atoi(revised_argv[j][0]);
+		if ((projected_val_after_atoi > INT_MAX) || (projected_val_after_atoi < INT_MIN))
 			return (1);
-		position++;
 	}
 	return (0);
 }
 
-int dupli_chk(int **arr_of_int)
+int limit_ctrl(char **revised_argv)
+{
+	int		dupli_chk_res;
+
+	dupli_chk_res = dupli_chk(arry_of_ints);
+	if (!dupli_chk_res)
+	{
+		free(arry_of_ints);
+		return (1);
+	}
+	return (0);
+}
+
+
+
+
+
+}
+
+
+int dupli_chk(int **arry_of_ints)
 {
 	int		i;
 	int		j;
@@ -105,18 +128,14 @@ int dupli_chk(int **arr_of_int)
 	return (0);
 }
 
-int limit_n_dupli_ctrl(char **revised_argv)
+int dupli_ctrl(int **arry_of_ints)
 {
-	char	**arr_of_int;
-	int		limit_chk_res;
 	int		dupli_chk_res;
 
-	arr_of_int = argv_atoi(revised_argv)
-	limit_chk_res = limit_chk(arr_of_int);
-	depuli_chk_res = dupli_chk(arr_of_int);
-	if (!limit_chk_res || !depuli_chk_res)
+	dupli_chk_res = dupli_chk(arry_of_ints);
+	if (!dupli_chk_res)
 	{
-		free(arr_of_int);
+		free(arry_of_ints);
 		return (1);
 	}
 	return (0);
