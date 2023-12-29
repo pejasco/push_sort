@@ -37,11 +37,64 @@ int **argv_atoi(char **revised_argv)
 	while (revised_argv[position])
 	{
 		arr_of_int[position] = (int *)(malloc(sizeof(int)) + 1);
-		arr_of_int[position][0] = ft_atoi(revised_argv(position));
+		arr_of_int[position][0] = ft_atoi(revised_argv[position]);
 		arr_of_int[position][1] = '\0';
 		position++;
 	}
 	arr_of_int[position] = NULL;
 	free(revised_argv);
 	return (arry_of_ints);
+}
+
+int atoi_limit_chk_sign(char *revised_argv)
+{
+	int	1st_element;
+	int	sign;
+
+	sign = 1;
+	if (revised_argv[1st_element] == '-')
+		sign = -1;
+	return (sign)
+}
+
+int	atoi_limit_chk_algo(long projected_int_val, char *revised_argv, int sign)
+{
+	int		digit;
+
+	while(revised_argv)
+	{		
+		digit = *revised_argv - '0';
+		if (sign > 0)
+		{	
+			if (projected_int_val > (INT_MAX - digit) / 10)
+				return (1);
+			projected_int_val = projected_int_val * 10 + digit;
+		}
+		if (sign < 0)
+		{
+			if (projected_int_val < (INT_MIN + digit) / 10)
+				return (-1);
+			projected_int_val = projected_int_val * 10 - digit;
+		}
+		revised_argv++;
+	}
+	return (0);
+}
+
+int **atoi_for_limit_chk(char *revised_argv)
+{
+	int		element;
+	int 	sign;
+	int		chk_result;
+	long	projected_int_val;
+	
+	projected_int_val = 0;
+	element = 0;
+	sign = atoi_limit_chk_sign(&revised_argv[i])
+	if (revised_argv[i] == '-')
+		i++;
+	chk_result = atoi_limit_chk_algo(projected_int_val, &revised_argv[i], sign);
+	if (!chk_result)
+		return (1);
+	return (0);		
 }

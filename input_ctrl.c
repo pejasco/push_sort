@@ -70,43 +70,32 @@ int input_ctrl(char *full_str)
 
 int limit_chk(int **revised_argv)
 {	
-	long	projected_val_after_atoi;
 	int		i;
-	int		j;
-	int		sign;
-	
-	i = 0;
-	
-	sign = 1;
+	int		atoi_for_limit_chk_res;
+
+	i = 0;	
 	while (revised_argv[i])
 	{
-		j = 0;
-		projected_val_after_atoi = ft_atoi(revised_argv[j][0]);
-		if ((projected_val_after_atoi > INT_MAX) || (projected_val_after_atoi < INT_MIN))
+		atoi_for_limit_chk(revised_argv[i]);
+		if (!atoi_for_limit_chk_res)
 			return (1);
+		i++;
 	}
 	return (0);
 }
 
 int limit_ctrl(char **revised_argv)
 {
-	int		dupli_chk_res;
+	int		limit_chk_res;
 
-	dupli_chk_res = dupli_chk(arry_of_ints);
-	if (!dupli_chk_res)
+	limit_chk_res = limit_chk(revised_argv);
+	if (!limit_chk_res)
 	{
 		free(arry_of_ints);
 		return (1);
 	}
 	return (0);
 }
-
-
-
-
-
-}
-
 
 int dupli_chk(int **arry_of_ints)
 {
