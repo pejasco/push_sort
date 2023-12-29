@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:19 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/27 12:35:38 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/29 21:07:55 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ int	atoi_limit_chk_algo(long projected_int_val, char *revised_argv, int sign)
 {
 	int		digit;
 
-	while(revised_argv)
+	while(*revised_argv)
 	{		
 		digit = *revised_argv - '0';
 		if (sign > 0)
-		{	
+		{
 			if (projected_int_val > (INT_MAX - digit) / 10)
 				return (1);
 			projected_int_val = projected_int_val * 10 + digit;
@@ -86,14 +86,12 @@ int **atoi_for_limit_chk(char *revised_argv)
 	int		element;
 	int 	sign;
 	int		chk_result;
-	long	projected_int_val;
-	
-	projected_int_val = 0;
+
 	element = 0;
-	sign = atoi_limit_chk_sign(&revised_argv[i])
-	if (revised_argv[i] == '-')
-		i++;
-	chk_result = atoi_limit_chk_algo(projected_int_val, &revised_argv[i], sign);
+	sign = atoi_limit_chk_sign(&revised_argv[element])
+	if (revised_argv[element] == '-')
+		element++;
+	chk_result = atoi_limit_chk_algo(0, &revised_argv[element], sign);
 	if (!chk_result)
 		return (1);
 	return (0);		

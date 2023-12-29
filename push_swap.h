@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/20 15:50:17 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/29 21:07:52 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 
 typedef struct s_stack
 {
-    int             nbr;
-    struct s_stack  *next;
-}					t_stack_node
+    struct s_stack *prev;
+	int nbr;
+	struct s_stack *next;	
+} stack_node
 
 //input_control.c
 int		input_ctrl(char **argv);

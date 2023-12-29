@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/27 12:06:43 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/29 21:07:50 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,15 @@ int	**input_mgt(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	stack_node	*a;
+	stack_node	*b;
 	int				**arry_of_ints;	
 
 	a = NULL;
 	b = NULL;
 	arry_of_ints = input_mgt(argc, argv);
 	if (arry_of_ints = NULL)
-		printf("Error\n");
 		return (1);
-	init_stack_a(&a, argv + 1);
+	stack_it_up_in_a(&a, arr);
 	return (0);
 }
