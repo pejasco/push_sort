@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/29 21:07:52 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/30 22:26:01 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_stack
 {
     struct s_stack *prev;
-	int nbr;
+	int value;
 	struct s_stack *next;	
 } stack_node
 
