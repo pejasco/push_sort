@@ -42,6 +42,6 @@ int	main(int argc, char **argv)
 	arry_of_ints = input_mgt(argc, argv);
 	if (arry_of_ints = NULL)
 		return (1);
-	stack_it_up_in_a(&a, arr);
+	init_stack_a(&a, arry_of_ints);
 	return (0);
 }
