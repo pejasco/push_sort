@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/30 22:26:01 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/01 18:45:29 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # include "libft/libft.h"
 
-typedef struct s_stack
+typedef struct s_node
 {
-    struct s_stack *prev;
+    struct s_node *prev;
 	int value;
-	struct s_stack *next;	
-} stack_node
+	struct s_node *next;	
+} node
 
 //input_control.c
 int		input_ctrl(char **argv);
