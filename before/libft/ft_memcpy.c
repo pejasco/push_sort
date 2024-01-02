@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/11/04 20:24:57 by chuleung          #+#    #+#             */
+/*   Updated: 2023/11/11 19:57:16 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+//#include <stdio.h>
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_node
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+	size_t				i;
+	unsigned char		*d;
+	unsigned const char	*s;
 
-//input_control.c
-int		input_ctrl(char **argv);
-
-
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	d = dest;
+	s = src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
+}

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/11/13 13:41:22 by chuleung          #+#    #+#             */
+/*   Updated: 2023/12/09 22:31:00 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
+//#include <studio.h>
+//#include <stdlib.h>
 
-# include "libft/libft.h"
-
-typedef struct s_node
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+	t_list	*current;
+	t_list	*next;
 
-//input_control.c
-int		input_ctrl(char **argv);
-
-
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	current = *lst;
+	while (current != NULL)
+	{
+		next = (current)->next;
+		ft_lstdelone(current, del);
+		current = next;
+	}
+	*lst = NULL;
+}

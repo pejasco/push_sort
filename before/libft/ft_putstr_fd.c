@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/11/05 16:01:54 by chuleung          #+#    #+#             */
+/*   Updated: 2023/11/10 17:55:10 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
+//#include <unistd.h>
 
-# include "libft/libft.h"
-
-typedef struct s_node
+void	ft_putstr_fd(char *s, int fd)
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+	size_t	i;
 
-//input_control.c
-int		input_ctrl(char **argv);
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
 
+/*int	main(void)
+{
+	char	*c = "abcde";
+	int		fd	= 1;
 
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	ft_putstr_fd(c, fd);
+	return (0);
+}*/

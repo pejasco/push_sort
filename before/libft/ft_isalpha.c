@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   isalpha.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/10/31 15:21:06 by chuleung          #+#    #+#             */
+/*   Updated: 2023/10/31 17:24:45 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+//#include <stdio.h>
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_node
+int	ft_isupper(int c)
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+	return (c >= 'A' && c <= 'Z');
+}
 
-//input_control.c
-int		input_ctrl(char **argv);
+int	ft_islower(int c)
+{
+	return (c >= 'a' && c <= 'z');
+}
 
+int	ft_isalpha(int c)
+{
+	return (ft_isupper(c) || ft_islower(c));
+}
+/*int	main(void)
+{
+	//int	a = 42;
+	//int a = 'A';
+	char *a = "42";
+	int	result;
 
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	result = ft_isalpha(a);
+	printf("%d", result);
+	return (0);
+}*/

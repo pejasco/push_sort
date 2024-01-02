@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   delme.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/12/27 09:39:14 by chuleung          #+#    #+#             */
+/*   Updated: 2023/12/27 10:29:10 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stdio.h>
+#include <limits.h>
 
-# include "libft/libft.h"
-
-typedef struct s_node
+int	main(void)
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+	int		max;
+	int		min;
+	//int		maxplus1;
+	//int		minminus1;
 
-//input_control.c
-int		input_ctrl(char **argv);
-
-
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	max = INT_MAX;
+	min = INT_MIN;
+	//maxplus1 = INT_MAX + 1;
+	//minminus1 = INT_MIN - 1;
+	printf("Max        : %d\n", max);
+	printf("Min        : %d\n", min);
+	//printf("Max Plus 1 : %d\n", maxplus1);
+	//printf("Min Minus 1: %d\n", minminus1);
+	return (0);
+}

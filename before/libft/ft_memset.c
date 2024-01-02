@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/11/04 20:26:03 by chuleung          #+#    #+#             */
+/*   Updated: 2023/11/11 19:33:24 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+//include <stdio.h>
+//include <string.h>
+#include "libft.h"
 
-# include "libft/libft.h"
-
-typedef struct s_node
+void	*ft_memset(void *s, int c, size_t n)
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+	unsigned int	i;
 
-//input_control.c
-int		input_ctrl(char **argv);
-
-
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	i = 0;
+	while (i < n)
+		((char *)s)[i++] = c;
+	return (s);
+}
+/*int main(void)
+{
+    char str[20];
+    strcpy(str, "Keep pushing!!!!!!");
+    printf("%s\n", str);
+    ft_memset(str, '$', 8);   
+    printf("%s", str);
+    return (0);
+}*/

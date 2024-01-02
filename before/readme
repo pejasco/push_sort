@@ -1,0 +1,28 @@
+/*
+Pseudo code:
+
+//Declare pointers to two data structures/linked lists, one for stack 'a' and another for 'b'
+	//Set both pointer to NULL to avoid undeined behaviour and indicate we're starting with empty statcks
+
+//Handle input count errors. Argument count must be 2 or more, and the second input must not be empty
+	// if input errors, return error
+
+//Handle both case of input, whether a variable number of command line arguments, or as a string
+	//If the input of number is as a string, call 'split()' to split the substrings
+
+//Initialize stack 'a' by appending each input number as a node to stack 'a'
+	//Handle integer overflow (arguments are bigger than an integer), duplicate and synatax erros, e.g. input must only contain digits, or '-' '+' signs
+		//If errors found, free stack 'a' and return error
+	//Check for each input, if it is a long integer 
+		//If the input is a string, convert it to a long integer
+	//Append the nodes to stack 'a'
+
+//Check if stack 'a' is sorted
+	//If not sorted, implement our sorting algorithm
+		//check for 2 numbers 
+			//if so, simply swap the numbers
+		//check for 3 numbers 
+			//apply the '3 sort'
+		//checl of the stacl has more than 3 numbers
+			//apply the algorithm
+*/

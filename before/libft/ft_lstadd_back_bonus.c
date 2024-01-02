@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Created: 2023/11/13 13:48:46 by chuleung          #+#    #+#             */
+/*   Updated: 2023/11/13 14:40:36 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
+//#include <studio.h>
+//#include <stdlib.h>
 
-# include "libft/libft.h"
-
-typedef struct s_node
+/*typedef struct	s_list
 {
-    struct s_node *prev;
-	int value;
-	struct s_node *next;	
-} list;
+    void			*content;
+    struct s_list	*next;
+} t_list*/
 
-//input_control.c
-int		input_ctrl(char **argv);
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*current;
 
-
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
-#endif
+	if (new == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	current = *lst;
+	while (current->next)
+		current = current->next;
+	current->next = new;
+}

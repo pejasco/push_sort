@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:38 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 22:30:09 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:47:54 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,32 @@ int	input_chk(char *full_str)
 	int		j;
 
 	i = 0;
+	j = i + 1;
 	while (full_str[i])
 	{
 		j = i + 1;
-		if ((full_str[i] != '+' && full_str[i] != '-' && full_str[i] != ' ') \
-		&& (full_str[i] < '0' || full_str[i] > '9'))
-			return (0);
-		if ((full_str[i] == '+' || full_str[i] == '-') \ 
-		&& (full_str[j] < '0' || full_str[j] > '9' || full_str[j] == '\0'))
-			return (0);
-		if ((full_str[i] >= '0' || full_str[i] <= '9') \
-		&& (full_str[j] == '-' || full_str[j] == '+')
-			return (0);
+		if ((full_str[i] != '-' && full_str[i] != ' ') && (full_str[i] < '0' || full_str[i] > '9'))
+			return (1);
+		if ((full_str[i] == '-') && (full_str[j] < '0' || full_str[j] > '9' || full_str[j] == '\0'))
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int input_ctrl(char *full_str)
 {
-	int		input_chk_res;
+	int		*input_chk_res;
 
 	input_chk_res = input_chk(full_str);
-	free(full_str);
 	if (!input_chk_res)
+	{
+		free(full_str);
 		return (1);
-	return (0);
+	}
 }
 
-int limit_chk(char **argv)
+int limit_chk(int **revised_argv)
 {	
 	int		i;
 	int		atoi_for_limit_chk_res;
@@ -87,7 +84,7 @@ int limit_chk(char **argv)
 	return (0);
 }
 
-int limit_ctrl(char **argv)
+int limit_ctrl(char **revised_argv)
 {
 	int		limit_chk_res;
 

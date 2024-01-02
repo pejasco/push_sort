@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 22:30:18 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/12/29 21:07:50 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 int	**input_mgt(int argc, char **argv)
 {
 	char		*full_str;
+	char		**revised_argv;
 	int			**arry_of_ints;
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (NULL);
 	full_str = comb_multi_strs(argv + 1);
-	if (!input_ctrl(full_str))
+	if (!input_ctrl(full_str)
 		return (NULL);
-	if (!limit_ctrl(argv + 1))
-		return (NULL);
-	
-
-
-
+	revised_argv = ft_split(full_str, ' ');
+	free(full_str);
+	arry_of_ints = argv_atoi(revised argv);
 	if (!limit_n_dupli_ctrl(arry_of_ints))
 		return (NULL);
 	return (arry_of_ints);
