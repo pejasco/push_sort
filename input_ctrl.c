@@ -6,19 +6,19 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:38 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 22:30:09 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:42:51 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	input_chk(char *full_str)
+int	input_chk_algo(char *argv)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	while (full_str[i])
+	while (argv[i])
 	{
 		j = i + 1;
 		if ((full_str[i] != '+' && full_str[i] != '-' && full_str[i] != ' ') \
@@ -35,18 +35,33 @@ int	input_chk(char *full_str)
 	return (1);
 }
 
-int input_ctrl(char *full_str)
+int intput_chk(char **argv)
+{
+	int		i;
+	int		res;
+
+	i = 1;
+	while (argv[i])
+	{
+		res = input_chk_algo(argv[i]);
+		if (!res)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int input_ctrl(char **argv)
 {
 	int		input_chk_res;
 
-	input_chk_res = input_chk(full_str);
-	free(full_str);
+	input_chk_res = input_chk(argv[1]);
 	if (!input_chk_res)
 		return (0);
 	return (1);
 }
 
-
+/*
 //the i has to be 1
 int limit_chk(char **argv)
 {	
@@ -73,40 +88,7 @@ int limit_ctrl(char **argv)
 		return (0);
 	return (1);
 }
-
-int dupli_chk(int **arry_of_ints)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (arr_of_int[i])
-	{
-		j = i + 1;
-		while (arr_of_int[j])
-		{
-			if (arr_of_int[i][0] == arr_of_int[j][0])
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-int dupli_ctrl(int **arry_of_ints)
-{
-	int		dupli_chk_res;
-
-	dupli_chk_res = dupli_chk(arry_of_ints);
-	if (!dupli_chk_res)
-	{
-		free(arry_of_ints);
-		return (1);
-	}
-	return (0);
-}
-
+*/
 /*
 int	main(void)
 {	

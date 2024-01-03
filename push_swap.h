@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 16:10:01 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/03 22:04:06 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,42 @@ typedef struct s_node
 	struct s_node *next;	
 } list;
 
-//input_control.c
+//dupli_ctrl.c
+int		dupli_chk(int *arry_of_ints)
+int		dupli_ctrl(int *arry_of_ints)
+
+//input_ctrl.c
+int		input_chk_algo(char *argv);
+int		input_chk(char **argv);
 int		input_ctrl(char **argv);
 
+//limit_ctrl.c
+int		atoi_limit_chk_sign(char *argv_sign);
+int		atoi_limit_chk_algo(long projected_int_val, char *argv, int sign);
+int		**atoi_for_limit_chk(char *argv);
+int		limit_chk(char *argv);
+int		limit_ctrl(char **argv);
 
-//push_swap_utili
-int		multi_strs_len(char **strs);
-char	*comb_multi_strs(char **strs);
-char	*replace_quote_with_space(char *str, size_t len);
+//push_swap.c
+int		*arry_of_ints(char **argv);
+int		*input_mgt(int argc, char **argv);
+void	print_list(list **stack)
+
+//push_swap_utili.c
+int		int_arry_count(int *int_arry);
+int		argv_count(har **argv);
+
+//init_stack_a.c
+list	*init_Stack_a(list **ptr_to_stack, int *arry_of_ints);
+list	*stack_in(list **ptr_to_stack, list **tail, int data);
+list	*stack_out(list **ptr_to_stack, list **tail);
+
+
+
+
+
+
+//int		multi_strs_len(char **strs);
+//char	*comb_multi_strs(char **strs);
+//char	*replace_quote_with_space(char *str, size_t len);
 #endif
