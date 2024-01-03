@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 int	argv_count(char **revised_argv)
 {
 	int		arr_count;
@@ -45,54 +45,54 @@ int **argv_atoi(char **revised_argv)
 	free(revised_argv);
 	return (arry_of_ints);
 }
+*/
 
-int atoi_limit_chk_sign(char *revised_argv)
+int atoi_limit_chk_sign(char *argv_sign)
 {
-	int	1st_element;
 	int	sign;
 
 	sign = 1;
-	if (revised_argv[1st_element] == '-')
+	if (*argv_sign == '-')
 		sign = -1;
 	return (sign)
 }
 
-int	atoi_limit_chk_algo(long projected_int_val, char *revised_argv, int sign)
+int	atoi_limit_chk_algo(long projected_int_val, char *argv, int sign)
 {
 	int		digit;
 
-	while(*revised_argv)
+	while(*argv)
 	{		
-		digit = *revised_argv - '0';
+		digit = *argv - '0';
 		if (sign > 0)
 		{
 			if (projected_int_val > (INT_MAX - digit) / 10)
-				return (1);
+				return (0);
 			projected_int_val = projected_int_val * 10 + digit;
 		}
 		if (sign < 0)
 		{
 			if (projected_int_val < (INT_MIN + digit) / 10)
-				return (-1);
+				return (0);
 			projected_int_val = projected_int_val * 10 - digit;
 		}
-		revised_argv++;
+		argv++;
 	}
-	return (0);
+	return (1);
 }
 
-int **atoi_for_limit_chk(char *revised_argv)
+int **atoi_for_limit_chk(char *argv)
 {
 	int		element;
 	int 	sign;
 	int		chk_result;
 
 	element = 0;
-	sign = atoi_limit_chk_sign(&revised_argv[element])
+	sign = atoi_limit_chk_sign(&argv[element])
 	if (revised_argv[element] == '-')
 		element++;
-	chk_result = atoi_limit_chk_algo(0, &revised_argv[element], sign);
+	chk_result = atoi_limit_chk_algo(0, &argv[element], sign);
 	if (!chk_result)
-		return (1);
-	return (0);		
+		return (0;
+	return (1);		
 }

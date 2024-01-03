@@ -12,31 +12,6 @@
 
 #include "push_swap.h"
 
-/*
-char *replace_quote_with_space(char	*str)
-{
-	size_t	i;
-	size_t	len;
-	char	*str_without_quote = NULL;
-	
-	len = ft_strlen(str);
-	str_without_quote = (char *)malloc(sizeof(char) * (len + 1));
-	if (str_without_quote == NULL)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '"')
-			str_without_quote[i] = ' ';
-		else
-			str_without_quote[i] = str[i];
-		i++;
-	}
-	str_without_quote[i] = '\0';
-	return (str_without_quote);
-}
-*/
-
 int	input_chk(char *full_str)
 {
 	int		i;
@@ -67,37 +42,36 @@ int input_ctrl(char *full_str)
 	input_chk_res = input_chk(full_str);
 	free(full_str);
 	if (!input_chk_res)
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
+
+//the i has to be 1
 int limit_chk(char **argv)
 {	
 	int		i;
 	int		atoi_for_limit_chk_res;
 
-	i = 0;	
-	while (revised_argv[i])
+	i = 1;	
+	while (argv[i])
 	{
-		atoi_for_limit_chk(revised_argv[i]);
+		atoi_for_limit_chk(argv[i]);
 		if (!atoi_for_limit_chk_res)
-			return (1);
+			return (0);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
 int limit_ctrl(char **argv)
 {
 	int		limit_chk_res;
 
-	limit_chk_res = limit_chk(revised_argv);
+	limit_chk_res = limit_chk(argv);
 	if (!limit_chk_res)
-	{
-		free(arry_of_ints);
-		return (1);
-	}
-	return (0);
+		return (0);
+	return (1);
 }
 
 int dupli_chk(int **arry_of_ints)

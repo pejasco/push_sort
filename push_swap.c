@@ -22,8 +22,9 @@ int	**input_mgt(int argc, char **argv)
 	full_str = comb_multi_strs(argv + 1);
 	if (!input_ctrl(full_str))
 		return (NULL);
-	if (!limit_ctrl(argv + 1))
+	if (!limit_ctrl(argv))
 		return (NULL);
+	
 	
 
 
