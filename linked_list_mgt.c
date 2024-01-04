@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:34:29 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/03 21:30:37 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/04 14:43:55 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ list *addatbeg(list *tail, int data)
 		newp->prev = tail;
 		newp->next = temp;
 		temp->prev = newp;
-		tail->new = newp;
+		tail->next = newp;
 		return tail;
 	}
 }
@@ -84,15 +84,16 @@ list *delfirst(list *tail)
 list *dellast(list *tail)
 {
 	list *temp;
-	if (tail = NULL)
+ 
+	if (tail == NULL)
 		return tail;
+	temp = tail->prev;
 	if (temp == tail)
 	{
 		free(tail);
 		tail = NULL;
 		return tail;
 	}
-	temp = tail->prev;
 	temp->next = tail->next;
 	tail->next->prev = temp;
 	free(tail);

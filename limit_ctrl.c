@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:19 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/03 17:09:49 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/04 15:18:23 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int atoi_limit_chk_sign(char *argv_sign)
 	sign = 1;
 	if (*argv_sign == '-')
 		sign = -1;
-	return (sign)
+	return (sign);
 }
 
 int	atoi_limit_chk_algo(long projected_int_val, char *argv, int sign)
@@ -48,19 +48,19 @@ int	atoi_limit_chk_algo(long projected_int_val, char *argv, int sign)
 	return (1);
 }
 
-int **atoi_for_limit_chk(char *argv)
+int atoi_for_limit_chk(char *argv)
 {
 	int		element;
 	int 	sign;
 	int		chk_result;
 
 	element = 0;
-	sign = atoi_limit_chk_sign(&argv[element])
-	if (revised_argv[element] == '-')
+	sign = atoi_limit_chk_sign(&argv[element]);
+	if (argv[element] == '-')
 		element++;
 	chk_result = atoi_limit_chk_algo(0, &argv[element], sign);
 	if (!chk_result)
-		return (0;
+		return (0);
 	return (1);		
 }
 
@@ -72,7 +72,7 @@ int limit_chk(char **argv)
 	i = 1;	
 	while (argv[i])
 	{
-		atoi_for_limit_chk(argv[i]);
+		atoi_for_limit_chk_res = atoi_for_limit_chk(argv[i]);
 		if (!atoi_for_limit_chk_res)
 			return (0);
 		i++;

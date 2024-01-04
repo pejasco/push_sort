@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:59:32 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/09 22:32:01 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/11/13 14:27:44 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 char	ft_toupperft(unsigned int index, char c)
 {
 	if (!(index % 2))
-	{
+	{		
 		if (c >= 'a' && c <= 'z')
 			c -= 32;
 		index++;

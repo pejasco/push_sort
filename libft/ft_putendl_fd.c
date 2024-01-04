@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 16:02:14 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/09 22:30:02 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:29:16 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_putendl_fd(char *s, int fd)
 	{
 		write(fd, &s[i], 1);
 		i++;
-	}
+	}	
 	write(fd, "\n", 1);
 }
 /*int	main(void)

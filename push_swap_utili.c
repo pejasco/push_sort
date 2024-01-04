@@ -6,25 +6,26 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:02:52 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/03 18:39:19 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:01:59 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 int int_arry_count(int *int_arry)
 {
 	int count;
 
 	count = 0;
-	while (int_arry)
+	while (*int_arry)
 	{
 		int_arry++;
 		count++;
 	}
 	return (count);
-}
+}*/
 
+/*
 int argv_count(char **argv)
 {
 	int		count;
@@ -36,7 +37,7 @@ int argv_count(char **argv)
 		count++;
 	}
 	return (count);
-}
+}*/
 
 /*
 int		multi_strs_len(char **strs)

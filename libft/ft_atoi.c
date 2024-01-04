@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 19:57:34 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/03 17:25:21 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/11/13 18:14:00 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int		i;
-	long	result;
-	int		sign;
+	int	i;
+	int	result;
+	int	sign;
 
 	i = 0;
 	result = 0;

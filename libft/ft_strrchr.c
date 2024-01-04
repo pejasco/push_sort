@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:29:23 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/09 22:32:27 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:56:38 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strrchr(const char*s, int c)
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
-	}
+	}	
 	return (NULL);
 }
 

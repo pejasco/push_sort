@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:22 by chuleung          #+#    #+#             */
-/*   Updated: 2023/12/09 22:31:00 by chuleung         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:42:40 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		next = (current)->next;
 		ft_lstdelone(current, del);
 		current = next;
-	}
+	}	
 	*lst = NULL;
 }
