@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/04 17:33:20 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:46:24 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_node
 {
     struct s_node *prev;
-	int data;;
+	int data;
 	struct s_node *next;	
 } list;
 
@@ -41,10 +41,8 @@ int		limit_ctrl(char **argv);
 //push_swap.c
 int		*arry_of_ints(char **argv);
 int		*input_mgt(int argc, char **argv);
-void	print_list(list **stack);
-
-//push_swap_utili.c
-//int		int_arry_count(int *int_arry);
+void	print_list(char stackname, list **stack);
+void	stack_mgt(list **stack_a, list **stack_b);
 
 //linked_list_mgt.c
 list *addtoempty(int data);
@@ -53,12 +51,14 @@ list *addatend(list *tail, int data);
 list *delfirst(list *tail);
 list *dellast(list *tail);
 
-//init_stack_a.c
+//stack_in_out.c
 list	*init_stack_a(list **ptr_to_stack, int *arry_of_ints);
 list	*stack_in(list **ptr_to_stack, list **tail, int data);
 list	*stack_out(list **ptr_to_stack, list **tail);
 
-//int		multi_strs_len(char **strs);
-//char	*comb_multi_strs(char **strs);
-//char	*replace_quote_with_space(char *str, size_t len);
+//swap.c
+void	swap_a(list **stack_a);
+void	swap_b(list **stack_b);;
+
+
 #endif

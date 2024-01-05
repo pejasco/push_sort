@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:19 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/04 15:18:23 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/05 13:45:06 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int atoi_for_limit_chk(char *argv)
 
 	element = 0;
 	sign = atoi_limit_chk_sign(&argv[element]);
-	if (argv[element] == '-')
+	if (argv[element] == '-' || argv[element] == '+')
 		element++;
 	chk_result = atoi_limit_chk_algo(0, &argv[element], sign);
 	if (!chk_result)

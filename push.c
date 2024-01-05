@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dupli_ctrl.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 17:12:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/05 13:13:25 by chuleung         ###   ########.fr       */
+/*   Created: 2024/01/05 19:20:03 by chuleung          #+#    #+#             */
+/*   Updated: 2024/01/05 19:38:29 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int dupli_chk(int argc, int *arry_of_ints)
+void push_b(list **stack_a, list **stack_b)
 {
-	int		i;
-	int		j;
+	list *tail_of_a;
+	list *tail_of_b;
 
-	i = 1;
-	while (i < argc)
+	tail_of_a = *stack_a;
+	tail_of_b = *stack_b;
+	if (tail_of_a != NULL)
 	{
-		j = i + 1;
-		while (j < argc)
-		{
-			if (arry_of_ints[i] == arry_of_ints[j])
-				return (0);
-			j++;
-		}
-		i++;
+		while(
+
 	}
-	return (1);
+
+
+	while (tail_of_a)
+	{
+		t
+
+	}
+
+
 }
 
-int dupli_ctrl(int argc, int *arry_of_ints)
+list *tail_find(list **stack)
 {
-	int		dupli_chk_res;
+	tail
 
-	dupli_chk_res = dupli_chk(argc, arry_of_ints);
-	if (!dupli_chk_res)
-	{
-		free(arry_of_ints);
-		return (0);
-	}
-	return (1);
+
+
 }
+
+
+
 

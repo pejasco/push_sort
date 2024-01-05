@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack_a.c                                     :+:      :+:    :+:   */
+/*   stack_in_out.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 21:45:28 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/04 14:00:19 by chuleung         ###   ########.fr       */
+/*   Created: 2024/01/05 15:17:58 by chuleung          #+#    #+#             */
+/*   Updated: 2024/01/05 15:18:02 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ list  *init_stack_a(list **ptr_to_stack, int *arry_of_ints)
 	if (arry_of_ints == NULL)
 		return (0);
 	tail = NULL;
-	tail = addatend(tail, arry_of_ints[i++]);
+	tail = addatend(tail, arry_of_ints[i]);
 	*ptr_to_stack = tail;
+	i++;
 	while (i < arry_of_ints[0])
 	{
 		tail = addatend(tail, arry_of_ints[i]);
 		i++;
 	}
+	free(arry_of_ints);
+	arry_of_ints = NULL;
 	return (tail);
 }
 
