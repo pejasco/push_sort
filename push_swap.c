@@ -62,11 +62,17 @@ void print_list(char stackname, list **stack)
 	else
 	{
 		temp = *stack;
-		do
-		{
+		if (temp->next == *stack)
 			printf("%d\n", temp->data);
-			temp = temp->next; 
-		}while (temp != *stack);
+		else
+		{
+			while (temp->next != *stack)
+			{
+				printf("%d\n", temp->data);
+				temp = temp->next;
+			}
+			printf("%d\n", temp->data);
+		}
 	}
 		printf("----\n");
 		printf("%c\n\n", stackname);
