@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:20:03 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/05 19:38:29 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/06 20:16:53 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,17 @@ void push_b(list **stack_a, list **stack_b)
 {
 	list *tail_of_a;
 	list *tail_of_b;
+	int nbr;
 
-	tail_of_a = *stack_a;
-	tail_of_b = *stack_b;
-	if (tail_of_a != NULL)
-	{
-		while(
-
-	}
-
-
-	while (tail_of_a)
-	{
-		t
-
-	}
-
-
+	if (stack_a == NULL)
+		return ;
+	nbr = (*stack_a)->data;
+	tail_of_a = tail_find(stack_a);
+	tail_of_b = tail_find(stack_b);
+	tail_of_a = pop(tail_of_a);
+	if (tail_of_a == NULL)
+		*stack_a = NULL;
+	*stack_a = tail_of_a->next;
+	tail_of_b = push(tail_of_b, nbr);
+	*stack_b = tail_of_b->next;
 }
-
-list *tail_find(list **stack)
-{
-	tail
-
-
-
-}
-
-
-
-

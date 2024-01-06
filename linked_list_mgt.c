@@ -21,7 +21,7 @@ list *addtoempty(int data)
 	return temp;
 }
 
-list *addatbeg(list *tail, int data)
+list *push(list *tail, int data)
 {
 	list *newp;
 	list *temp;
@@ -42,7 +42,7 @@ list *addatbeg(list *tail, int data)
 	}
 }
 
-list *addatend(list *tail, int data)
+list *append(list *tail, int data)
 {
 	list *newp;
 	list *temp;
@@ -64,7 +64,7 @@ list *addatend(list *tail, int data)
 	}
 }
 
-list *delfirst(list *tail)
+list *pop(list *tail)
 {
 	if (tail == NULL)
 		return tail;
@@ -81,7 +81,7 @@ list *delfirst(list *tail)
 	return tail;
 }
 
-list *dellast(list *tail)
+list *poplast(list *tail)
 {
 	list *temp;
  
@@ -151,12 +151,12 @@ int main(void)
 	struct list *tail;
 	tail = NULL;
  	tail = addtoempty(34);
-	tail = addatend(tail, 45);
-	tail = addatend(tail, 56);
+	tail = append(tail, 45);
+	tail = append(tail, 56);
 
 	printf("List before Deletion: ");
 	print(tail);
-	//tail = delfirst(tail);
+	//tail = pop(tail);
 	tail = delast(tail);
 	printf("List after Deletion: ");
 	print(tail);

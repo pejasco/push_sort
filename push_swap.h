@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/05 18:46:24 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:55:48 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,29 @@ void	stack_mgt(list **stack_a, list **stack_b);
 
 //linked_list_mgt.c
 list *addtoempty(int data);
-list *addatbeg(list *tail, int data);
-list *addatend(list *tail, int data);
-list *delfirst(list *tail);
-list *dellast(list *tail);
+list *push(list *tail, int data);
+list *append(list *tail, int data);
+list *pop(list *tail);
+list *poplast(list *tail);
 
 //stack_in_out.c
 list	*init_stack_a(list **ptr_to_stack, int *arry_of_ints);
 list	*stack_in(list **ptr_to_stack, list **tail, int data);
 list	*stack_out(list **ptr_to_stack, list **tail);
 
+//linked_list_utili.c
+list	*tail_find(list **stack);
+void	free_whole_stack(list **stack);
+
 //swap.c
 void	swap_a(list **stack_a);
-void	swap_b(list **stack_b);;
+void	swap_b(list **stack_b);
+void	swap_anb(list **stack_a, list **stack_b);
+
+// push.c
+void	push_b(list **stack_a, list **stack_b);
+
+//
 
 
 #endif

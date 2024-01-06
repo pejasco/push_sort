@@ -19,11 +19,11 @@ list  *init_stack_a(list **ptr_to_stack, int **arry_of_ints)
 	if (arry_of_ints[i] = NULL)
 		return (1);
 	tail = NULL;
-	tail = addatend(tail, arry_of_ints[i++]);
+	tail = append(tail, arry_of_ints[i++]);
 	*ptr_to_stack = tail;
 	while (arry_of_ints[i])
 	{
-		tail = addatend(tail, arry_of_ints[i][0]);
+		tail = append(tail, arry_of_ints[i][0]);
 		i++;
 	}
 }
@@ -32,17 +32,17 @@ list *stack_in(list **ptr_to_stack, list **tail, int data)
 {
 	if (*ptr_to_stack = NULL)
 	{
-		*tail = addatbeg(*tail, data);
+		*tail = push(*tail, data);
 		*ptr_to_stack = *tail;
 	}
 	else
-		*tail = addatend(*tail, data);
+		*tail = append(*tail, data);
 	return (*tail);	
 }
 
 list *stack_out(list **ptr_to_stack, list **tail)
 {
-	*tail = delfirst(*tail)
+	*tail = pop(*tail)
 	if (*tail =	NULL)
 		{
 			free(*ptr_to_stack);
@@ -60,7 +60,7 @@ list *addtoempty(int data)
 	return temp;
 }
 
-list *addatbeg(list *tail, int data)
+list *push(list *tail, int data)
 {
 	list *newp;
 	list *temp;
@@ -81,7 +81,7 @@ list *addatbeg(list *tail, int data)
 	}
 }
 
-list *addatend(list *tail, int data)
+list *append(list *tail, int data)
 {
 	list *newp;
 	list *temp;
@@ -103,7 +103,7 @@ list *addatend(list *tail, int data)
 	}
 }
 
-list *delfirst(list *tail)
+list *pop(list *tail)
 {
 	if (tail == NULL)
 		return tail;
@@ -120,7 +120,7 @@ list *delfirst(list *tail)
 	return tail;
 }
 
-list *dellast(list *tail)
+list *poplast(list *tail)
 {
 	list *temp;
 	if (tail = NULL)
@@ -185,12 +185,12 @@ int main(void)
 	struct list *tail;
 	tail = NULL;
  	tail = addtoempty(34);
-	tail = addatend(tail, 45);
-	tail = addatend(tail, 56);
+	tail = append(tail, 45);
+	tail = append(tail, 56);
 
 	printf("List before Deletion: ");
 	print(tail);
-	//tail = delfirst(tail);
+	//tail = pop(tail);
 	tail = delast(tail);
 	printf("List after Deletion: ");
 	print(tail);

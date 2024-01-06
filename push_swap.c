@@ -6,7 +6,7 @@
 /*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/05 18:36:48 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/06 19:55:32 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void print_list(char stackname, list **stack)
 void stack_mgt(list **stack_a, list **stack_b)
 {
 	*stack_b = NULL;
-
-	ft_sa(stack_a);
+	swap_a(stack_a);
+	push_b(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
