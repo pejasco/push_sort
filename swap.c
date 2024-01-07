@@ -23,7 +23,6 @@ void swap_a(list **stack_a)
 	aux = temp->data;
 	temp->data = temp->next->data;
 	temp->next->data = aux;
-	printf("sa");
 }
 
 void swap_b(list **stack_b)
@@ -37,12 +36,10 @@ void swap_b(list **stack_b)
 	aux = temp->data;
 	temp->data = temp->next->data;
 	temp->next->data = aux;
-	printf("sb");
 }
 
 void swap_anb(list **stack_a, list **stack_b)
 {
 	swap_a(stack_a);
 	swap_b(stack_b);
-	printf("ss");
 }

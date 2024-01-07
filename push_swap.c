@@ -80,16 +80,21 @@ void print_list(char stackname, list **stack)
 
 void stack_mgt(list **stack_a, list **stack_b)
 {
+	int i;
+	
 	*stack_b = NULL;
-	swap_a(stack_a);
-	push_b(stack_a, stack_b);
+	for(i = 1; i < 10; i++)
+		push_b(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
 {
 	list			*a;
 	list			*b;
-	int				*arry_of_ints;	
+	int				*arry_of_ints;
+	int				test;
+	list			*test_tail;
+
 	a = NULL;
 	b = NULL;
 	arry_of_ints = input_mgt(argc, argv);
@@ -99,5 +104,8 @@ int	main(int argc, char **argv)
 	stack_mgt(&a, &b);
 	print_list('A', &a);
 	print_list('B', &b);
+	test_tail = tail_find(&a);
+	test = test_tail->data;
+	printf("%d", test);
 	return (0);
 }
