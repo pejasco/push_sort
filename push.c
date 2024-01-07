@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-
-
 void push_a(list **stack_a, list **stack_b)
 {
 	list *tail_of_a;
@@ -22,7 +20,10 @@ void push_a(list **stack_a, list **stack_b)
 
 	if (stack_b == NULL)
 		return ;
-	nbr = (*stack_b)->data;
+	if ((*stack_b) == NULL)
+		return ;
+	else
+		nbr = (*stack_b)->data;
 	tail_of_a = tail_find(stack_a);
 	tail_of_b = tail_find(stack_b);
 	tail_of_b = pop(tail_of_b);
@@ -42,7 +43,10 @@ void push_b(list **stack_a, list **stack_b)
 
 	if (stack_a == NULL)
 		return ;
-	nbr = (*stack_a)->data;
+	if ((*stack_a) == NULL)
+		return ;
+	else
+		nbr = (*stack_a)->data;
 	tail_of_a = tail_find(stack_a);
 	tail_of_b = tail_find(stack_b);
 	tail_of_a = pop(tail_of_a);

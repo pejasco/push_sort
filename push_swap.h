@@ -66,9 +66,17 @@ void	swap_b(list **stack_b);
 void	swap_anb(list **stack_a, list **stack_b);
 
 // push.c
+void	push_a(list **stack_a, list **stack_b);
 void	push_b(list **stack_a, list **stack_b);
 
-//
+// rotate.c
+void	rotate_a(list **stack_a);
+void	rotate_b(list **stack_b);
+void	rotate_anb(list **stack_a, list **stack_b);
 
+//reverse.c
+void	reverse_a(list **stack_a);
+void	reverse_b(list **stack_b);
+void	reverse_anb(list **stack_a, list **stack_b);
 
 #endif

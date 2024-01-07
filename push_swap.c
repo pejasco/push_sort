@@ -80,11 +80,25 @@ void print_list(char stackname, list **stack)
 
 void stack_mgt(list **stack_a, list **stack_b)
 {
-	int i;
+	//int i;
 	
 	*stack_b = NULL;
-	for(i = 1; i < 10; i++)
-		push_b(stack_a, stack_b);
+	//for(i = 1; i < 10; i++)
+	//	push_b(stack_a, stack_b);
+	//swap_a(stack_a);
+	//swap_b(stack_b);
+	//rotate_a(stack_a);
+	//rotate_b(stack_b);
+	//push_b(stack_a, stack_b);
+	push_b(stack_a, stack_b);
+	push_b(stack_a, stack_b);
+	push_b(stack_a, stack_b);
+	push_b(stack_a, stack_b);
+	//rotate_anb(stack_a, stack_b);
+	//rotate_b(stack_b);
+	reverse_a(stack_a);
+	reverse_b(stack_b);
+	reverse_anb(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -105,7 +119,12 @@ int	main(int argc, char **argv)
 	print_list('A', &a);
 	print_list('B', &b);
 	test_tail = tail_find(&a);
-	test = test_tail->data;
-	printf("%d", test);
+	if (test_tail == NULL)
+		return (0);
+	else
+	{
+		test = test_tail->data;
+		printf("%d", test);
+	}
 	return (0);
 }
