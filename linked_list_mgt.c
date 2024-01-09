@@ -29,7 +29,7 @@ list *push(list *tail, int data)
 	newp = NULL;
 	temp = NULL;
 	newp = addtoempty(data);
-	if(tail == NULL)
+	if (tail == NULL)
 		return newp;
 	else
 	{

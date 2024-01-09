@@ -19,6 +19,7 @@ typedef struct s_node
 {
     struct s_node *prev;
 	int data;
+	int rank;
 	struct s_node *next;	
 } list;
 

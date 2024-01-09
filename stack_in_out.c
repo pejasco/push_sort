@@ -19,7 +19,7 @@ list  *init_stack_a(list **ptr_to_stack, int *arry_of_ints)
 
 	i = 1;
 	if (arry_of_ints == NULL)
-		return (0);
+		return (NULL);
 	tail = NULL;
 	tail = append(tail, arry_of_ints[i]);
 	*ptr_to_stack = tail;

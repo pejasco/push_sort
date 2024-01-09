@@ -27,7 +27,7 @@ void swap_a(list **stack_a)
 	temp->next->data = aux;
 }
 
-void swap_b(list **stack_b)
+void swap_b(list **stack_b, )
 {
 	list 	*temp;
 	int		aux;
