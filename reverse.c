@@ -12,25 +12,31 @@
 
 #include "push_swap.h"
 
-void reverse_a(list **stack_a)
+void reverse_a(list **stack_a, int print)
 {
     if (stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL)
         return ;
-    *stack_a = (*stack_a)->prev;    
+    *stack_a = (*stack_a)->prev;
+    if (print == 1)
+        printf("rra");
 }
 
-void reverse_b(list **stack_b)
+void reverse_b(list **stack_b, int print)
 {
     if (stack_b == NULL || *stack_b == NULL || (*stack_b)->next == NULL)
         return ;
-    *stack_b = (*stack_b)->prev;    
+    *stack_b = (*stack_b)->prev;
+    if (print == 1)
+        printf("rrb");
 }
 
-void reverse_anb(list **stack_a, list **stack_b)
+void reverse_anb(list **stack_a, list **stack_b, int print)
 {
     if ((stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL ) &&\
     (stack_b == NULL || *stack_b == NULL || (*stack_b)->next == NULL))
         return ;
-    reverse_a(stack_a);
-    reverse_b(stack_a);
+    reverse_a(stack_a, 0);
+    reverse_b(stack_a, 0);
+    if (print == 1)
+        printf("rrr");
 }

@@ -43,6 +43,7 @@ int		limit_ctrl(char **argv);
 int		*arry_of_ints(char **argv);
 int		*input_mgt(int argc, char **argv);
 void	print_list(char stackname, list **stack);
+void	print_list_rank(char stackname, list **stack);
 void	stack_mgt(list **stack_a, list **stack_b);
 
 //linked_list_mgt.c
@@ -62,22 +63,33 @@ list	*tail_find(list **stack);
 void	free_whole_stack(list **stack);
 
 //swap.c
-void	swap_a(list **stack_a);
-void	swap_b(list **stack_b);
-void	swap_anb(list **stack_a, list **stack_b);
+void	swap_a(list **stack_a, int print);
+void	swap_b(list **stack_b, int print);
+void	swap_anb(list **stack_a, list **stack_b, int print);
 
 // push.c
-void	push_a(list **stack_a, list **stack_b);
-void	push_b(list **stack_a, list **stack_b);
+void	push_a(list **stack_a, list **stack_b, int print);
+void	push_b(list **stack_a, list **stack_b, int print);
 
 // rotate.c
-void	rotate_a(list **stack_a);
-void	rotate_b(list **stack_b);
-void	rotate_anb(list **stack_a, list **stack_b);
+void	rotate_a(list **stack_a, int print);
+void	rotate_b(list **stack_b, int print);
+void	rotate_anb(list **stack_a, list **stack_b, int print);
 
 //reverse.c
-void	reverse_a(list **stack_a);
-void	reverse_b(list **stack_b);
-void	reverse_anb(list **stack_a, list **stack_b);
+void	reverse_a(list **stack_a, int print);
+void	reverse_b(list **stack_b, int print);
+void	reverse_anb(list **stack_a, list **stack_b, int print);
+
+// sort_utili.c
+int count_in_stack(list **stack);
+int min_in_stack(list **stack);
+list *copy_init_a(list **stack);
+
+
+//sort_rank.c
+list *rank_in_stack(list **stack);
+list *rank_algo(list *copy_of_a, list *copy_of_b);
+list *rank_assign_to_copy_a(list *copy_of_a);
 
 #endif

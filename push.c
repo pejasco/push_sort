@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void push_a(list **stack_a, list **stack_b)
+void push_a(list **stack_a, list **stack_b, int print)
 {
 	list *tail_of_a;
 	list *tail_of_b;
@@ -33,9 +33,11 @@ void push_a(list **stack_a, list **stack_b)
 		*stack_b = tail_of_b->next;
 	tail_of_a = push(tail_of_a, nbr);
 	*stack_a = tail_of_a->next;
+    if (print == 1)
+        printf("pa");
 }
 
-void push_b(list **stack_a, list **stack_b)
+void push_b(list **stack_a, list **stack_b, int print)
 {
 	list *tail_of_a;
 	list *tail_of_b;
@@ -56,6 +58,8 @@ void push_b(list **stack_a, list **stack_b)
 		*stack_a = tail_of_a->next;
 	tail_of_b = push(tail_of_b, nbr);
 	*stack_b = tail_of_b->next;
+    if (print == 1)
+        printf("pb");
 }
 
 /*

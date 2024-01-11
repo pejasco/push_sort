@@ -16,12 +16,13 @@ int count_in_stack(list **stack)
 {
     int count;
     list *current;
-
     if (*stack == NULL || stack == NULL)
         return (0);
-    count = 0;
-    current = *stack;
-    while (current->next == current)
+    //print_list('C', stack);
+    count = 1;
+    current = (*stack)->next;
+    //print_list('C', &current);
+    while (current != *stack)
     {
         current = current->next;
         count++;
@@ -31,14 +32,14 @@ int count_in_stack(list **stack)
 
 int min_in_stack(list **stack)
 {
-    int min;
-    list *current; 
+    int     min;
+    list    *current; 
 
     if (*stack == NULL || stack == NULL)
         return (0);
-    current = *stack;
     min = (*stack)->data;
-    while (current->next == (*stack))
+    current = (*stack)->next;
+    while (current != *stack)
     {
         if (current->data < min)
             min = current->data;
@@ -56,8 +57,8 @@ list *copy_init_a(list **stack)
 
     if ((*stack) == NULL || stack == NULL)
         return (NULL);
-    if ((*stack)->data)
-        return (NULL);
+    tail_of_stack_a = NULL;
+    tail_of_copy_a = NULL;
     stack_a = *stack;
     tail_of_copy_a = append(tail_of_copy_a, stack_a->data);
     copy_of_a = tail_of_copy_a;
@@ -68,12 +69,4 @@ list *copy_init_a(list **stack)
         tail_of_stack_a = tail_of_stack_a->next;
     }
     return (copy_of_a);
-}
-
-int rank_in_stack(list **stack_or_chunk)
-{
-    list *
-
-
-
 }

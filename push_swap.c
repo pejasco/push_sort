@@ -53,6 +53,32 @@ int	*input_mgt(int argc, char **argv)
 	return (arry_of_ints);
 }
 
+void print_list_rank(char stackname, list **stack)
+{
+	list *temp;
+
+	if (*stack == NULL)
+		printf("Nth\n");
+	else
+	{
+		temp = *stack;
+		if (temp->next == *stack)
+			printf("%d\n", temp->rank);
+		else
+		{
+			while (temp->next != *stack)
+			{
+				printf("%d\n", temp->rank);
+				temp = temp->next;
+			}
+			printf("%d\n", temp->rank);
+		}
+	}
+		printf("----\n");
+		printf("%c\n\n", stackname);
+}
+
+
 void print_list(char stackname, list **stack)
 {
 	list *temp;
@@ -77,7 +103,7 @@ void print_list(char stackname, list **stack)
 		printf("----\n");
 		printf("%c\n\n", stackname);
 }
-
+/*
 void stack_mgt(list **stack_a, list **stack_b)
 {
 	//int i;
@@ -100,25 +126,30 @@ void stack_mgt(list **stack_a, list **stack_b)
 	reverse_b(stack_b);
 	reverse_anb(stack_a, stack_b);
 }
-
+*/
 int	main(int argc, char **argv)
 {
 	list			*a;
-	list			*b;
+	//list			*b;
+	list			*a_copy;
 	int				*arry_of_ints;
-	int				test;
-	list			*test_tail;
+	//int				test;
+	//list			*test_tail;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	arry_of_ints = input_mgt(argc, argv);
 	if (arry_of_ints == NULL)
 		return (1);
 	init_stack_a(&a, arry_of_ints);
-	stack_mgt(&a, &b);
-	print_list('A', &a);
-	print_list('B', &b);
-	test_tail = tail_find(&a);
+	a_copy = copy_init_a(&a);
+	//print_list('C',&a_copy);
+	a_copy = rank_in_stack(&a_copy);
+	//stack_mgt(&a, &b);
+	//print_list('A', &a);
+	//print_list('B', &b);
+	//print_list_rank('Z',&a_copy);
+	/*test_tail = tail_find(&a);
 	if (test_tail == NULL)
 		return (0);
 	else
@@ -126,5 +157,5 @@ int	main(int argc, char **argv)
 		test = test_tail->data;
 		printf("%d", test);
 	}
-	return (0);
+	return (0);*/
 }
