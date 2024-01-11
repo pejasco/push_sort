@@ -86,10 +86,11 @@ int count_in_stack(list **stack);
 int min_in_stack(list **stack);
 list *copy_init_a(list **stack);
 
-
 //sort_rank.c
 list *rank_in_stack(list **stack);
 list *rank_algo(list *copy_of_a, list *copy_of_b);
-list *rank_assign_to_copy_a(list *copy_of_a);
+list *rank_assign_to_copy_b(list *copy_of_b);
+list *push_copy_b_to_copy_a(list *copy_of_a, list *copy_of_b);
+list *rank_from_copy_a_to_a(list *a, list *copy_of_a);
 
 #endif

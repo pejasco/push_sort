@@ -70,3 +70,21 @@ list *copy_init_a(list **stack)
     }
     return (copy_of_a);
 }
+
+int finding_root(int count)
+{
+    int     root_index;
+    int     radicand;
+    int     root;
+
+    root_index = 2;
+    radicand = count;
+    root = 0;
+    while (radicand >= 4)
+    {
+        radicand / root_index;
+        root++;
+    }
+    return (root);
+}
+

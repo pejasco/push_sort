@@ -142,13 +142,19 @@ int	main(int argc, char **argv)
 	if (arry_of_ints == NULL)
 		return (1);
 	init_stack_a(&a, arry_of_ints);
+	//print_list('Z', &a);
+	//print_list_rank('Z', &a);
 	a_copy = copy_init_a(&a);
 	//print_list('C',&a_copy);
 	a_copy = rank_in_stack(&a_copy);
+	print_list('Z', &a_copy);
+	print_list_rank('Z', &a_copy);
+	a = rank_from_copy_a_to_a(a, a_copy);
 	//stack_mgt(&a, &b);
 	//print_list('A', &a);
 	//print_list('B', &b);
-	//print_list_rank('Z',&a_copy);
+	print_list('A', &a);
+	print_list_rank('A', &a);
 	/*test_tail = tail_find(&a);
 	if (test_tail == NULL)
 		return (0);
