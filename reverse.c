@@ -18,7 +18,7 @@ void reverse_a(list **stack_a, int print)
         return ;
     *stack_a = (*stack_a)->prev;
     if (print == 1)
-        printf("rra");
+        printf("rra\n");
 }
 
 void reverse_b(list **stack_b, int print)
@@ -27,7 +27,7 @@ void reverse_b(list **stack_b, int print)
         return ;
     *stack_b = (*stack_b)->prev;
     if (print == 1)
-        printf("rrb");
+        printf("rrb\n");
 }
 
 void reverse_anb(list **stack_a, list **stack_b, int print)
@@ -38,5 +38,5 @@ void reverse_anb(list **stack_a, list **stack_b, int print)
     reverse_a(stack_a, 0);
     reverse_b(stack_a, 0);
     if (print == 1)
-        printf("rrr");
+        printf("rrr\n");
 }

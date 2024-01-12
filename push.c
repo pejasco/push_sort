@@ -34,7 +34,7 @@ void push_a(list **stack_a, list **stack_b, int print)
 	tail_of_a = push(tail_of_a, nbr);
 	*stack_a = tail_of_a->next;
     if (print == 1)
-        printf("pa");
+        printf("pa\n");
 }
 
 void push_b(list **stack_a, list **stack_b, int print)
@@ -59,7 +59,7 @@ void push_b(list **stack_a, list **stack_b, int print)
 	tail_of_b = push(tail_of_b, nbr);
 	*stack_b = tail_of_b->next;
     if (print == 1)
-        printf("pb");
+        printf("pb\n");
 }
 
 /*

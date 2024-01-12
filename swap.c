@@ -26,7 +26,7 @@ void swap_a(list **stack_a, int print)
 	temp->data = temp->next->data;
 	temp->next->data = aux;
 	if (print == 1)
-		printf("sa");
+		printf("sa\n");
 }
 
 void swap_b(list **stack_b, int print)
@@ -43,7 +43,7 @@ void swap_b(list **stack_b, int print)
 	temp->data = temp->next->data;
 	temp->next->data = aux;
 	if (print == 1)
-		printf("sb");
+		printf("sb\n");
 }
 
 void swap_anb(list **stack_a, list **stack_b, int print)
@@ -55,5 +55,5 @@ void swap_anb(list **stack_a, list **stack_b, int print)
 	swap_a(stack_a, 0);
 	swap_b(stack_b, 0);
 	if (print == 1)
-		printf("ss");
+		printf("ss\n");
 }

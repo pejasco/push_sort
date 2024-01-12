@@ -93,4 +93,9 @@ list *rank_assign_to_copy_b(list *copy_of_b);
 list *push_copy_b_to_copy_a(list *copy_of_a, list *copy_of_b);
 list *rank_from_copy_a_to_a(list *a, list *copy_of_a);
 
+//sort_algo.c
+int finding_root(int nbr_of_nodes);
+int items_in_chunk(int nbr_of_nodes, int current_i, int root);
+void sort_algo(list **stack_a, list **stack_b, int nbr_of_args);
+
 #endif

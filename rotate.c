@@ -18,7 +18,7 @@ void rotate_a(list **stack_a, int print)
         return ;
     *stack_a = (*stack_a)->next;
     if (print == 1)
-        printf("ra");
+        printf("ra\n");
 }
 
 void rotate_b(list **stack_b, int print)
@@ -27,7 +27,7 @@ void rotate_b(list **stack_b, int print)
         return ;
     *stack_b = (*stack_b)->next;
     if (print == 1)
-        printf("rb");
+        printf("rb\n");
 }
 
 void rotate_anb(list **stack_a, list **stack_b, int print)
@@ -38,5 +38,5 @@ void rotate_anb(list **stack_a, list **stack_b, int print)
     rotate_a(stack_a, 0);
     rotate_b(stack_b, 0);
     if (print == 1)
-        printf("rr");
+        printf("rr\n");
 }
