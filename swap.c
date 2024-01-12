@@ -15,16 +15,19 @@
 void swap_a(list **stack_a, int print)
 {
 	list 	*temp;
-	int		aux;
 
 	if (stack_a == NULL || *stack_a == NULL)
 		return ;
 	temp = (*stack_a);
 	if (temp == NULL || temp->next == temp)
 		return ;
-	aux = temp->data;
-	temp->data = temp->next->data;
-	temp->next->data = aux;
+	temp = *stack_a;
+	temp->prev->next = temp->next;
+	*stack_a = (*stack_a)->next;
+	(*stack_a)->prev = temp->prev;
+	temp->next = (*stack_a)->next;
+	(*stack_a)->next = temp;
+	temp->prev = (*stack_a);
 	if (print == 1)
 		printf("sa\n");
 }
@@ -32,16 +35,19 @@ void swap_a(list **stack_a, int print)
 void swap_b(list **stack_b, int print)
 {
 	list 	*temp;
-	int		aux;
 
 	if (stack_b == NULL || *stack_b == NULL)
-		return;
+		return ;
 	temp = (*stack_b);
 	if (temp == NULL || temp->next == temp)
 		return ;
-	aux = temp->data;
-	temp->data = temp->next->data;
-	temp->next->data = aux;
+	temp = *stack_b;
+	temp->prev->next = temp->next;
+	*stack_b = (*stack_b)->next;
+	(*stack_b)->prev = temp->prev;
+	temp->next = (*stack_b)->next;
+	(*stack_b)->next = temp;
+	temp->prev = (*stack_b);
 	if (print == 1)
 		printf("sb\n");
 }

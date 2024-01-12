@@ -58,36 +58,50 @@ int items_in_chunk(int nbr_of_nodes, int current_i, int root)
         nbr_of_nodes = (nbr_of_nodes / 2);
         i++;
     }
+    printf("items_in_chunk---->%d\n", nbr_of_nodes);
     return (nbr_of_nodes);
 }
 
+void sort_algo(list **stack_a, list **stack_b, int items, int push_rank)
+{
+    int     j;
+    int     rank;
 
-void sort_algo(list **stack_a, list **stack_b, int nbr_of_args)
+    //printf("items---->%d\n", items);
+    //printf("push_rank---->%d\n", push_rank);
+    j = 0;
+    while (j < (items))
+    {
+        if ((*stack_a)->rank >= push_rank)
+                rotate_a(stack_a, 1);
+        else
+        {
+            rank = ((*stack_a)->rank);
+            push_b(stack_a, stack_b, 1);
+            (*stack_b)->rank = rank;
+            j++;
+        }
+    }
+}
+
+void sort_mgt(list **stack_a, list **stack_b, int nbr_of_args)
 {
     int     root;
     int     items;
     int     i;
-    int     j;
-    int     rank;
+    int     push_rank;
 
     i = 1;
+    push_rank = 0;
+    if (nbr_of_args < 4)
+        sort_3(stack_a);
     root = finding_root(nbr_of_args);
-    printf("root---->%d\n\n", root);
-    items = items_in_chunk(nbr_of_args, i, root);
-    printf("items--->%d\n\n", items);
-    while (i++ <= root)
+    while (i <= root && nbr_of_args >= 4)
     {
-        j = 0;
-        while (j++ < items)
-        {
-            if ((*stack_a)->rank <= items)
-                rotate_a(stack_a, 1);
-            else
-            {
-                rank = ((*stack_a)->rank);
-                push_b(stack_a, stack_b, 1);
-                (*stack_b)->rank = rank;
-            }
-        }
+        items = items_in_chunk(nbr_of_args, i, root);
+        //printf("item->>>>>%d/n", items);
+        push_rank = push_rank + items;
+        sort_algo(stack_a, stack_b, items, push_rank);
+        i++;
     }
 }

@@ -156,7 +156,7 @@ int	main(int argc, char **argv)
 	//print_list('A', &a);
 	//print_list_rank('A', &a);
 	//print_list('B', &b);
-	sort_algo(&a, &b, (argc-1));
+	sort_mgt(&a, &b, (argc-1));
 	print_list('A', &a);
 	print_list_rank('A', &a);
 	print_list('B', &b);

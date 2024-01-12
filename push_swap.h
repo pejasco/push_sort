@@ -96,6 +96,8 @@ list *rank_from_copy_a_to_a(list *a, list *copy_of_a);
 //sort_algo.c
 int finding_root(int nbr_of_nodes);
 int items_in_chunk(int nbr_of_nodes, int current_i, int root);
-void sort_algo(list **stack_a, list **stack_b, int nbr_of_args);
+void sort_mgt(list **stack_a, list **stack_b, int nbr_of_args);
+void sort_algo(list **stack_a, list **stack_b, int items, int push_rank);
+void sort_3(list **stack);
 
 #endif
