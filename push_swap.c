@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/13 01:05:23 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:36:25 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,18 +140,18 @@ int	main(int argc, char **argv)
 	if (arry_of_ints == NULL)
 		return (1);
 	init_stack_a(&a, arry_of_ints);
-	print_list('B', &a);
-	print_list_rank('B', &a);
+	//print_list('B', &a);
+	//print_list_rank('B', &a);
 	a_copy = copy_init_a(&a);
 	a_copy = rank_in_stack(&a_copy);
-	print_list('A', &a);
-	print_list_rank('A', &a);
+	//print_list('A', &a);
+	//print_list_rank('A', &a);
 	a = rank_from_copy_a_to_a(a, a_copy);
 	sort_mgt(&a, &b, (argc-1));
-	print_list('A', &a);
-	print_list_rank('A', &a);
-	print_list('B', &b);
-	print_list_rank('B', &b);
+	//print_list('A', &a);
+	//print_list_rank('A', &a);
+	//print_list('B', &b);
+	//print_list_rank('B', &b);
 	/*test_tail = tail_find(&a);
 	if (test_tail == NULL)
 		return (0);

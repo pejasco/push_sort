@@ -6,12 +6,12 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 00:01:25 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/13 01:05:21 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:36:04 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 int     sorted(list **stack, char order)
 {
     list    *current;
@@ -53,3 +53,4 @@ void    stack_b_sort(list **stack)
     }
     return ;
 }
+*/
