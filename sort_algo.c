@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/11 18:59:30 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:05:24 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,12 @@ void sort_mgt(list **stack_a, list **stack_b, int nbr_of_args)
     i = 1;
     push_rank = 0;
     if (nbr_of_args < 4)
+    {
+	    print_list('K', stack_a);
+	    print_list_rank('K', stack_a);
         sort_3(stack_a);
+        return ;
+    }
     root = finding_root(nbr_of_args);
     while (i <= root && nbr_of_args >= 4)
     {

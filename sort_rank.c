@@ -37,10 +37,6 @@ list *rank_algo(list *copy_of_a, list *copy_of_b)
         }
         i++;
     }
-    //print_list('Y',&copy_of_a);
-    //print_list('Y',&copy_of_a);
-    //print_list('Z',&copy_of_b);
-    //print_list('Z',&copy_of_b);
     return (copy_of_b);
 }
 

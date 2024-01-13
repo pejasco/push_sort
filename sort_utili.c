@@ -48,6 +48,24 @@ int min_in_stack(list **stack)
     return (min);
 }
 
+int max_in_stack(list **stack)
+{
+    int     max;
+    list    *current;
+
+    if (*stack == NULL || stack == NULL)
+        return (0);
+    max = (*stack)->data;
+    current = (*stack)->next;
+    while (current != *stack)
+    {
+        if (current->data > max)
+            max = current->data;
+        current = current->next;
+    }
+    return (max);
+}
+
 list *copy_init_a(list **stack)
 {
     list *stack_a;

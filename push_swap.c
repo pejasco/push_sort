@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/06 19:55:32 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/13 01:05:23 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,6 @@ int	main(int argc, char **argv)
 	list			*b;
 	list			*a_copy;
 	int				*arry_of_ints;
-	//int				test;
-	//list			*test_tail;
 
 	a = NULL;
 	b = NULL;
@@ -142,20 +140,13 @@ int	main(int argc, char **argv)
 	if (arry_of_ints == NULL)
 		return (1);
 	init_stack_a(&a, arry_of_ints);
-	//print_list('Z', &a);
-	//print_list_rank('Z', &a);
+	print_list('B', &a);
+	print_list_rank('B', &a);
 	a_copy = copy_init_a(&a);
-	//print_list('C',&a_copy);
 	a_copy = rank_in_stack(&a_copy);
-	//print_list('Z', &a_copy);
-	//print_list_rank('Z', &a_copy);
+	print_list('A', &a);
+	print_list_rank('A', &a);
 	a = rank_from_copy_a_to_a(a, a_copy);
-	//print_list('a', &a_copy);
-	//print_list_rank('a', &a_copy);
-	//stack_mgt(&a, &b);
-	//print_list('A', &a);
-	//print_list_rank('A', &a);
-	//print_list('B', &b);
 	sort_mgt(&a, &b, (argc-1));
 	print_list('A', &a);
 	print_list_rank('A', &a);

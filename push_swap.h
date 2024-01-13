@@ -83,6 +83,7 @@ void	reverse_anb(list **stack_a, list **stack_b, int print);
 
 // sort_utili.c
 int count_in_stack(list **stack);
+int max_in_stack(list **stack);
 int min_in_stack(list **stack);
 list *copy_init_a(list **stack);
 
@@ -98,6 +99,9 @@ int finding_root(int nbr_of_nodes);
 int items_in_chunk(int nbr_of_nodes, int current_i, int root);
 void sort_mgt(list **stack_a, list **stack_b, int nbr_of_args);
 void sort_algo(list **stack_a, list **stack_b, int items, int push_rank);
+void sort_3_algo(list **stack, list **fir_node, list **sec_node, list **thi_node);
+void sort_3_rank(list **stack);
+void sort_2_rank(list **stack);
 void sort_3(list **stack);
 
 #endif
