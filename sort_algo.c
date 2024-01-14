@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/13 01:36:21 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/14 22:26:48 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int finding_root(int nbr_of_nodes)
         radicand = (radicand / root_index);
         root++;
     }
+    printf("root---->%d\n", root);
     return (root);
 }
 
@@ -51,6 +52,7 @@ int items_in_chunk(int nbr_of_nodes, int current_i, int root)
             nbr_of_nodes = (nbr_of_nodes / 2);
             i++;
         }
+        printf("items_in_chunk---->%d\n", nbr_of_nodes);
         return (nbr_of_nodes);
     }
     while (i < current_i)
@@ -62,17 +64,33 @@ int items_in_chunk(int nbr_of_nodes, int current_i, int root)
     return (nbr_of_nodes);
 }
 
-void sort_algo(list **stack_a, list **stack_b, int items, int push_rank)
+void add_partition_to_b(list **stack_b, int accum_items)
+{
+    int     i;
+    list    *current;
+
+    i = 0;
+    current = *stack_b;
+    while (i == (accum_items + 1))
+    {
+        current = current->next;
+        i++;
+    }
+    current->parti = 'P';
+}
+
+void sort_algo(list **stack_a, list **stack_b, int items, int accum_items)
 {
     int     j;
     int     rank;
+    //list    *parti_head;
 
     //printf("items---->%d\n", items);
-    //printf("push_rank---->%d\n", push_rank);
+    //printf("accum_items---->%d\n", accum_items);
     j = 0;
     while (j < (items))
     {
-        if ((*stack_a)->rank >= push_rank)
+        if ((*stack_a)->rank > accum_items)
                 rotate_a(stack_a, 1);
         else
         {
@@ -84,29 +102,28 @@ void sort_algo(list **stack_a, list **stack_b, int items, int push_rank)
     }
 }
 
-void sort_mgt(list **stack_a, list **stack_b, int nbr_of_args)
+void sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args)
 {
     int     root;
     int     items;
     int     i;
-    int     push_rank;
+    int     accum_items;
 
     i = 1;
-    push_rank = 0;
+    accum_items = 0;
     if (nbr_of_args < 4)
     {
-	    //print_list('K', stack_a);
-	    //print_list_rank('K', stack_a);
-        sort_3(stack_a);
+        small_sort(stack_a);
         return ;
     }
     root = finding_root(nbr_of_args);
     while (i <= root && nbr_of_args >= 4)
     {
         items = items_in_chunk(nbr_of_args, i, root);
-        //printf("item->>>>>%d/n", items);
-        push_rank = push_rank + items;
-        sort_algo(stack_a, stack_b, items, push_rank);
+        accum_items = accum_items + items;
+        sort_algo(stack_a, stack_b, items, accum_items);
+        add_partition_to_b(stack_b, accum_items);
         i++;
     }
+    small_sort(stack_a);
 }

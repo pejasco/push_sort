@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_3.c                                           :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:33:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/12 17:34:05 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/14 22:07:04 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ void sort_3_algo(list **stack, list **fir_node, list **sec_node, list **thi_node
         return ;
 }
 
-void sort_2_rank(list **stack)
+void sort_2_rank(list **stack, int rank_exist)
 {
     int     max;
     int     min;
     int     i;
     list    *current;
 
+    if (rank_exist == 1)
+        return ;
     i = 0;
     max = max_in_stack(stack);
     printf("max--->%d\n", max);
@@ -68,13 +70,15 @@ void sort_2_rank(list **stack)
     }
 }
 
-void sort_3_rank(list **stack)
+void sort_3_rank(list **stack, int rank_exist)
 {
     int     max;
     int     min;
     int     i;
     list    *current;
 
+    if (rank_exist == 1)
+        return ;
     i = 0;
     max = max_in_stack(stack);
     printf("max--->%d\n", max);
@@ -84,41 +88,63 @@ void sort_3_rank(list **stack)
     while (i < 2)
     {
         if (current->data == max)
-            (current)->rank = 2;
+            (current)->rank = 3;
         else if (current->data == min)
-            (current)->rank = 0;
-        else
             (current)->rank = 1;
+        else
+            (current)->rank = 2;
         current = current->next;
         i++;
     }
 }
 
+int rank_exist(list **stack)
+{
+    if ((*stack)->rank > -1)
+        return (1);
+    else
+        return (0);
+}
+
+
+void sort_2(list **stack)
+{
+    int     exist_res;
+
+    exist_res = rank_exist(stack);
+    sort_2_rank(stack, exist_res);
+    if((*stack)->rank > (*stack)->next->rank)
+        swap_a(stack, 1);
+}
+
+
+
 void sort_3(list **stack)
 {
-    int     count;
     list    *fir_node;
     list    *sec_node;
     list    *thi_node;
+    int     exist_res;
 
+    exist_res = rank_exist(stack);
+    sort_3_rank(stack, exist_res);
+    fir_node = *stack; 
+    sec_node = (*stack)->next;
+    thi_node = (*stack)->next->next;
+    sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
+}
+
+void small_sort(list **stack)
+{
+    int     count;
 
     count = count_in_stack(stack);
     printf("count----->%d\n", count);
     if (count <= 1 || count > 3)
         return ;
-    
     if (count == 2)
-    {
-        sort_2_rank(stack);
-        if((*stack)->rank > (*stack)->next->rank)
-            swap_a(stack, 1);
-    }
+        sort_2(stack);
     if (count == 3)
-    {
-        sort_3_rank(stack);
-        fir_node = *stack; 
-        sec_node = (*stack)->next;
-        thi_node = (*stack)->next->next;
-        sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
-    }
+        sort_3(stack);
 }
+

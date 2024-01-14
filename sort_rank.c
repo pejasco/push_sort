@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_rank.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:17:22 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/09 22:17:24 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/14 21:59:32 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ list *rank_algo(list *copy_of_a, list *copy_of_b)
     while (i < count)
     {
         min = min_in_stack(&copy_of_a);
+        if (current_a->data == min)
+            push_b(&copy_of_a, &copy_of_b, 0);
         while (current_a->data != min)
         {
             rotate_a(&copy_of_a, 0);
@@ -52,9 +54,9 @@ list *rank_assign_to_copy_b(list *copy_of_b)
     if (copy_of_b == NULL)
         return NULL;
     count = count_in_stack(&copy_of_b);
-    copy_of_b->rank = (count - 1);
+    copy_of_b->rank = (count);
     current_b = copy_of_b->next;
-    i = (count - 2);
+    i = (count - 1);
     while (current_b != copy_of_b)
     {
         current_b->rank = i;
@@ -120,7 +122,7 @@ list *rank_in_stack(list **stack)
     return (copy_of_a);
 }
 
-list *rank_from_copy_a_to_a(list *a, list *copy_of_a)
+void rank_from_copy_a_to_a(list **a, list **copy_of_a)
 {
     list    *current_in_a;
     list    *current_in_copy;
@@ -128,22 +130,21 @@ list *rank_from_copy_a_to_a(list *a, list *copy_of_a)
     int     i;
 
     if (a == NULL && copy_of_a == NULL)
-        return (NULL);
+        return ;
     i = 0;
-    if (count_in_stack(&a) != count_in_stack(&copy_of_a))
-        return (NULL);
-    count = count_in_stack(&copy_of_a);
-    current_in_a = a;
-    current_in_copy = copy_of_a;
+    if (count_in_stack(a) != count_in_stack(copy_of_a))
+        return ;
+    count = count_in_stack(copy_of_a);
+    current_in_a = *a;
+    current_in_copy = *copy_of_a;
     while (i < count)
     {
-        current_in_a = a;
+        current_in_a = *a;
         while (current_in_copy->data != current_in_a->data)
             current_in_a = current_in_a->next;
         current_in_a->rank = current_in_copy->rank;
         current_in_copy = current_in_copy->next;
         i++;
     }
-    free(copy_of_a);
-    return (a);
+    free_whole_stack(copy_of_a);
 }

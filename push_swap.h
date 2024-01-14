@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/13 01:34:29 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/14 22:03:40 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include "math.h"
 
 typedef struct s_node
 {
     struct s_node *prev;
-	int data;
-	int rank;
-	struct s_node *next;	
+	int 			data;
+	int 			rank;
+	char			parti;
+	struct s_node	*next;	
 } list;
 
 //dupli_ctrl.c
@@ -92,16 +94,23 @@ list *rank_in_stack(list **stack);
 list *rank_algo(list *copy_of_a, list *copy_of_b);
 list *rank_assign_to_copy_b(list *copy_of_b);
 list *push_copy_b_to_copy_a(list *copy_of_a, list *copy_of_b);
-list *rank_from_copy_a_to_a(list *a, list *copy_of_a);
+void rank_from_copy_a_to_a(list **a, list **copy_of_a);
 
 //sort_algo.c
 int finding_root(int nbr_of_nodes);
 int items_in_chunk(int nbr_of_nodes, int current_i, int root);
-void sort_mgt(list **stack_a, list **stack_b, int nbr_of_args);
+void add_partition_to_b(list **stack_b, int items_in_chunk);
 void sort_algo(list **stack_a, list **stack_b, int items, int push_rank);
+void sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args);
+
+//small_sort.c
 void sort_3_algo(list **stack, list **fir_node, list **sec_node, list **thi_node);
-void sort_3_rank(list **stack);
-void sort_2_rank(list **stack);
+void sort_2_rank(list **stack, int rank_exist);
+void sort_3_rank(list **stack, int rank_exist);
+int rank_exist(list **stack);
+void sort_2(list **stack);
 void sort_3(list **stack);
+void small_sort(list **stack);
+
 
 #endif
