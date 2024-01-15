@@ -6,65 +6,54 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:09:20 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 22:17:35 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/15 23:02:15 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void below_median(list **stack_a, list **stack_b, )
+count_pack below_median(list **stack_a, list **stack_b, count_pack c)
 {
-
-
-
+    rotate_b(stack_b, 1);
+    c.rb_count++;
+    return (c);
 }
 
-
-void above_median(list **stack_a, list **stack_b, )
+count_pack above_median(list **stack_a, list **stack_b, count_pack c)
 {
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-void sort_algo_rev(list **stack_a, list **stack_b, int items, int accum_items)
-{
-    int     j;
     int     rank;
-    int     rb_count;
-    int     pa_count;
+    int     sort_res;
+
+    rank = ((*stack_b)->rank);
+    push_a(stack_a, stack_b, 1);
+    c.pa_count++;
+    (*stack_a)->rank = rank;
+    return (c);
+}
+
+    sort_res = if_items_sorted(stack_a, c.pa_count, 'a');
+    auto_push_b(stack_a, stack_b, c.pa_count, 1);
+
+
+
+count_pack sort_algo_rev(list **stack_a, list **stack_b, int items, int accum_items)
+{
+    int         j;
+    count_pack  c;
 
     j = 0;
-    rb_count = 0;
+    c.rb_count = 0;
+    c.pa_count = 0;
     while (j < (items))
     {
         if ((*stack_b)->rank < accum_items)
-        {                
-            rotate_b(stack_b, 1);
-            rb_count++;
-        }
+            c = below_median(stack_a, stack_b, c);
         else
-        {
-            rank = ((*stack_b)->rank);
-            push_a(stack_a, stack_b, 1);
-            pa_count++;
-            (*stack_a)->rank = rank;
-        }
+            c = above_median(stack_a, stack_b, c);
         j++;
     }
+    re
 }
 
 

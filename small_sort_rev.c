@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:19:29 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 19:10:53 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/15 23:19:45 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,19 @@ void auto_push_a(list **stack_a, list **stack_b, int no_of_time, int print)
     }
     i++;
 }
+
+void auto_push_b(list **stack_a, list **stack_b, int no_of_time, int print)
+{
+    int     i;
+
+    i = 0;
+    while (i < no_of_time)
+    {
+        push_b(stack_a, stack_b, 1);
+    }
+    i++;
+}
+
 
 int small_sort_rev(list **stack_a, list **stack_b)
 {

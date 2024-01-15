@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 22:17:52 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/15 23:24:05 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct rb_pa_count
 {
 	int		rb_count;
 	int		pa_count;	
-}
+} count_pack;
 
 
 //dupli_ctrl.c
@@ -106,7 +106,7 @@ void rank_from_copy_a_to_a(list **a, list **copy_of_a);
 //sort_algo.c
 int finding_root(int nbr_of_nodes);
 int items_in_chunk(int nbr_of_nodes, int current_i, int root);
-void add_partition_to_b(list **stack_b, int items_in_chunk);
+//void add_partition_to_b(list **stack_b, int items_in_chunk);
 void sort_algo(list **stack_a, list **stack_b, int items, int push_rank);
 int sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args);
 
