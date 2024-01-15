@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/14 22:26:48 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:17:37 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,6 @@ int items_in_chunk(int nbr_of_nodes, int current_i, int root)
     return (nbr_of_nodes);
 }
 
-void add_partition_to_b(list **stack_b, int accum_items)
-{
-    int     i;
-    list    *current;
-
-    i = 0;
-    current = *stack_b;
-    while (i == (accum_items + 1))
-    {
-        current = current->next;
-        i++;
-    }
-    current->parti = 'P';
-}
-
 void sort_algo(list **stack_a, list **stack_b, int items, int accum_items)
 {
     int     j;
@@ -102,12 +87,14 @@ void sort_algo(list **stack_a, list **stack_b, int items, int accum_items)
     }
 }
 
-void sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args)
+
+int init_sort_a_to_b(list **stack_a, list **stack_b, int nbr_of_args)
 {
     int     root;
     int     items;
     int     i;
     int     accum_items;
+    int     sort_nbrs;
 
     i = 1;
     accum_items = 0;
@@ -122,8 +109,25 @@ void sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args)
         items = items_in_chunk(nbr_of_args, i, root);
         accum_items = accum_items + items;
         sort_algo(stack_a, stack_b, items, accum_items);
-        add_partition_to_b(stack_b, accum_items);
+        //add_partition_to_b(stack_b, accum_items);
         i++;
     }
-    small_sort(stack_a);
+    sort_nbrs = small_sort(stack_a);
+    return (sort_nbrs);
 }
+
+/*
+void add_partition_to_b(list **stack_b, int accum_items)
+{
+    int     i;
+    list    *current;
+
+    i = 0;
+    current = *stack_b;
+    while (i == (accum_items + 1))
+    {
+        current = current->next;
+        i++;
+    }
+    current->parti = 'P';
+}*/

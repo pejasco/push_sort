@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:33:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/14 22:07:04 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:45:21 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ int rank_exist(list **stack)
         return (0);
 }
 
-
 void sort_2(list **stack)
 {
     int     exist_res;
@@ -116,8 +115,6 @@ void sort_2(list **stack)
     if((*stack)->rank > (*stack)->next->rank)
         swap_a(stack, 1);
 }
-
-
 
 void sort_3(list **stack)
 {
@@ -134,17 +131,25 @@ void sort_3(list **stack)
     sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
 }
 
-void small_sort(list **stack)
+int small_sort(list **stack)
 {
     int     count;
 
     count = count_in_stack(stack);
     printf("count----->%d\n", count);
-    if (count <= 1 || count > 3)
+    if (count <= 0 || count > 3)
         return ;
+    if (count == 1)
+        return(1);
     if (count == 2)
+    {
         sort_2(stack);
+        return (2);
+    }
     if (count == 3)
+    {
         sort_3(stack);
+        reuturn (3);
+    }
 }
 

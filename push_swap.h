@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/14 22:03:40 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:17:52 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef struct s_node
 	char			parti;
 	struct s_node	*next;	
 } list;
+
+typedef struct rb_pa_count
+{
+	int		rb_count;
+	int		pa_count;	
+}
+
 
 //dupli_ctrl.c
 int		dupli_chk(int argc, int *arry_of_ints);
@@ -101,7 +108,7 @@ int finding_root(int nbr_of_nodes);
 int items_in_chunk(int nbr_of_nodes, int current_i, int root);
 void add_partition_to_b(list **stack_b, int items_in_chunk);
 void sort_algo(list **stack_a, list **stack_b, int items, int push_rank);
-void sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args);
+int sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args);
 
 //small_sort.c
 void sort_3_algo(list **stack, list **fir_node, list **sec_node, list **thi_node);
@@ -110,7 +117,7 @@ void sort_3_rank(list **stack, int rank_exist);
 int rank_exist(list **stack);
 void sort_2(list **stack);
 void sort_3(list **stack);
-void small_sort(list **stack);
+int small_sort(list **stack);
 
 
 #endif
