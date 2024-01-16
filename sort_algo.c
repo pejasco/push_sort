@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 22:17:37 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:48:46 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,12 @@ void sort_algo(list **stack_a, list **stack_b, int items, int accum_items)
 }
 
 
-int init_sort_a_to_b(list **stack_a, list **stack_b, int nbr_of_args)
+void init_sort_a_to_b(list **stack_a, list **stack_b, int nbr_of_args, int root)
 {
     int     root;
     int     items;
     int     i;
     int     accum_items;
-    int     sort_nbrs;
 
     i = 1;
     accum_items = 0;
@@ -112,8 +111,7 @@ int init_sort_a_to_b(list **stack_a, list **stack_b, int nbr_of_args)
         //add_partition_to_b(stack_b, accum_items);
         i++;
     }
-    sort_nbrs = small_sort(stack_a);
-    return (sort_nbrs);
+    small_sort(stack_a);
 }
 
 /*

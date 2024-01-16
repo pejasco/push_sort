@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utili.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:25:47 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/09 14:25:49 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:37:52 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,28 @@ list *copy_init_a(list **stack)
         tail_of_stack_a = tail_of_stack_a->next;
     }
     return (copy_of_a);
+}
+
+int if_stack_a_sorted(list **stack)
+{
+    list    *current;
+    int     i;
+
+    i = 1;
+    if ((*stack) == NULL || stack == NULL)
+        return (0);
+    if ((*stack)->next == *stack)
+        return (0);
+    current = (*stack)->next;
+    while (current != *stack)
+    {
+        if (current->prev - current != -1)
+        {
+            printf("sort problem @ ---->%d", &i);
+            return (0);
+        }
+        i++;
+        current = current->next;
+    }
+    return (1);
 }

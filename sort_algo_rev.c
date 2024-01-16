@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:09:20 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 23:02:15 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:30:21 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ count_pack above_median(list **stack_a, list **stack_b, count_pack c)
 
 
 
-count_pack sort_algo_rev(list **stack_a, list **stack_b, int items, int accum_items)
+int sort_algo_rev(list **stack_a, list **stack_b, int items, int accum_items)
 {
     int         j;
-    count_pack  c;
+    //count_pack  c;
 
     j = 0;
-    c.rb_count = 0;
-    c.pa_count = 0;
+    //c.rb_count = 0;
+    //c.pa_count = 0;
     while (j < (items))
     {
         if ((*stack_b)->rank < accum_items)

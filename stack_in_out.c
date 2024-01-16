@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_in_out.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:58 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/06 19:53:17 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:55:40 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ list  *init_stack_a(list **ptr_to_stack, int *arry_of_ints)
 	arry_of_ints = NULL;
 	return (tail);
 }
-
+/*
 list *stack_in(list **ptr_to_stack, list **tail, int data)
 {
 	if (*ptr_to_stack == NULL)
@@ -53,3 +53,4 @@ list *stack_out(list **ptr_to_stack, list **tail)
 		*ptr_to_stack = NULL;
 	return (*tail);
 }
+*/

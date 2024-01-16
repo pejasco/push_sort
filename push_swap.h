@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 23:24:05 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:13:51 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ typedef struct s_node
 	struct s_node	*next;	
 } list;
 
-typedef struct rb_pa_count
+typedef struct s_algo_data
 {
+	int		chunk_nbr;
+	int		root;
 	int		rb_count;
 	int		pa_count;	
-} count_pack;
+} t_data;
 
 
 //dupli_ctrl.c

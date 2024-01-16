@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:19:29 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 23:19:45 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:38:00 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void auto_push_b(list **stack_a, list **stack_b, int no_of_time, int print)
 }
 
 
-int small_sort_rev(list **stack_a, list **stack_b)
+void small_sort_rev(list **stack_a, list **stack_b)
 {
     int     count;
 
@@ -105,20 +105,15 @@ int small_sort_rev(list **stack_a, list **stack_b)
     if (count <= 0 || count > 3)
         return ;
     if (count == 1)
-    {
         push_a(stack_a, stack_b, 1);
-        return (1);
-    }
     if (count == 2)
     {
         sort_2_rev(stack_b);
         auto_push_a(stack_a, stack_b, 2, 1);
-        return (2);
     }
     if (count == 3)
     {
         sort_3_rev(stack_b);
-        autp_push_a(stack_a, stack_b, 3, 1);
-        return (3);
+        auto_push_a(stack_a, stack_b, 3, 1);
     }
 }

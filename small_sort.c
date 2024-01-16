@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:33:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/15 21:45:21 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/16 13:48:44 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void sort_3(list **stack)
     sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
 }
 
-int small_sort(list **stack)
+void small_sort(list **stack)
 {
     int     count;
 
@@ -142,14 +142,8 @@ int small_sort(list **stack)
     if (count == 1)
         return(1);
     if (count == 2)
-    {
         sort_2(stack);
-        return (2);
-    }
     if (count == 3)
-    {
         sort_3(stack);
-        reuturn (3);
-    }
 }
 
