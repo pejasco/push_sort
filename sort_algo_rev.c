@@ -75,6 +75,8 @@ int  if_items_sorted(list **stack_a, int nbr_of_items)
     {
         if (current->rank - current->next->rank == -1)
             count++;
+        else
+            return (count);
         i--;
         current = current->prev;
     }
@@ -90,7 +92,7 @@ int  if_items_sorted_rev(list **stack_b, int nbr_of_items)
     current = *stack_b;
     i = 0;
     count = 0;
-    while (i < (nbr_of_items))
+    while (i < (nbr_of_items - 1))
     {
         current = current->next;
         i++;
@@ -99,6 +101,8 @@ int  if_items_sorted_rev(list **stack_b, int nbr_of_items)
     {
         if (current->rank - current->next->rank == 1)
             count++;
+        else
+            return (count);
         i--;
         current = current->prev;
     }
