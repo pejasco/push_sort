@@ -57,34 +57,60 @@ count_pack sort_algo_rev(list **stack_a, list **stack_b, int items, int accum_it
 }
 
 
-int  if_items_sorted(list **stack, int nbr_of_items, char order)
+int  if_items_sorted(list **stack_a, int nbr_of_items)
 {
     list    *current;
     int     i;
-    char    order;
+    int     count;
 
-    current = *stack;
+    current = *stack_a;
     i = 0;
-    if (order == 'A' || order == 'a')
+    count = 0;
+    while (i < (nbr_of_items))
     {
-        while (i < (nbr_of_items + 1))
-        {
-            if (current->rank > current->next->rank)
-                return (1);
-            i++;
-        }
+        current = current->next;
+        i++;
     }
-    if (order == 'D' || order == 'd')
+    while (i)
     {
-        while (i > (nbr_of_items + 1))
-        {
-            if (current->rank < current->next->rank)
-                return (1);            
-            i++;
-        }
+        if (current->rank - current->next->rank == -1)
+            count++;
+        i--;
+        current = current->prev;
     }
-    return (0);
+    return (count);
 }
+
+int  if_items_sorted_rev(list **stack_b, int nbr_of_items)
+{
+    list    *current;
+    int     i;
+    int     count;
+
+    current = *stack_b;
+    i = 0;
+    count = 0;
+    while (i < (nbr_of_items))
+    {
+        current = current->next;
+        i++;
+    }
+    while (i)
+    {
+        if (current->rank - current->next->rank == 1)
+            count++;
+        i--;
+        current = current->prev;
+    }
+    return (count);
+}
+
+
+
+
+
+
+
 
 void sort_mgt_b_to_a(list **stack_a, list **stack_b, int chunk_nbr, int root, int nbr_of_nodes)
 {
