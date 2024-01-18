@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:05:57 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/06 19:24:05 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:25:58 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap_a(list **stack_a, int print)
+void swap_a(t_list **stack_a, int print)
 {
-	list 	*temp;
+	t_list 	*temp;
 
 	if (stack_a == NULL || *stack_a == NULL)
 		return ;
@@ -32,9 +32,9 @@ void swap_a(list **stack_a, int print)
 		printf("sa\n");
 }
 
-void swap_b(list **stack_b, int print)
+void swap_b(t_list **stack_b, int print)
 {
-	list 	*temp;
+	t_list 	*temp;
 
 	if (stack_b == NULL || *stack_b == NULL)
 		return ;
@@ -52,7 +52,7 @@ void swap_b(list **stack_b, int print)
 		printf("sb\n");
 }
 
-void swap_anb(list **stack_a, list **stack_b, int print)
+void swap_anb(t_list **stack_a, t_list **stack_b, int print)
 {
 	if (stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL)
         return;

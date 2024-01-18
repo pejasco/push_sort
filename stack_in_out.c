@@ -6,16 +6,16 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:58 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/16 12:55:40 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:25:57 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-list  *init_stack_a(list **ptr_to_stack, int *arry_of_ints)
+t_list  *init_stack_a(t_list **ptr_to_stack, int *arry_of_ints)
 {
 	int 		i; 
-	list	*tail;
+	t_list	*tail;
 
 	i = 1;
 	if (arry_of_ints == NULL)
@@ -34,7 +34,7 @@ list  *init_stack_a(list **ptr_to_stack, int *arry_of_ints)
 	return (tail);
 }
 /*
-list *stack_in(list **ptr_to_stack, list **tail, int data)
+t_list *stack_in(t_list **ptr_to_stack, t_list **tail, int data)
 {
 	if (*ptr_to_stack == NULL)
 	{
@@ -46,7 +46,7 @@ list *stack_in(list **ptr_to_stack, list **tail, int data)
 	return (*tail);	
 }
 
-list *stack_out(list **ptr_to_stack, list **tail)
+t_list *stack_out(t_list **ptr_to_stack, t_list **tail)
 {
 	*tail = pop(*tail);
 	if (*tail == NULL)

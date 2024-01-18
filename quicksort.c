@@ -3,75 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayeung <mayeung@student.42london.com>     +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/17 23:00:41 by mayeung          ###   ########.fr       */
+/*   Updated: 2024/01/18 23:20:14 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+//the med = (L + H)/2; everything below that; push to the opp.
 
-/*typedef struct s_stac
+#include "push_swap.h"
+
+void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 {
-	int	*sa;
-	int	*sb;
-	int	*ra;
-	int	*rb;
-	int	na;
-	int	nb;
-	int	n;
-}	t_stac;
-*/
+	int		high;
+	int		low;
+	int		root;
 
-void    quicksort(t_stac *sts, int low, int high, char from)
+	if (if_stack_a_sorted(&(stacks->stack_a)))
+		return ;
+	root = finding_root(nbr_of_args);
+	init_sort_a_to_b(stacks, nbr_of_args, root);
+	//high = max_in_stack(&(stacks->stack_b));
+	//low = min_in_stack(&(stacks->stack_b));
+	//quicksort(stacks, low, high, 'b', 0);
+	return ;
+}
+
+void    quicksort(t_stacks *stacks, int low, int high, char from, int pa_count)
 {
 	int	med;
 	int	i;
-	int	rotate;
-	int	push;
+	int	rb_count;
 
 	med = (low + high + 1) / 2;
 	i = low;
-	rotate = 0;
-	push = 0;
-	if (low > high || (low == high && from == 'a'))
+	rb_count = 0;
+	if (low > high || ((if_stack_a_sorted(&(stacks->stack_a))) && from == 'a'))
 		return ;
-	while (i <= high && push <= (high - low) / 2 && (high - low > 1 || from == 'b'))
+	while (i <= (high-3) && from == 'b' || ((if_stack_a_sorted(&(stacks->stack_a))) && from == 'a' && max_in_stack))
 	{
-		if (from == 'a' && sts->ra[0] < med)
+		pa_count = 0;
+		if (from == 'b' && stacks->stack_b->rank >= med)
 		{
-			ft_push(NO_UPDATE_RANK, sts, PRINT, "pb\n");
-			push++;
+			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
+			pa_count++;
 		}
-		else if (from == 'a' && sts->ra[0] >= med)
+		else if (from == 'b' && stacks->stack_b->rank < med)
 		{
-			ft_rotate(sts, -1, PRINT, "ra\n");
-			rotate++;
+			rotate_b(&(stacks->stack_b), 1);
+			rb_count++;
 		}
-		else if (from == 'b' && sts->rb[0] >= med)
-		{
-			ft_push(NO_UPDATE_RANK, sts, PRINT, "pa\n");
-			push++;
-		}
-		else if (from == 'b' && sts->rb[0] < med)
-		{
-			ft_rotate(sts, -1, PRINT, "rb\n");
-			rotate++;
-		}
+		if (from == 'a' && !(if_stack_a_sorted(&(stacks->stack_a))))
+			auto_push_b(&(stacks->stack_a), &(stacks->stack_b), pa_count, 1);
 		i++;
 	}
-	if (high - low == 1  && sts->ra[0] > sts->ra[1])
-		ft_swap(sts, PRINT, "sa\n");
-	while (rotate-- && !(low == 0 && high == (sts->na + sts->nb - 1)))
-	{
-		if (from == 'a')
-			ft_rev_rotate(sts, sts->na, PRINT, "rra\n");
-		else
-			ft_rev_rotate(sts, sts->nb, PRINT, "rrb\n");
-	}
-	quicksort(sts, med, high, 'a');
-	quicksort(sts, low, med - 1, 'b');
+	if ((high - low) < 4 && from == 'b')
+		small_sort_rev(&(stacks->stack_a), &(stacks->stack_b));
+	while (rb_count--)
+		reverse_b(&(stacks->stack_b), 1);
+	//quicksort(stacks, med, high, 'a', 0);
+	//quicksort(stacks, low, med - 1, 'b', pa_count);
 }
-
-//quicksort(&sts, 0, sts.na - 1, 'a');

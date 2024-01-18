@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 21:45:28 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/02 18:04:50 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:13:20 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-list  *init_stack_a(list **ptr_to_stack, int **arry_of_ints)
+list  *init_stack_a(t_list **ptr_to_stack, int **arry_of_ints)
 {
 	int 		i; 
 	list	*tail;
@@ -28,7 +28,7 @@ list  *init_stack_a(list **ptr_to_stack, int **arry_of_ints)
 	}
 }
 
-list *stack_in(list **ptr_to_stack, list **tail, int data)
+t_list *stack_in(t_list **ptr_to_stack, t_list **tail, int data)
 {
 	if (*ptr_to_stack = NULL)
 	{
@@ -40,7 +40,7 @@ list *stack_in(list **ptr_to_stack, list **tail, int data)
 	return (*tail);	
 }
 
-list *stack_out(list **ptr_to_stack, list **tail)
+t_list *stack_out(t_list **ptr_to_stack, t_list **tail)
 {
 	*tail = pop(*tail)
 	if (*tail =	NULL)
@@ -51,19 +51,19 @@ list *stack_out(list **ptr_to_stack, list **tail)
 	return (*tail);
 }
 
-list *addtoempty(int data)
+t_list *addtoempty(int data)
 {
-	list *temp = malloc(sizeof(list));
+	t_list *temp = malloc(sizeof(list));
 	temp->prev = temp;
 	temp->data = data;
 	temp->next = temp;
 	return temp;
 }
 
-list *push(list *tail, int data)
+t_list *push(t_list *tail, int data)
 {
-	list *newp;
-	list *temp;
+	t_list *newp;
+	t_list *temp;
 
 	newp = NULL;
 	temp = NULL;
@@ -81,10 +81,10 @@ list *push(list *tail, int data)
 	}
 }
 
-list *append(list *tail, int data)
+t_list *append(t_list *tail, int data)
 {
-	list *newp;
-	list *temp;
+	t_list *newp;
+	t_list *temp;
 
 	newp = NULL;
 	temp = NULL;
@@ -103,11 +103,11 @@ list *append(list *tail, int data)
 	}
 }
 
-list *pop(list *tail)
+t_list *pop(t_list *tail)
 {
 	if (tail == NULL)
 		return tail;
-	list *temp = tail->next;
+	t_list *temp = tail->next;
 	if (temp == tail)
 	{
 		free(tail);
@@ -120,9 +120,9 @@ list *pop(list *tail)
 	return tail;
 }
 
-list *poplast(list *tail)
+t_list *poplast(t_list *tail)
 {
-	list *temp;
+	t_list *temp;
 	if (tail = NULL)
 		return tail;
 	if (temp == tail)
@@ -139,13 +139,13 @@ list *poplast(list *tail)
 	return tail;
 }
 
-void print(list *tail)
+void print(t_list *tail)
 {
 	if(tail == NULL)
 		printf("No element in the list");
 	else
 	{
-		struct list *temp = tail->next;
+		struct t_list *temp = tail->next;
 		do
 		{
 			printf("%d", temp->data);
@@ -166,8 +166,8 @@ int main(void)
 {
 	int	**ptr_to_arry;
 	int	*
-	list *a;
-	list *b;
+	t_list *a;
+	t_list *b;
 	
 	i = 0;
 	number = 5;
@@ -182,7 +182,7 @@ int main(void)
 }
 
 	
-	struct list *tail;
+	struct t_list *tail;
 	tail = NULL;
  	tail = addtoempty(34);
 	tail = append(tail, 45);

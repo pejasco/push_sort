@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_utili.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 18:11:28 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/06 19:23:57 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:13:20 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-list *tail_find(list **stack)
+t_list *tail_find(t_list **stack)
 {
-	list *tail;
+	t_list *tail;
 
 	if (*stack == NULL)
 		return (NULL);
@@ -26,10 +26,10 @@ list *tail_find(list **stack)
 	return (tail);
 }
 
-void free_whole_stack(list **stack)
+void free_whole_stack(t_list **stack)
 {
-	list *aux;
-	list *del;
+	t_list *aux;
+	t_list *del;
 
 	if (*stack == NULL)
 		return;

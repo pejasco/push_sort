@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:20:33 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/07 13:22:56 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:13:20 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void reverse_a(list **stack_a, int print)
+void reverse_a(t_list **stack_a, int print)
 {
     if (stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL)
         return ;
@@ -21,7 +21,7 @@ void reverse_a(list **stack_a, int print)
         printf("rra\n");
 }
 
-void reverse_b(list **stack_b, int print)
+void reverse_b(t_list **stack_b, int print)
 {
     if (stack_b == NULL || *stack_b == NULL || (*stack_b)->next == NULL)
         return ;
@@ -30,7 +30,7 @@ void reverse_b(list **stack_b, int print)
         printf("rrb\n");
 }
 
-void reverse_anb(list **stack_a, list **stack_b, int print)
+void reverse_anb(t_list **stack_a, t_list **stack_b, int print)
 {
     if ((stack_a == NULL || *stack_a == NULL || (*stack_a)->next == NULL ) &&\
     (stack_b == NULL || *stack_b == NULL || (*stack_b)->next == NULL))

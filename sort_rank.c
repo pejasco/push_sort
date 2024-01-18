@@ -6,18 +6,18 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 22:17:22 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/14 21:59:32 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:27:17 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-list *rank_algo(list *copy_of_a, list *copy_of_b)
+t_list *rank_algo(t_list *copy_of_a, t_list *copy_of_b)
 {
-    int     min;
-    list    *current_a;
-    int     i;
-    int     count;
+    int         min;
+    t_list    *current_a;
+    int         i;
+    int         count;
 
     i = 0;
     //print_list('C',&copy_of_a);
@@ -42,10 +42,10 @@ list *rank_algo(list *copy_of_a, list *copy_of_b)
     return (copy_of_b);
 }
 
-list *rank_assign_to_copy_b(list *copy_of_b)
+t_list *rank_assign_to_copy_b(t_list *copy_of_b)
 {
     
-    list    *current_b;
+    t_list    *current_b;
     int     i;
     int     count;
 
@@ -68,7 +68,7 @@ list *rank_assign_to_copy_b(list *copy_of_b)
     return (copy_of_b);
 }
 
-list* push_copy_b_to_copy_a(list *copy_of_a, list *copy_of_b)
+t_list* push_copy_b_to_copy_a(t_list *copy_of_a, t_list *copy_of_b)
 {
     int rank;
 
@@ -96,11 +96,11 @@ list* push_copy_b_to_copy_a(list *copy_of_a, list *copy_of_b)
     return (copy_of_a);
 }
 
-list *rank_in_stack(list **stack)
+t_list *rank_in_stack(t_list **stack)
 {
-    list    *copy_of_a;
-    list    *copy_of_b;
-    list    *current_a;
+    t_list    *copy_of_a;
+    t_list    *copy_of_b;
+    t_list    *current_a;
 
     if (*stack == NULL || stack ==NULL)
         return (NULL);
@@ -122,10 +122,10 @@ list *rank_in_stack(list **stack)
     return (copy_of_a);
 }
 
-void rank_from_copy_a_to_a(list **a, list **copy_of_a)
+void rank_from_copy_a_to_a(t_list **a, t_list **copy_of_a)
 {
-    list    *current_in_a;
-    list    *current_in_copy;
+    t_list    *current_in_a;
+    t_list    *current_in_copy;
     int     count;
     int     i;
 

@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_mgt.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:34:29 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/04 14:43:55 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/18 12:26:00 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-list *addtoempty(int data)
+t_list *addtoempty(int data)
 {
-	list *temp = malloc(sizeof(list));
+	t_list *temp = malloc(sizeof(t_list));
 	temp->prev = temp;
 	temp->data = data;
 	temp->next = temp;
 	return temp;
 }
 
-list *push(list *tail, int data)
+t_list *push(t_list *tail, int data)
 {
-	list *newp;
-	list *temp;
+	t_list *newp;
+	t_list *temp;
 
 	newp = NULL;
 	temp = NULL;
@@ -42,10 +42,10 @@ list *push(list *tail, int data)
 	}
 }
 
-list *append(list *tail, int data)
+t_list *append(t_list *tail, int data)
 {
-	list *newp;
-	list *temp;
+	t_list *newp;
+	t_list *temp;
 
 	newp = NULL;
 	temp = NULL;
@@ -64,11 +64,11 @@ list *append(list *tail, int data)
 	}
 }
 
-list *pop(list *tail)
+t_list *pop(t_list *tail)
 {
 	if (tail == NULL)
 		return tail;
-	list *temp = tail->next;
+	t_list *temp = tail->next;
 	if (temp == tail)
 	{
 		free(tail);
@@ -81,9 +81,9 @@ list *pop(list *tail)
 	return tail;
 }
 
-list *poplast(list *tail)
+t_list *poplast(t_list *tail)
 {
-	list *temp;
+	t_list *temp;
  
 	if (tail == NULL)
 		return tail;
@@ -102,13 +102,13 @@ list *poplast(list *tail)
 }
 
 /*
-void print(list *tail)
+void print(t_list *tail)
 {
 	if(tail == NULL)
 		printf("No element in the list");
 	else
 	{
-		struct list *temp = tail->next;
+		struct t_list *temp = tail->next;
 		do
 		{
 			printf("%d", temp->data);
@@ -132,8 +132,8 @@ int main(void)
 {
 	int	**ptr_to_arry;
 	int	*
-	list *a;
-	list *b;
+	t_list *a;
+	t_list *b;
 	
 	i = 0;
 	number = 5;
@@ -148,7 +148,7 @@ int main(void)
 }
 
 	
-	struct list *tail;
+	struct t_list *tail;
 	tail = NULL;
  	tail = addtoempty(34);
 	tail = append(tail, 45);

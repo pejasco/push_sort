@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/14 22:13:21 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:21:51 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	*input_mgt(int argc, char **argv)
 	return (arry_of_ints);
 }
 
-void print_list_rank(char stackname, list **stack)
+void print_list_rank(char stackname, t_list **stack)
 {
-	list *temp;
+	t_list *temp;
 
 	if (*stack == NULL)
 		printf("Nth\n");
@@ -79,9 +79,9 @@ void print_list_rank(char stackname, list **stack)
 }
 
 
-void print_list(char stackname, list **stack)
+void print_list(char stackname, t_list **stack)
 {
-	list *temp;
+	t_list *temp;
 
 	if (*stack == NULL)
 		printf("Nth\n");
@@ -95,8 +95,6 @@ void print_list(char stackname, list **stack)
 			while (temp->next != *stack)
 			{
 				printf("%d\n", temp->data);
-				if (temp->parti == 'P')
-					printf("PPPPPPPPPPPPPPPPPPPPPPPPPPPPP\n");
 				temp = temp->next;
 			}
 			printf("%d\n", temp->data);
@@ -106,7 +104,7 @@ void print_list(char stackname, list **stack)
 		printf("%c\n\n", stackname);
 }
 /*
-void stack_mgt(list **stack_a, list **stack_b)
+void stack_mgt(t_list **stack_a, t_list **stack_b)
 {
 	//int i;
 	
@@ -131,27 +129,27 @@ void stack_mgt(list **stack_a, list **stack_b)
 */
 int	main(int argc, char **argv)
 {
-	list			*a;
-	list			*b;
-	list			*a_copy;
+	t_stacks		stacks;
+	t_list			*a_copy;
 	int				*arry_of_ints;
 
-	a = NULL;
-	b = NULL;
+	stacks.stack_a = NULL;
+	stacks.stack_b = NULL;
 	arry_of_ints = input_mgt(argc, argv);
 	if (arry_of_ints == NULL)
 		return (1);
-	init_stack_a(&a, arry_of_ints);
-	a_copy = copy_init_a(&a);
+	init_stack_a(&(stacks.stack_a), arry_of_ints);
+	a_copy = copy_init_a(&(stacks.stack_a));
 	a_copy = rank_in_stack(&a_copy);
-	rank_from_copy_a_to_a(&a, &a_copy);
+	rank_from_copy_a_to_a(&(stacks.stack_a), &a_copy);
+	sort_mgt(&stacks, (argc -1));
 	//print_list('a', &a);
 	//print_list_rank('a', &a);
-	sort_mgt_a_to_b(&a, &b, (argc-1));
-	print_list('A', &a);
-	print_list_rank('A', &a);
-	print_list('B', &b);
-	print_list_rank('B', &b);
+	//sort_mgt_a_to_b(&(stacks->stack_a), &(stacks->stack_b), (argc-1));
+	print_list('A', &(stacks.stack_a));
+	print_list_rank('A', &(stacks.stack_a));
+	print_list('B', &(stacks.stack_b));
+	print_list_rank('B', &(stacks.stack_b));
 	/*test_tail = tail_find(&a);
 	if (test_tail == NULL)
 		return (0);

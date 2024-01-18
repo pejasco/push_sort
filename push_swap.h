@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/16 16:13:51 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:36:57 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,25 @@
 
 typedef struct s_node
 {
-    struct s_node *prev;
+    struct s_node	*prev;
 	int 			data;
 	int 			rank;
-	char			parti;
-	struct s_node	*next;	
-} list;
+	struct s_node	*next;
+} t_list;
 
-typedef struct s_algo_data
+typedef struct s_stacks
 {
-	int		chunk_nbr;
-	int		root;
-	int		rb_count;
-	int		pa_count;	
-} t_data;
+	t_list		*stack_a;
+	t_list		*stack_b;
+} t_stacks;
 
+typedef struct s_stac
+{
+	int		_count;
+	int		sb_count;
+	int		ra_count;
+	int		rb_count;
+} t_stac;
 
 //dupli_ctrl.c
 int		dupli_chk(int argc, int *arry_of_ints);
@@ -53,73 +57,87 @@ int		limit_ctrl(char **argv);
 //push_swap.c
 int		*arry_of_ints(char **argv);
 int		*input_mgt(int argc, char **argv);
-void	print_list(char stackname, list **stack);
-void	print_list_rank(char stackname, list **stack);
-void	stack_mgt(list **stack_a, list **stack_b);
+void	print_list(char stackname, t_list **stack);
+void	print_list_rank(char stackname, t_list **stack);
+void	stack_mgt(t_list **stack_a, t_list **stack_b);
 
 //linked_list_mgt.c
-list *addtoempty(int data);
-list *push(list *tail, int data);
-list *append(list *tail, int data);
-list *pop(list *tail);
-list *poplast(list *tail);
+t_list *addtoempty(int data);
+t_list *push(t_list *tail, int data);
+t_list *append(t_list *tail, int data);
+t_list *pop(t_list *tail);
+t_list *poplast(t_list *tail);
 
 //stack_in_out.c
-list	*init_stack_a(list **ptr_to_stack, int *arry_of_ints);
-list	*stack_in(list **ptr_to_stack, list **tail, int data);
-list	*stack_out(list **ptr_to_stack, list **tail);
+t_list	*init_stack_a(t_list **ptr_to_stack, int *arry_of_ints);
+t_list	*stack_in(t_list **ptr_to_stack, t_list **tail, int data);
+t_list	*stack_out(t_list **ptr_to_stack, t_list **tail);
 
 //linked_list_utili.c
-list	*tail_find(list **stack);
-void	free_whole_stack(list **stack);
+t_list	*tail_find(t_list **stack);
+void	free_whole_stack(t_list **stack);
 
 //swap.c
-void	swap_a(list **stack_a, int print);
-void	swap_b(list **stack_b, int print);
-void	swap_anb(list **stack_a, list **stack_b, int print);
+void	swap_a(t_list **stack_a, int print);
+void	swap_b(t_list **stack_b, int print);
+void	swap_anb(t_list **stack_a, t_list **stack_b, int print);
 
 // push.c
-void	push_a(list **stack_a, list **stack_b, int print);
-void	push_b(list **stack_a, list **stack_b, int print);
+void	push_a(t_list **stack_a, t_list **stack_b, int print);
+void	push_b(t_list **stack_a, t_list **stack_b, int print);
 
 // rotate.c
-void	rotate_a(list **stack_a, int print);
-void	rotate_b(list **stack_b, int print);
-void	rotate_anb(list **stack_a, list **stack_b, int print);
+void	rotate_a(t_list **stack_a, int print);
+void	rotate_b(t_list **stack_b, int print);
+void	rotate_anb(t_list **stack_a, t_list **stack_b, int print);
 
 //reverse.c
-void	reverse_a(list **stack_a, int print);
-void	reverse_b(list **stack_b, int print);
-void	reverse_anb(list **stack_a, list **stack_b, int print);
+void	reverse_a(t_list **stack_a, int print);
+void	reverse_b(t_list **stack_b, int print);
+void	reverse_anb(t_list **stack_a, t_list **stack_b, int print);
 
 // sort_utili.c
-int count_in_stack(list **stack);
-int max_in_stack(list **stack);
-int min_in_stack(list **stack);
-list *copy_init_a(list **stack);
+int 	count_in_stack(t_list **stack);
+int		max_in_stack(t_list **stack);
+int		min_in_stack(t_list **stack);
+t_list	*copy_init_a(t_list **stack);
+int if_stack_a_sorted(t_list **stack);
 
 //sort_rank.c
-list *rank_in_stack(list **stack);
-list *rank_algo(list *copy_of_a, list *copy_of_b);
-list *rank_assign_to_copy_b(list *copy_of_b);
-list *push_copy_b_to_copy_a(list *copy_of_a, list *copy_of_b);
-void rank_from_copy_a_to_a(list **a, list **copy_of_a);
+t_list *rank_in_stack(t_list **stack);
+t_list *rank_algo(t_list *copy_of_a, t_list *copy_of_b);
+t_list *rank_assign_to_copy_b(t_list *copy_of_b);
+t_list *push_copy_b_to_copy_a(t_list *copy_of_a, t_list *copy_of_b);
+void	rank_from_copy_a_to_a(t_list **a, t_list **copy_of_a);
 
 //sort_algo.c
-int finding_root(int nbr_of_nodes);
-int items_in_chunk(int nbr_of_nodes, int current_i, int root);
-//void add_partition_to_b(list **stack_b, int items_in_chunk);
-void sort_algo(list **stack_a, list **stack_b, int items, int push_rank);
-int sort_mgt_a_to_b(list **stack_a, list **stack_b, int nbr_of_args);
+int		finding_root(int nbr_of_nodes);
+int		items_in_chunk(int nbr_of_nodes, int current_i, int root);
+void	init_sort_algo(t_list **stack_a, t_list **stack_b, int items, int push_rank);
+int init_sort_algo_extend(t_list **stack_a, t_list **stack_b, int accum_items, int j);
+void	init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root);
 
 //small_sort.c
-void sort_3_algo(list **stack, list **fir_node, list **sec_node, list **thi_node);
-void sort_2_rank(list **stack, int rank_exist);
-void sort_3_rank(list **stack, int rank_exist);
-int rank_exist(list **stack);
-void sort_2(list **stack);
-void sort_3(list **stack);
-int small_sort(list **stack);
+void	sort_3_algo(t_list **stack, t_list **fir_node, t_list **sec_node, t_list **thi_node);
+void	sort_2_rank(t_list **stack, int rank_exist);
+void	sort_3_rank(t_list **stack, int rank_exist);
+int		rank_exist(t_list **stack);
+void	sort_2(t_list **stack);
+void	sort_3(t_list **stack);
+void	small_sort(t_list **stack);
+
+//small_sort_rev.c
+void	sort_3_algo_rev(t_list **stack, t_list **fir_node, t_list **sec_node, t_list **thi_node);
+void		sort_2_rev(t_list **stack);
+void		sort_3_rev(t_list **stack);
+void	auto_push_a(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
+void	auto_push_b(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
+void	small_sort_rev(t_list **stack_a, t_list **stack_b);
+
+//quicksort.c
+void	sort_mgt(t_stacks *stacks, int nbr_of_args);
+void    quicksort(t_stacks *stacks, int low, int high, char from, int push_a);
+
 
 
 #endif

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:20:03 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/06 20:16:53 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:13:20 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(list **stack_a, list **stack_b, int print)
+void push_a(t_list **stack_a, t_list **stack_b, int print)
 {
-	list *tail_of_a;
-	list *tail_of_b;
+	t_list *tail_of_a;
+	t_list *tail_of_b;
 	int nbr;
 
 	if (stack_b == NULL)
@@ -37,10 +37,10 @@ void push_a(list **stack_a, list **stack_b, int print)
         printf("pa\n");
 }
 
-void push_b(list **stack_a, list **stack_b, int print)
+void push_b(t_list **stack_a, t_list **stack_b, int print)
 {
-	list *tail_of_a;
-	list *tail_of_b;
+	t_list *tail_of_a;
+	t_list *tail_of_b;
 	int nbr;
 
 	if (stack_a == NULL)
