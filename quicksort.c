@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/20 22:14:37 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 22:38:27 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,11 @@ void    quicksort(t_stacks *stacks, int low, int high, char from)
 	push = 0;
 	if (low > high || (low == high && from == 'a'))
 		return ;
-	while (i <= high && push <= (high - low) / 2 && (high - low > 1 || from == 'b'))
+	while (i <= high && ((from == 'a') || ((push <= (high - low) / 2) && (from == 'b')) && (high - low > 1 || from == 'b')))
 	{
-		if (from == 'a' && stacks->stack_a->rank < med)
+		if (from == 'a')
 		{
 			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
-			push++;
-		}
-		else if (from == 'a' && stacks->stack_a->rank >= med)
-		{
-			rotate_a(&(stacks->stack_a), 1);
-			rotate++;
 		}
 		else if (from == 'b' && stacks->stack_b->rank >= med)
 		{
@@ -77,8 +71,8 @@ void    quicksort(t_stacks *stacks, int low, int high, char from)
 		else
 			reverse_b(&(stacks->stack_b), 1);
 	}
-	quicksort(stacks, med, high, 'a');
-	quicksort(stacks, low, (med - 1), 'b');
+	//quicksort(stacks, med, high, 'a');
+	//quicksort(stacks, low, (med - 1), 'b');
 }
 
 /*
