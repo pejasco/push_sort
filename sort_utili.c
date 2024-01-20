@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:25:47 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 02:38:45 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:17:12 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,12 @@ t_list *copy_init_a(t_list **stack)
 	tail_of_stack_a = NULL;
 	tail_of_copy_a = NULL;
 	stack_a = *stack;
-	tail_of_copy_a = append(tail_of_copy_a, stack_a->data);
+	tail_of_copy_a = append(tail_of_copy_a, stack_a->data, stack_a->rank);
 	copy_of_a = tail_of_copy_a;
 	tail_of_stack_a = stack_a->next;
 	while (tail_of_stack_a != stack_a)
 	{
-		tail_of_copy_a = append(tail_of_copy_a, tail_of_stack_a->data);
+		tail_of_copy_a = append(tail_of_copy_a, tail_of_stack_a->data, stack_a->rank);
 		tail_of_stack_a = tail_of_stack_a->next;
 	}
 	return (copy_of_a);
@@ -102,7 +102,7 @@ int if_stack_a_sorted(t_list **stack)
 	current = (*stack)->next;
 	while (current != *stack)
 	{
-		if (current->prev - current != -1)
+		if ((current->prev->rank - current->rank) != -1)
 			return (0);
 		i++;
 		current = current->next;
@@ -139,7 +139,7 @@ int min_in_rank(t_list **stack)
 	current = (*stack)->next;
 	while (current != *stack)
 	{
-		if (current->data < min)
+		if (current->rank < min)
 			min = current->rank;
 		current = current->next;
 	}

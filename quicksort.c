@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/20 03:13:27 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:17:14 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 	int		low;
 	int		root;
 
-	if (if_stack_a_sorted(&(stacks->stack_a)))
+	stacks->nbr_of_args = nbr_of_args;
+	if ((if_stack_a_sorted(&(stacks->stack_a))))
 		return ;
 	high = max_in_rank(&(stacks->stack_a));
 	low = min_in_rank(&(stacks->stack_a));
+	//printf("min:%d\n", low);
+	//printf("max:%d\n", high);
 	quicksort(stacks, low, high, 'a');
 	return ;
 }
@@ -60,19 +63,19 @@ void    quicksort(t_stacks *stacks, int low, int high, char from)
 		}
 		else if (from == 'b' && stacks->stack_b->rank < med)
 		{
-			rotate_b(&(stacks->stack_a), 1);
+			rotate_b(&(stacks->stack_b), 1);
 			rotate++;
 		}
 		i++;
 	}
-	if (high - low == 1  && (stacks->stack_a->rank) > (stacks->stack_a->next->rank))
+	if ((high - low) == 1  && (stacks->stack_a->rank) > (stacks->stack_a->next->rank))
 		swap_a(&(stacks->stack_a), 1);
 	while (rotate-- && !(low == 0 && high == (stacks->nbr_of_args - 1)))
 	{
 		if (from == 'a')
-			rotate_a(&(stacks->stack_a), 1);
+			reverse_a(&(stacks->stack_a), 1);
 		else
-			rotate_b(&(stacks->stack_b), 1);
+			reverse_b(&(stacks->stack_b), 1);
 	}
 	quicksort(stacks, med, high, 'a');
 	quicksort(stacks, low, (med - 1), 'b');

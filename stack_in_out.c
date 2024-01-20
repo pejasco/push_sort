@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:58 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/18 12:25:57 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:18:19 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ t_list  *init_stack_a(t_list **ptr_to_stack, int *arry_of_ints)
 	if (arry_of_ints == NULL)
 		return (NULL);
 	tail = NULL;
-	tail = append(tail, arry_of_ints[i]);
+	tail = append(tail, arry_of_ints[i], 0);
 	*ptr_to_stack = tail;
 	i++;
 	while (i < arry_of_ints[0])
 	{
-		tail = append(tail, arry_of_ints[i]);
+		tail = append(tail, arry_of_ints[i], 0);
 		i++;
 	}
 	free(arry_of_ints);

@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 02:38:42 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:18:31 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,10 +146,10 @@ int	main(int argc, char **argv)
 	//print_list('a', &a);
 	//print_list_rank('a', &a);
 	//sort_mgt_a_to_b(&(stacks->stack_a), &(stacks->stack_b), (argc-1));
-	print_list('A', &(stacks.stack_a));
-	print_list_rank('A', &(stacks.stack_a));
-	print_list('B', &(stacks.stack_b));
-	print_list_rank('B', &(stacks.stack_b));
+	// print_list('A', &(stacks.stack_a));
+	// print_list_rank('A', &(stacks.stack_a));
+	// print_list('B', &(stacks.stack_b));
+	// print_list_rank('B', &(stacks.stack_b));
 	/*test_tail = tail_find(&a);
 	if (test_tail == NULL)
 		return (0);

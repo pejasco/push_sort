@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 02:43:22 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 18:15:50 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void	print_list_rank(char stackname, t_list **stack);
 void	stack_mgt(t_list **stack_a, t_list **stack_b);
 
 //linked_list_mgt.c
-t_list *addtoempty(int data);
-t_list *push(t_list *tail, int data);
-t_list *append(t_list *tail, int data);
-t_list *pop(t_list *tail);
+t_list *addtoempty(int data, int rank);
+t_list *push(t_list *tail, int data, int rank);
+t_list *append(t_list *tail, int data, int rank);
+t_list *pop(t_list *tail, t_list **stack);
 t_list *poplast(t_list *tail);
 
 //stack_in_out.c
