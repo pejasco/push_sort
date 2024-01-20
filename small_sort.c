@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:33:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/18 22:05:05 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 21:57:21 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ void small_sort(t_list **stack)
 	int     count;
 
 	count = count_in_stack(stack);
-	printf("count----->%d\n", count);
 	if (count <= 1 || count > 3)
 		return ;
 	if (count == 2)
