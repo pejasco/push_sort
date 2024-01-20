@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/20 22:38:27 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 22:50:34 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void    quicksort(t_stacks *stacks, int low, int high, char from)
 		if (from == 'a')
 		{
 			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
+			if (stack_a->stack_b->rank < med)
+				rotate
+
 		}
 		else if (from == 'b' && stacks->stack_b->rank >= med)
 		{
