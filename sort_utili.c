@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:25:47 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/18 22:48:04 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 02:38:45 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,40 @@ int if_stack_a_sorted(t_list **stack)
 		current = current->next;
 	}
 	return (1);
+}
+
+int max_in_rank(t_list **stack)
+{
+	int     max;
+	t_list    *current;
+
+	if (*stack == NULL || stack == NULL)
+		return (0);
+	max = (*stack)->rank;
+	current = (*stack)->next;
+	while (current != *stack)
+	{
+		if (current->rank > max)
+			max = current->rank;
+		current = current->next;
+	}
+	return (max);
+}
+
+int min_in_rank(t_list **stack)
+{
+	int     min;
+	t_list    *current; 
+
+	if (*stack == NULL || stack == NULL)
+		return (0);
+	min = (*stack)->rank;
+	current = (*stack)->next;
+	while (current != *stack)
+	{
+		if (current->data < min)
+			min = current->rank;
+		current = current->next;
+	}
+	return (min);
 }

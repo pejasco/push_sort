@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/18 22:36:57 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/20 02:43:22 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stacks
 {
 	t_list		*stack_a;
 	t_list		*stack_b;
+	int			nbr_of_args;
 } t_stacks;
 
 typedef struct s_stac
@@ -102,6 +103,8 @@ int		max_in_stack(t_list **stack);
 int		min_in_stack(t_list **stack);
 t_list	*copy_init_a(t_list **stack);
 int if_stack_a_sorted(t_list **stack);
+int		max_in_rank(t_list **stack);
+int		min_in_rank(t_list **stack);
 
 //sort_rank.c
 t_list *rank_in_stack(t_list **stack);
@@ -136,7 +139,7 @@ void	small_sort_rev(t_list **stack_a, t_list **stack_b);
 
 //quicksort.c
 void	sort_mgt(t_stacks *stacks, int nbr_of_args);
-void    quicksort(t_stacks *stacks, int low, int high, char from, int push_a);
+void    quicksort(t_stacks *stacks, int low, int high, char from);
 
 
 
