@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/20 22:14:37 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/25 23:15:08 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,16 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 	stacks->nbr_of_args = nbr_of_args;
 	if ((if_stack_a_sorted(&(stacks->stack_a))))
 		return ;
+	if (nbr_of_args <= 3)
+	{
+		mini_sort(&(stacks->stack_a));
+		return ;
+	}
+	if (nbr_of_args == 4 || nbr_of_args == 5)
+	{
+		mid_sort(stacks);
+		return ;
+	}
 	high = max_in_rank(&(stacks->stack_a));
 	low = min_in_rank(&(stacks->stack_a));
 	//printf("min:%d\n", low);
@@ -111,7 +121,7 @@ void    quicksort_old(t_stacks *stacks, int low, int high, char from, int pa_cou
 		i++;
 	}
 	if ((high - low) < 4 && from == 'b')
-		small_sort_rev(&(stacks->stack_a), &(stacks->stack_b));
+		mini_sort_rev(&(stacks->stack_a), &(stacks->stack_b));
 	while (rb_count--)
 		reverse_b(&(stacks->stack_b), 1);
 	quicksort(stacks, med, high, 'a', 0);

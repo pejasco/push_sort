@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 18:15:50 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/25 23:15:08 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_node
     struct s_node	*prev;
 	int 			data;
 	int 			rank;
+	int				position;
 	struct s_node	*next;
 } t_list;
 
@@ -120,22 +121,22 @@ void	init_sort_algo(t_list **stack_a, t_list **stack_b, int items, int push_rank
 int init_sort_algo_extend(t_list **stack_a, t_list **stack_b, int accum_items, int j);
 void	init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root);
 
-//small_sort.c
+//mini_sort.c
 void	sort_3_algo(t_list **stack, t_list **fir_node, t_list **sec_node, t_list **thi_node);
 void	sort_2_rank(t_list **stack, int rank_exist);
 void	sort_3_rank(t_list **stack, int rank_exist);
 int		rank_exist(t_list **stack);
 void	sort_2(t_list **stack);
 void	sort_3(t_list **stack);
-void	small_sort(t_list **stack);
+void	mini_sort(t_list **stack);
 
-//small_sort_rev.c
+//mini_sort_rev.c
 void	sort_3_algo_rev(t_list **stack, t_list **fir_node, t_list **sec_node, t_list **thi_node);
 void		sort_2_rev(t_list **stack);
 void		sort_3_rev(t_list **stack);
 void	auto_push_a(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
 void	auto_push_b(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
-void	small_sort_rev(t_list **stack_a, t_list **stack_b);
+void	mini_sort_rev(t_list **stack_a, t_list **stack_b);
 
 //quicksort.c
 void	sort_mgt(t_stacks *stacks, int nbr_of_args);

@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 02:41:23 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/25 23:15:08 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root)
 	accum_items = 0;
 	if (nbr_of_args < 4)
 	{
-		small_sort(&(stacks->stack_a));
+		mini_sort(&(stacks->stack_a));
 		return ;
 	}
 	root = finding_root(nbr_of_args);
@@ -127,7 +127,7 @@ void init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root)
 		//add_partition_to_b(stack_b, accum_items);
 		i++;
 	}
-	small_sort(&(stacks->stack_a));
+	mini_sort(&(stacks->stack_a));
 }
 
 /*

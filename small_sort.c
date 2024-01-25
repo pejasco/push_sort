@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   small_sort.c                                       :+:      :+:    :+:   */
+/*   mini_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:33:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 21:57:21 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/25 22:51:36 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,111 @@ void sort_3(t_list **stack)
 	sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
 }
 
+void position_in_stacks(t_list **stack)
+{
+	t_list *head;
+	t_list *current;
+
+	head = *stack;
+	current = head->next;
+	current->position = 0;
+	if (current == *stack)
+		current->position = 1;
+	while (current != *stack)
+	{
+		current->position++;
+		current->next;
+	}
+}
+
+t_list *find_post_with_rank(t_list **stack, int rank)
+{
+	t_list *target;
+
+	target = *stack;
+	while (target->rank != rank)
+		target = target->next;
+	return (target);
+}
+
+void sort_5_op(t_stacks *stacks, t_list *rank_five)
+{
+
+
+
+
+
+}
+
+void sort_4(t_stacks *stacks)
+{
+	t_list *rank_one;
+
+	position_in_stacks(stacks->stack_a);
+	rank_one = find_post_with_rank(&(stacks->stack_a), 1);
+	sort_4_op(stacks, rank_one);
+	if (rank_one->position == 1)
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	if (rank_one->position == 2)
+	{
+		swap_a(stacks->stack_a, 1);
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	}
+	if (rank_one->position == 3)
+	{
+		reverse_a(stacks->stack_a, 1);
+		reverse_a(stacks->stack_a, 1);
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	}
+	if (rank_one->position == 4)
+	{
+		reverse_a(stacks->stack_a, 1);
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	}
+}
+
+void sort_5(t_stacks *stacks)
+{
+	t_list *rank_one;
+	t_list *rank_two;
+
+	position_in_stacks(stacks->stack_a);
+	rank_one = find_post_with_rank(&(stacks->stack_a), 1);
+	sort_4_op(stacks, rank_four);
+	if (rank_four->position == 1)
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	if (rank_four->position == 2)
+	{
+		swap_a(stacks->stack_a, 1);
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	}
+	if (rank_four->position == 3)
+	{
+		reverse_a(stacks->stack_a, 1);
+		reverse_a(stacks->stack_a, 1);
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	}
+	if (rank_four->position == 4)
+	{
+		reverse_a(stacks->stack_a, 1);
+		push_b(stacks->stack_a, stacks->stack_b, 1);
+	}
+
+}
+
+
 void small_sort(t_list **stack)
+{
+	int     count;
+
+	count = count_in_stack(stack);
+	if (count == 4)
+		sort_2(stack);
+	if (count == 5)
+		sort_3(stack);
+}
+
+void mini_sort(t_list **stack)
 {
 	int     count;
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   small_sort_rev.c                                   :+:      :+:    :+:   */
+/*   mini_sort_rev.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -96,7 +96,7 @@ void auto_push_b(t_list **stack_a, t_list **stack_b, int no_of_time, int print)
 }
 
 
-void small_sort_rev(t_list **stack_a, t_list **stack_b)
+void mini_sort_rev(t_list **stack_a, t_list **stack_b)
 {
 	int     count;
 
