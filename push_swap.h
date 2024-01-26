@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/25 23:15:08 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/26 15:35:13 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ typedef struct s_stacks
 	t_list		*stack_b;
 	int			nbr_of_args;
 } t_stacks;
+
+typedef struct s_stat
+{
+	int max;
+	int min;
+	int med;
+} t_stat;
+
 
 typedef struct s_stac
 {
@@ -129,6 +137,9 @@ int		rank_exist(t_list **stack);
 void	sort_2(t_list **stack);
 void	sort_3(t_list **stack);
 void	mini_sort(t_list **stack);
+void	position_in_stacks(t_list **stack);
+t_list *find_post_with_rank(t_list **stack, int rank);
+void 	mini_sort(t_list **stack);
 
 //mini_sort_rev.c
 void	sort_3_algo_rev(t_list **stack, t_list **fir_node, t_list **sec_node, t_list **thi_node);
@@ -137,6 +148,13 @@ void		sort_3_rev(t_list **stack);
 void	auto_push_a(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
 void	auto_push_b(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
 void	mini_sort_rev(t_list **stack_a, t_list **stack_b);
+
+//small_sort.c
+void sort_5_op_extend(t_stacks *stacks, t_list *node);
+void sort_5_op(t_stacks *stacks, t_list *rank_one, t_list *rank_two);
+void sort_4(t_stacks *stacks);
+void sort_5(t_stacks *stacks);
+void small_sort(t_stacks *stack);
 
 //quicksort.c
 void	sort_mgt(t_stacks *stacks, int nbr_of_args);
