@@ -131,34 +131,6 @@ void sort_3(t_list **stack)
 	sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
 }
 
-void position_in_stacks(t_list **stack)
-{
-	t_list *head;
-	t_list *current;
-
-	head = *stack;
-	current = head->next;
-	current->position = 0;
-	if (current == *stack)
-		current->position = 1;
-	while (current != *stack)
-	{
-		current->position ++;
-		current = current->next;
-	}
-}
-
-t_list *find_post_with_rank(t_list **stack, int rank)
-{
-	t_list *target;
-
-	target = *stack;
-	while (target->rank != rank)
-		target = target->next;
-	return (target);
-}
-
-
 void mini_sort(t_list **stack)
 {
 	int     count;

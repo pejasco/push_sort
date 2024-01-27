@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/26 15:35:13 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/27 22:53:56 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,16 @@ int 	count_in_stack(t_list **stack);
 int		max_in_stack(t_list **stack);
 int		min_in_stack(t_list **stack);
 t_list	*copy_init_a(t_list **stack);
-int if_stack_a_sorted(t_list **stack);
+int		if_stack_a_sorted(t_list **stack);
 int		max_in_rank(t_list **stack);
 int		min_in_rank(t_list **stack);
+
+// sort_utili.c
+void position_in_stacks(t_list **stack);
+t_list *find_post_with_rank(t_list **stack, int rank);
+
+
+
 
 //sort_rank.c
 t_list *rank_in_stack(t_list **stack);
@@ -150,7 +157,7 @@ void	auto_push_b(t_list **stack_a, t_list **stack_b, int no_of_time, int print);
 void	mini_sort_rev(t_list **stack_a, t_list **stack_b);
 
 //small_sort.c
-void sort_5_op_extend(t_stacks *stacks, t_list *node);
+void sort_5_op_extend(t_stacks *stacks, t_list *node, int target_position);
 void sort_5_op(t_stacks *stacks, t_list *rank_one, t_list *rank_two);
 void sort_4(t_stacks *stacks);
 void sort_5(t_stacks *stacks);
