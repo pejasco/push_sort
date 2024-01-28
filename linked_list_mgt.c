@@ -3,35 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list_mgt.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:34:29 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 18:15:34 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:31:11 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list *addtoempty(int data, int rank)
+t_list	*addtoempty(int data, int rank)
 {
-	t_list *temp = malloc(sizeof(t_list));
+	t_list	*temp;
+
+	temp = malloc(sizeof(t_list));
 	temp->prev = temp;
 	temp->data = data;
 	temp->rank = rank;
 	temp->next = temp;
-	return temp;
+	return (temp);
 }
 
-t_list *push(t_list *tail, int data, int rank)
+t_list	*push(t_list *tail, int data, int rank)
 {
-	t_list *newp;
-	t_list *temp;
+	t_list	*newp;
+	t_list	*temp;
 
 	newp = NULL;
 	temp = NULL;
 	newp = addtoempty(data, rank);
 	if (tail == NULL)
-		return newp;
+		return (newp);
 	else
 	{
 		temp = tail->next;
@@ -39,20 +41,20 @@ t_list *push(t_list *tail, int data, int rank)
 		newp->next = temp;
 		temp->prev = newp;
 		tail->next = newp;
-		return tail;
+		return (tail);
 	}
 }
 
-t_list *append(t_list *tail, int data, int rank)
+t_list	*append(t_list *tail, int data, int rank)
 {
-	t_list *newp;
-	t_list *temp;
+	t_list	*newp;
+	t_list	*temp;
 
 	newp = NULL;
 	temp = NULL;
 	newp = addtoempty(data, rank);
 	if (tail == NULL)
-		return newp;
+		return (newp);
 	else
 	{
 		temp = tail->next;
@@ -61,46 +63,48 @@ t_list *append(t_list *tail, int data, int rank)
 		tail->next = newp;
 		temp->prev = newp;
 		tail = newp;
-		return tail;
+		return (tail);
 	}
 }
 
-t_list *pop(t_list *tail, t_list **stack)
+t_list	*pop(t_list *tail, t_list **stack)
 {
+	t_list	*temp;
+
 	if (tail == NULL)
-		return tail;
-	t_list *temp = tail->next;
+		return (tail);
+	temp = tail->next;
 	if (temp == tail)
 	{
 		free(tail);
 		*stack = NULL;
-		return NULL;
+		return (NULL);
 	}
 	tail->next = temp->next;
 	temp->next->prev = tail;
 	*stack = temp->next;
 	free(temp);
-	return tail;
+	return (tail);
 }
 
-t_list *poplast(t_list *tail)
+t_list	*poplast(t_list *tail)
 {
-	t_list *temp;
- 
+	t_list	*temp;
+
 	if (tail == NULL)
-		return tail;
+		return (tail);
 	temp = tail->prev;
 	if (temp == tail)
 	{
 		free(tail);
 		tail = NULL;
-		return tail;
+		return (tail);
 	}
 	temp->next = tail->next;
 	tail->next->prev = temp;
 	free(tail);
 	tail = temp;
-	return tail;
+	return (tail);
 }
 
 /*
@@ -120,7 +124,6 @@ void print(t_list *tail)
 	printf("\n");
 }
 */
-
 
 /*
 typedef struct s_node

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   stack_in_out.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:17:58 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 18:18:19 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:01:36 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list  *init_stack_a(t_list **ptr_to_stack, int *arry_of_ints)
+t_list	*init_stack_a(t_list **ptr_to_stack, int *arry_of_ints)
 {
-	int 		i; 
+	int		i;
 	t_list	*tail;
 
 	i = 1;

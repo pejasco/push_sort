@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_ctrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:38 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/04 15:22:03 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:02:30 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@ int	input_chk_algo(char *argv)
 	while (argv[i])
 	{
 		j = i + 1;
-		if ((argv[i] != '+' && argv[i] != '-' && argv[i] != ' ')\
-		&& (argv[i] < '0' || argv[i] > '9'))
+		if ((argv[i] != '+' && argv[i] != '-' && argv[i] != ' ')
+			&& (argv[i] < '0' || argv[i] > '9'))
 			return (0);
-		if ((argv[i] == '+' || argv[i] == '-')\
-		&& (argv[j] < '0' || argv[j] > '9' || argv[j] == '\0'))
+		if ((argv[i] == '+' || argv[i] == '-')
+			&& (argv[j] < '0' || argv[j] > '9' || argv[j] == '\0'))
 			return (0);
-		if ((argv[i] >= '0' || argv[i] <= '9')\
-		&& (argv[j] == '-' || argv[j] == '+'))
+		if ((argv[i] >= '0' || argv[i] <= '9')
+			&& (argv[j] == '-' || argv[j] == '+'))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int input_chk(char **argv)
+int	input_chk(char **argv)
 {
 	int		i;
 	int		res;
 
 	i = 1;
-	while (argv[i]) //argv[0] "a.out" argv[1] !@
+	while (argv[i])
 	{
 		res = input_chk_algo(argv[i]);
 		if (!res)
@@ -51,7 +51,7 @@ int input_chk(char **argv)
 	return (1);
 }
 
-int input_ctrl(char **argv)
+int	input_ctrl(char **argv)
 {
 	int		input_chk_res;
 
@@ -108,4 +108,3 @@ int	main(void)
 	return (0);
 }
 */
-

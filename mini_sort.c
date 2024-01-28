@@ -12,31 +12,27 @@
 
 #include "push_swap.h"
 
-void sort_3_algo(t_list **stack, t_list **fir_node, t_list **sec_node, t_list **thi_node)
+void sort_3_algo(t_list **stack, t_list **fir_node, 
+		t_list **sec_node, t_list **thi_node)
 {
-	//2>1>3
 	if (((*thi_node)->rank > (*fir_node)->rank)
 			&& (*fir_node)->rank > (*sec_node)->rank)
 		swap_a(stack, 1);
-	//3>2>1
 	else if (((*fir_node)->rank > (*sec_node)->rank)
 			&& (*sec_node)->rank > (*thi_node)->rank)
 	{
 		rotate_a(stack, 1);
 		swap_a(stack, 1);
 	}
-	//3>1>2
 	else if (((*fir_node)->rank > (*thi_node)->rank)
 			&& (*thi_node)->rank > (*sec_node)->rank)
 		rotate_a(stack, 1);
-	//1>3>2
 	else if (((*sec_node)->rank > (*thi_node)->rank)
 			&& (*thi_node)->rank > (*fir_node)->rank)
 	{    
 		swap_a(stack, 1);
 		rotate_a(stack, 1);
 	}
-	//2>3>1
 	else if (((*sec_node)->rank > (*fir_node)->rank)
 			&& (*fir_node)->rank > (*thi_node)->rank)
 		reverse_a(stack, 1);
@@ -143,4 +139,3 @@ void mini_sort(t_list **stack)
 	if (count == 3)
 		sort_3(stack);
 }
-

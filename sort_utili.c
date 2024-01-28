@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utili.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 14:25:47 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/20 19:17:12 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:00:51 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int count_in_stack(t_list **stack)
+int	count_in_stack(t_list **stack)
 {
-	int count;
-	t_list *current;
+	int		count;
+	t_list	*current;
+
 	if (*stack == NULL || stack == NULL)
 		return (0);
-	//print_list('C', stack);
 	count = 1;
 	current = (*stack)->next;
-	//print_list('C', &current);
 	while (current != *stack)
 	{
 		current = current->next;
@@ -30,10 +29,10 @@ int count_in_stack(t_list **stack)
 	return (count);
 }
 
-int min_in_stack(t_list **stack)
+int	min_in_stack(t_list **stack)
 {
-	int     min;
-	t_list    *current; 
+	int		min;
+	t_list	*current;
 
 	if (*stack == NULL || stack == NULL)
 		return (0);
@@ -48,10 +47,10 @@ int min_in_stack(t_list **stack)
 	return (min);
 }
 
-int max_in_stack(t_list **stack)
+int	max_in_stack(t_list **stack)
 {
-	int     max;
-	t_list    *current;
+	int		max;
+	t_list	*current;
 
 	if (*stack == NULL || stack == NULL)
 		return (0);
@@ -66,12 +65,12 @@ int max_in_stack(t_list **stack)
 	return (max);
 }
 
-t_list *copy_init_a(t_list **stack)
+t_list	*copy_init_a(t_list **stack)
 {
-	t_list *stack_a;
-	t_list *copy_of_a;
-	t_list *tail_of_stack_a;
-	t_list *tail_of_copy_a;
+	t_list	*stack_a;
+	t_list	*copy_of_a;
+	t_list	*tail_of_stack_a;
+	t_list	*tail_of_copy_a;
 
 	if ((*stack) == NULL || stack == NULL)
 		return (NULL);
@@ -83,16 +82,17 @@ t_list *copy_init_a(t_list **stack)
 	tail_of_stack_a = stack_a->next;
 	while (tail_of_stack_a != stack_a)
 	{
-		tail_of_copy_a = append(tail_of_copy_a, tail_of_stack_a->data, stack_a->rank);
+		tail_of_copy_a = append(tail_of_copy_a, \
+			tail_of_stack_a->data, stack_a->rank);
 		tail_of_stack_a = tail_of_stack_a->next;
 	}
 	return (copy_of_a);
 }
 
-int if_stack_a_sorted(t_list **stack)
+int	if_stack_a_sorted(t_list **stack)
 {
-	t_list    *current;
-	int     i;
+	t_list		*current;
+	int			i;
 
 	i = 1;
 	if ((*stack) == NULL || stack == NULL)
@@ -110,10 +110,10 @@ int if_stack_a_sorted(t_list **stack)
 	return (1);
 }
 
-int max_in_rank(t_list **stack)
+int	max_in_rank(t_list **stack)
 {
-	int     max;
-	t_list    *current;
+	int		max;
+	t_list	*current;
 
 	if (*stack == NULL || stack == NULL)
 		return (0);
@@ -128,10 +128,10 @@ int max_in_rank(t_list **stack)
 	return (max);
 }
 
-int min_in_rank(t_list **stack)
+int	min_in_rank(t_list **stack)
 {
-	int     min;
-	t_list    *current; 
+	int		min;
+	t_list	*current;
 
 	if (*stack == NULL || stack == NULL)
 		return (0);

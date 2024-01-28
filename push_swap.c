@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/27 17:56:46 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:15:02 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	*ft_arry_of_ints(int argc, char **argv)
 	if (!arry_of_ints)
 		return (NULL);
 	arry_of_ints[0] = argc;
-	while(argv[i])
+	while (argv[i])
 	{
 		arry_of_ints[i] = ft_atoi(argv[i]);
 		i++;
@@ -53,9 +53,9 @@ int	*input_mgt(int argc, char **argv)
 	return (arry_of_ints);
 }
 
-void print_list_rank(char stackname, t_list **stack)
+void	print_list_rank(char stackname, t_list **stack)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (*stack == NULL)
 		printf("Nth\n");
@@ -74,14 +74,13 @@ void print_list_rank(char stackname, t_list **stack)
 			printf("%d\n", temp->rank);
 		}
 	}
-		printf("----\n");
-		printf("%c\n\n", stackname);
+	printf("----\n");
+	printf("%c\n\n", stackname);
 }
 
-
-void print_list(char stackname, t_list **stack)
+void	print_list(char stackname, t_list **stack)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	if (*stack == NULL)
 		printf("Nth\n");
@@ -100,8 +99,8 @@ void print_list(char stackname, t_list **stack)
 			printf("%d\n", temp->data);
 		}
 	}
-		printf("----\n");
-		printf("%c\n\n", stackname);
+	printf("----\n");
+	printf("%c\n\n", stackname);
 }
 /*
 void stack_mgt(t_list **stack_a, t_list **stack_b)
@@ -127,6 +126,7 @@ void stack_mgt(t_list **stack_a, t_list **stack_b)
 	reverse_anb(stack_a, stack_b);
 }
 */
+
 int	main(int argc, char **argv)
 {
 	t_stacks		stacks;
@@ -143,6 +143,9 @@ int	main(int argc, char **argv)
 	a_copy = rank_in_stack(&a_copy);
 	rank_from_copy_a_to_a(&(stacks.stack_a), &a_copy);
 	sort_mgt(&stacks, (argc -1));
+}
+
+/*
 	//print_list('a', &a);
 	//print_list_rank('a', &a);
 	//sort_mgt_a_to_b(&(stacks->stack_a), &(stacks->stack_b), (argc-1));
@@ -158,5 +161,5 @@ int	main(int argc, char **argv)
 		test = test_tail->data;
 		printf("%d", test);
 	}
-	return (0);*/
-}
+	return (0);
+*/

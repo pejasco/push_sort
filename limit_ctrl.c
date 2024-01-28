@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   limit_ctrl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 16:01:19 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/05 13:45:06 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 15:12:37 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //the i has to be 1
 
-int atoi_limit_chk_sign(char *argv_sign)
+int	atoi_limit_chk_sign(char *argv_sign)
 {
 	int	sign;
 
@@ -28,8 +28,8 @@ int	atoi_limit_chk_algo(long projected_int_val, char *argv, int sign)
 {
 	int		digit;
 
-	while(*argv)
-	{		
+	while (*argv)
+	{
 		digit = *argv - '0';
 		if (sign > 0)
 		{
@@ -48,10 +48,10 @@ int	atoi_limit_chk_algo(long projected_int_val, char *argv, int sign)
 	return (1);
 }
 
-int atoi_for_limit_chk(char *argv)
+int	atoi_for_limit_chk(char *argv)
 {
 	int		element;
-	int 	sign;
+	int		sign;
 	int		chk_result;
 
 	element = 0;
@@ -61,15 +61,15 @@ int atoi_for_limit_chk(char *argv)
 	chk_result = atoi_limit_chk_algo(0, &argv[element], sign);
 	if (!chk_result)
 		return (0);
-	return (1);		
+	return (1);
 }
 
-int limit_chk(char **argv)
-{	
+int	limit_chk(char **argv)
+{
 	int		i;
 	int		atoi_for_limit_chk_res;
 
-	i = 1;	
+	i = 1;
 	while (argv[i])
 	{
 		atoi_for_limit_chk_res = atoi_for_limit_chk(argv[i]);
@@ -80,7 +80,7 @@ int limit_chk(char **argv)
 	return (1);
 }
 
-int limit_ctrl(char **argv)
+int	limit_ctrl(char **argv)
 {
 	int		limit_chk_res;
 

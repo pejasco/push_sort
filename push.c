@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:20:03 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/26 15:19:03 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:17:07 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push_a(t_list **stack_a, t_list **stack_b, int print)
+void	push_a(t_list **stack_a, t_list **stack_b, int print)
 {
-	t_list *tail_of_a;
-	t_list *tail_of_b;
-	int nbr;
-	int rank;
+	t_list	*tail_of_a;
+	t_list	*tail_of_b;
+	int		nbr;
+	int		rank;
 
 	if (stack_b == NULL)
 		return ;
@@ -33,16 +33,16 @@ void push_a(t_list **stack_a, t_list **stack_b, int print)
 	tail_of_b = pop(tail_of_b, stack_b);
 	tail_of_a = push(tail_of_a, nbr, rank);
 	*stack_a = tail_of_a->next;
-    if (print == 1)
-        printf("pa\n");
+	if (print == 1)
+		printf("pa\n");
 }
 
-void push_b(t_list **stack_a, t_list **stack_b, int print)
+void	push_b(t_list **stack_a, t_list **stack_b, int print)
 {
-	t_list *tail_of_a;
-	t_list *tail_of_b;
-	int nbr;
-	int rank;
+	t_list	*tail_of_a;
+	t_list	*tail_of_b;
+	int		nbr;
+	int		rank;
 
 	if (stack_a == NULL)
 		return ;
@@ -58,8 +58,8 @@ void push_b(t_list **stack_a, t_list **stack_b, int print)
 	tail_of_a = pop(tail_of_a, stack_a);
 	tail_of_b = push(tail_of_b, nbr, rank);
 	*stack_b = tail_of_b->next;
-    if (print == 1)
-        printf("pb\n");
+	if (print == 1)
+		printf("pb\n");
 }
 
 // void push_b(t_list **stack_a, t_list **stack_b, int print) XXXX
@@ -97,4 +97,3 @@ void push_b(t_list **stack_a, t_list **stack_b, int print)
 	printf("diuuuu %d", test_a);
 	printf("diuuuu %d", test_b);
 */
-

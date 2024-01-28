@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/25 23:15:08 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:33:49 by Scofield         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int finding_root(int nbr_of_nodes)
+int	finding_root(int nbr_of_nodes)
 {
-	int     root_index;
-	int     radicand;
-	int     root;
+	int		root_index;
+	int		radicand;
+	int		root;
 
 	radicand = nbr_of_nodes;
 	if (radicand == 0)
@@ -39,9 +39,9 @@ int finding_root(int nbr_of_nodes)
 	return (root);
 }
 
-int items_in_chunk(int nbr_of_nodes, int current_i, int root)
+int	items_in_chunk(int nbr_of_nodes, int current_i, int root)
 {
-	int     i;
+	int	i;
 
 	i = 0;
 	if (current_i == root)
@@ -63,13 +63,12 @@ int items_in_chunk(int nbr_of_nodes, int current_i, int root)
 	return (nbr_of_nodes);
 }
 
-
-int init_sort_algo_extend(t_list **stack_a, t_list **stack_b, int accum_items, int j)
+int	init_sort_algo_extend(t_list **stack_a, \
+	t_list **stack_b, int accum_items, int j)
 {
-	int     rank;
-	t_list    *tail;
- 
- 
+	int		rank;
+	t_list	*tail;
+
 	tail = tail_find(stack_a);
 	if (tail->rank < accum_items)
 	{
@@ -84,11 +83,11 @@ int init_sort_algo_extend(t_list **stack_a, t_list **stack_b, int accum_items, i
 	return (j);
 }
 
-
-void init_sort_algo(t_list **stack_a, t_list **stack_b, int items, int accum_items)
+void	init_sort_algo(t_list **stack_a, \
+	t_list **stack_b, int items, int accum_items)
 {
-	int         j;
-	int         rank;
+	int	j;
+	int	rank;
 
 	j = 0;
 	while (j < items)
@@ -105,11 +104,11 @@ void init_sort_algo(t_list **stack_a, t_list **stack_b, int items, int accum_ite
 	}
 }
 
-void init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root)
+void	init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root)
 {
-	int     items;
-	int     i;
-	int     accum_items;
+	int		items;
+	int		i;
+	int		accum_items;
 
 	i = 1;
 	accum_items = 0;
@@ -123,8 +122,8 @@ void init_sort_a_to_b(t_stacks *stacks, int nbr_of_args, int root)
 	{
 		items = items_in_chunk(nbr_of_args, i, root);
 		accum_items = accum_items + items;
-		init_sort_algo(&(stacks->stack_a), &(stacks->stack_b), items, accum_items);
-		//add_partition_to_b(stack_b, accum_items);
+		init_sort_algo(&(stacks->stack_a), \
+			&(stacks->stack_b), items, accum_items);
 		i++;
 	}
 	mini_sort(&(stacks->stack_a));
