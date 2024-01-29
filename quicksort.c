@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/28 18:02:52 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/01/29 20:58:02 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 
 void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 {
-	t_sort_para	params;
+	int		high;
+	int		low;
+	int		root;
 
-	params.stacks = stacks;
-	params.low = min_in_rank(&(stacks->stack_a));
-	params.high = max_in_rank(&(stacks->stack_a));
-	params.from = 'a';
 	stacks->nbr_of_args = nbr_of_args;
 	if ((if_stack_a_sorted(&(stacks->stack_a))))
 		return ;
@@ -35,84 +33,62 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 		small_sort(stacks);
 		return ;
 	}
-	quicksort(&params);
+	high = max_in_rank(&(stacks->stack_a));
+	low = min_in_rank(&(stacks->stack_a));
+	//printf("min:%d\n", low);
+	//printf("max:%d\n", high);
+	quicksort(stacks, low, high, 'a');
 	return ;
 }
 
-t_op_count	perform_operations(t_sort_para *params, int med)
+void    quicksort(t_stacks *stacks, int low, int high, char from)
 {
-	t_op_count	op;
+	int	med;
+	int	i;
+	int	rotate;
+	int	push;
 
-	op.push = 0;
-	op.rotate = 0;
-	if (params->from == 'a' && params->stacks->stack_a->rank < med)
+	med = (low + high + 1) / 2;
+	i = low;
+	rotate = 0;
+	push = 0;
+	if (low > high || (low == high && from == 'a'))
+		return ;
+	while (i <= high && push <= (high - low) / 2 && (high - low > 1 || from == 'b'))
 	{
-		push_b(&(params->stacks->stack_a), &(params->stacks->stack_b), 1);
-		op.push++;
-	}
-	else if (params->from == 'a' && params->stacks->stack_a->rank >= med)
-	{
-		rotate_a(&(params->stacks->stack_a), 1);
-		op.rotate++;
-	}
-	else if (params->from == 'b' && params->stacks->stack_b->rank >= med)
-	{
-		push_a(&(params->stacks->stack_a), &(params->stacks->stack_b), 1);
-		op.push++;
-	}
-	else if (params->from == 'b' && params->stacks->stack_b->rank < med)
-	{
-		rotate_b(&(params->stacks->stack_b), 1);
-		op.rotate++;
-	}
-	return (op);
-}
-
-t_op_count	partition(t_sort_para *params)
-{
-	t_op_count	op;
-	int			med;
-	int			i;
-
-	med = (params->low + params->high + 1) / 2;
-	i = params->low;
-	while (i <= params->high && op.push <= (params->high - params->low) / 2
-		&& (params->high - params->low > 1 || params->from == 'b'))
-	{
-		op = perform_operations(params, med);
+		if (from == 'a' && stacks->stack_a->rank < med)
+		{
+			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
+			push++;
+		}
+		else if (from == 'a' && stacks->stack_a->rank >= med)
+		{
+			rotate_a(&(stacks->stack_a), 1);
+			rotate++;
+		}
+		else if (from == 'b' && stacks->stack_b->rank >= med)
+		{
+			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
+			push++;
+		}
+		else if (from == 'b' && stacks->stack_b->rank < med)
+		{
+			rotate_b(&(stacks->stack_b), 1);
+			rotate++;
+		}
 		i++;
 	}
-	return (op);
-}
-
-void	swap_and_reverse(t_sort_para *params, int rotate)
-{
-	if ((params->high - params->low) == 1 && (params->stacks->stack_a->rank)
-		> (params->stacks->stack_a->next->rank))
-		swap_a(&(params->stacks->stack_a), 1);
-	while (rotate-- && !(params->low == 1 || \
-		params->high == (params->stacks->nbr_of_args)))
+	if ((high - low) == 1  && (stacks->stack_a->rank) > (stacks->stack_a->next->rank))
+		swap_a(&(stacks->stack_a), 1);
+	while (rotate-- && !(low == 1 || high == (stacks->nbr_of_args)))
 	{
-		if (params->from == 'a')
-			reverse_a(&(params->stacks->stack_a), 1);
+		if (from == 'a')
+			reverse_a(&(stacks->stack_a), 1);
 		else
-			reverse_b(&(params->stacks->stack_b), 1);
+			reverse_b(&(stacks->stack_b), 1);
 	}
-}
-
-void	quicksort(t_sort_para *params)
-{
-	t_op_count	op;
-
-	if (params->low > params->high || \
-		(params->low == params->high && params->from == 'a'))
-		return ;
-	op = partition(params);
-	swap_and_reverse(params, op.rotate);
-	params->low = (params->low + params->high + 1) / 2;
-	quicksort(params);
-	params->high = ((params->low + params->high + 1) / 2 - 1);
-	quicksort(params);
+	quicksort(stacks, med, high, 'a');
+	quicksort(stacks, low, (med - 1), 'b');
 }
 
 /*

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 19:19:49 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/01/29 17:12:53 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,6 @@
 
 # include "libft/libft.h"
 # include "math.h"
-
-typedef struct s_op_count
-{
-	int	rotate;
-	int	push;
-}	t_op_count;
-
-typedef struct s_sort_para
-{
-	t_stacks		*stacks;
-	int				low;
-	int				high;
-	char			from;
-}	t_sort_para;
 
 typedef struct s_node
 {
@@ -182,7 +168,6 @@ void		sort_5(t_stacks *stacks);
 void		small_sort(t_stacks *stack);
 
 //small_sort_utili.c
-int			max_in_rank(t_list **stack);
 int			check_moves_before_push(t_stacks *stacks, int rank_of_first_b_node);
 void		ra_n_rra_for_push_a(t_stacks *stacks, int rank);
 void		auto_rotate_a(t_list **stack_a, int no_of_time, int print);
@@ -190,9 +175,6 @@ void		auto_reverse_a(t_list **stack_a, int no_of_time, int print);
 
 //quicksort.c
 void		sort_mgt(t_stacks *stacks, int nbr_of_args);
-t_op_count	perform_operations(t_sort_para *params, int med);
-t_op_count	partition(t_sort_para *params);
-void		swap_and_reverse(t_sort_para *params, int rotate);
-void		quicksort(t_sort_para *params);
+void    	quicksort(t_stacks *stacks, int low, int high, char from);
 
 #endif

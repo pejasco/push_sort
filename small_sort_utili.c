@@ -3,32 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort_utili.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 18:20:46 by Scofield          #+#    #+#             */
-/*   Updated: 2024/01/28 18:35:07 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:42:17 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	max_in_rank(t_list **stack)
-{
-	int		max;
-	t_list	*current;
-
-	if (*stack == NULL || stack == NULL)
-		return (0);
-	max = (*stack)->rank;
-	current = (*stack)->next;
-	while (current != *stack)
-	{
-		if (current->data > max)
-			max = current->rank;
-		current = current->next;
-	}
-	return (max);
-}
 
 int	check_moves_before_push(t_stacks *stacks, int rank_of_first_b_node)
 {

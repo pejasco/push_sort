@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:39:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 18:27:56 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:59:48 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_4(t_stacks *stacks)
+void	sort_4_push_b(t_stacks *stacks)
 {
 	t_list	*rank_one;
 
@@ -36,6 +36,14 @@ void	sort_4(t_stacks *stacks)
 		reverse_a(&(stacks->stack_a), 1);
 		push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
 	}
+}
+
+void	sort_4_mgt(t_stacks *stacks)
+{
+	sort_4(stacks);
+	mini_sort(stacks);
+
+
 }
 
 void	sort_5_op_pt2(t_stacks *stacks, int rank)
@@ -120,6 +128,7 @@ void sort_5(t_stacks *stacks)
 	auto_push_a(&(stacks->stack_a), &(stacks->stack_b), 2, 1);
 }
 */
+
 
 void	small_sort(t_stacks *stack)
 {
