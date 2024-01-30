@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/29 17:12:53 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:03:33 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ typedef struct s_stacks
 	t_list		*stack_b;
 	int			nbr_of_args;
 }	t_stacks;
+
+typedef struct s_qs_stats
+{
+	int high;
+	int low;
+	int med;
+	int rotate;
+	int push;
+}	t_qs_stats;
 
 typedef struct s_stat
 {
@@ -160,12 +169,17 @@ void		auto_push_b(t_list **stack_a, t_list **stack_b, \
 			int no_of_time, int print);
 void		mini_sort_rev(t_list **stack_a, t_list **stack_b);
 
+/*
 //small_sort.c
 void		sort_5_op_pt2(t_stacks *stacks, int rank);
 void		sort_5_op(t_stacks *stacks);
 void		sort_4(t_stacks *stacks);
 void		sort_5(t_stacks *stacks);
 void		small_sort(t_stacks *stack);
+*/
+
+//sort_five.c
+void 		sort_five(t_stacks *stacks);
 
 //small_sort_utili.c
 int			check_moves_before_push(t_stacks *stacks, int rank_of_first_b_node);

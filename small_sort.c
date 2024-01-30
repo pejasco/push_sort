@@ -6,10 +6,11 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 13:39:16 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/29 22:59:48 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:39:20 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "push_swap.h"
 
 void	sort_4_push_b(t_stacks *stacks)
@@ -129,7 +130,7 @@ void sort_5(t_stacks *stacks)
 }
 */
 
-
+/*
 void	small_sort(t_stacks *stack)
 {
 	int	count;
@@ -141,3 +142,4 @@ void	small_sort(t_stacks *stack)
 		sort_5(stack);
 	return ;
 }
+*/

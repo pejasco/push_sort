@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/29 20:58:02 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:10:12 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 
 void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 {
-	int		high;
-	int		low;
-	int		root;
-
+	t_qs_stats	*stats
+	
 	stacks->nbr_of_args = nbr_of_args;
 	if ((if_stack_a_sorted(&(stacks->stack_a))))
 		return ;
@@ -28,67 +26,65 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 		mini_sort(&(stacks->stack_a));
 		return ;
 	}
-	if (nbr_of_args == 4 || nbr_of_args == 5)
+	if (nbr_of_args == 5)
 	{
-		small_sort(stacks);
+		sort_five(stacks);
 		return ;
 	}
-	high = max_in_rank(&(stacks->stack_a));
-	low = min_in_rank(&(stacks->stack_a));
-	//printf("min:%d\n", low);
-	//printf("max:%d\n", high);
-	quicksort(stacks, low, high, 'a');
+	stats->high = max_in_rank(&(stacks->stack_a));
+	stats->low = min_in_rank(&(stacks->stack_a));
+	quicksort(stacks, stats, 'a');
 	return ;
 }
 
-void    quicksort(t_stacks *stacks, int low, int high, char from)
+void	quicksort(t_stacks *stacks, int low, int high, char from)
 {
-	int	med;
-	int	i;
-	int	rotate;
-	int	push;
+	t_qs_stats	*stats;
+	int			i;
 
-	med = (low + high + 1) / 2;
+	stats->med = (low + high + 1) / 2;
 	i = low;
-	rotate = 0;
-	push = 0;
+	stats->rotate = 0;
+	stats->push = 0;
 	if (low > high || (low == high && from == 'a'))
 		return ;
-	while (i <= high && push <= (high - low) / 2 && (high - low > 1 || from == 'b'))
+	while (i <= high && push <= (high - low) / 2 \
+		&& (high - low > 1 || from == 'b'))
 	{
-		if (from == 'a' && stacks->stack_a->rank < med)
+		if (from == 'a' && stacks->stack_a->rank < (stats->med))
 		{
 			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
-			push++;
+			(stats->push)++;
 		}
-		else if (from == 'a' && stacks->stack_a->rank >= med)
+		else if (from == 'a' && stacks->stack_a->rank >= (stats->med))
 		{
 			rotate_a(&(stacks->stack_a), 1);
-			rotate++;
+			(stats->rotate)++;
 		}
-		else if (from == 'b' && stacks->stack_b->rank >= med)
+		else if (from == 'b' && stacks->stack_b->rank >= (stats->med))
 		{
 			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
-			push++;
+			(stats->push)++;
 		}
-		else if (from == 'b' && stacks->stack_b->rank < med)
+		else if (from == 'b' && stacks->stack_b->rank < (stats->med))
 		{
 			rotate_b(&(stacks->stack_b), 1);
-			rotate++;
+			(stats->rotate)++;
 		}
 		i++;
 	}
-	if ((high - low) == 1  && (stacks->stack_a->rank) > (stacks->stack_a->next->rank))
+	if ((high - low) == 1 && (stacks->stack_a->rank) \
+		> (stacks->stack_a->next->rank))
 		swap_a(&(stacks->stack_a), 1);
-	while (rotate-- && !(low == 1 || high == (stacks->nbr_of_args)))
+	while ((stats->rotate)-- && !(low == 1 || high == (stacks->nbr_of_args)))
 	{
 		if (from == 'a')
 			reverse_a(&(stacks->stack_a), 1);
 		else
 			reverse_b(&(stacks->stack_b), 1);
 	}
-	quicksort(stacks, med, high, 'a');
-	quicksort(stacks, low, (med - 1), 'b');
+	quicksort(stacks, (stats->med), high, 'a');
+	quicksort(stacks, low, ((stats->med) - 1), 'b');
 }
 
 /*

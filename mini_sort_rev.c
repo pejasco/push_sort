@@ -73,8 +73,8 @@ void	auto_push_a(t_list **stack_a, t_list **stack_b
 	while (i < no_of_time)
 	{
 		push_a(stack_a, stack_b, print);
+		i++;
 	}
-	i++;
 }
 
 void	auto_push_b(t_list **stack_a, t_list **stack_b
@@ -86,8 +86,8 @@ void	auto_push_b(t_list **stack_a, t_list **stack_b
 	while (i < no_of_time)
 	{
 		push_b(stack_a, stack_b, print);
+		i++;
 	}
-	i++;
 }
 
 void	mini_sort_rev(t_list **stack_a, t_list **stack_b)
