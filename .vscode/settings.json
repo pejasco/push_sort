@@ -2,6 +2,7 @@
     "files.associations": {
         "push_swap.h": "c",
         "type_traits": "c",
-        "quicksort-5300": "c"
+        "quicksort-5300": "c",
+        "math.h": "c"
     }
 }

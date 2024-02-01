@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quicksort-5300                                     :+:      :+:    :+:   */
+/*   quicksort-5300 dailo                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/01/30 17:10:11 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/01 23:27:55 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 }	t_stac;
 */
 
-void    quicksort(t_stac *sts, t_qs_stats stats, char from, int push)
+void    quicksort(t_stac *sts, int low, int high, char from, int push)
 {
 	int	med;
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/30 17:03:33 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/01 23:27:52 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_qs_stats
 	int low;
 	int med;
 	int rotate;
-	int push;
 }	t_qs_stats;
 
 typedef struct s_stat
@@ -189,6 +188,9 @@ void		auto_reverse_a(t_list **stack_a, int no_of_time, int print);
 
 //quicksort.c
 void		sort_mgt(t_stacks *stacks, int nbr_of_args);
-void    	quicksort(t_stacks *stacks, int low, int high, char from);
+void    	quicksort(t_stacks *stacks, t_qs_stats *stats, char from, int push);
+
+//void    	quicksort(t_stacks *stacks, int low, int high, char from);
+//void    	quicksort(t_stacks *stacks, int low, int high, char from);
 
 #endif
