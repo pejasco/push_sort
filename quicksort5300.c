@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/02/01 23:50:24 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/02 17:24:56 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 {
 	t_qs_stats	*stats;
-	
+
+	stats = malloc(sizeof(t_qs_stats));
+	if (stats == NULL)
+		return;
 	stacks->nbr_of_args = nbr_of_args;
 	if ((if_stack_a_sorted(&(stacks->stack_a))))
 		return ;
@@ -34,51 +37,69 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 	stats->high = max_in_rank(&(stacks->stack_a));
 	stats->low = min_in_rank(&(stacks->stack_a));
 	quicksort(stacks, stats, 'a', 0);
+	free(stats);
 	return ;
 }
 
 void	quicksort(t_stacks *stacks, t_qs_stats *stats, char from, int push)
 {
-	int med;
 	int	i;
 	int rotate;
 	int new_push;
-	
-	med = (stats->low + stats->high + 1) / 2;
+
+
+	stats->med = (stats->low + stats->high + 1) / 2;
 	i = stats->low;
 	rotate = 0;
 	if (stats->low > stats->high || (stats->low == stats->high && from == 'a'))
 		return ;
-	while (i <= (stats->high) && push <= (stats->high - stats->low) / 2 && (stats->high - stats->low > 1 || from == 'b'))
+	while (i <= (stats->high) && push <= (stats->high - stats->low) / 2 
+			&& (stats->high - stats->low > 1 || from == 'b'))
 	{
-		if (from == 'a' && stacks->stack_a->rank < med)
+		if (from == 'a' && stacks->stack_a->rank < stats->med)
 		{
 			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
 			push++;
 		}
-		else if (from == 'a' && stacks->stack_a->rank >= med)
+		else if (from == 'a' && stacks->stack_a->rank >= stats->med)
 		{
 			rotate_a(&(stacks->stack_a), 1);
 			rotate++;
 		}
-		else if (from == 'b' && stacks->stack_b->rank >= med)
+		else if (from == 'b' && stacks->stack_b->rank >= stats->med)
 		{
-			push_a(from == 'b')
-
+			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
+			push++;
 		}
-
-
-
-
-
+		else if (from == 'b' && stacks->stack_b->rank < stats->med)
+		{
+			rotate_b(&(stacks->stack_b), 1);
+			rotate++;
+		}
+		i++;
 	}
-
-
-
-
-
-
-
+	if (stats->high - (stats->low) == 1 
+		&& ((stacks->stack_a->rank) > (stacks->stack_a->next->rank)))
+		swap_a(&(stacks->stack_a), 1);
+	new_push = 0;
+	while ((rotate)-- && !(stats->low == 0 
+		|| stats->high == (stacks->nbr_of_args)))
+	{
+		if (stats->high - stats->med > 0 && from == 'a')
+		{
+			while ((stacks->stack_a->rank) < (stats->high + stats->med + 1) / 2)
+			{
+				push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
+				new_push++;
+			}
+		}
+		if (from == 'a')
+			reverse_a(&(stacks->stack_a), 1);
+		else
+			reverse_b(&(stacks->stack_b), 1);
+	}
+	quicksort(stacks, &(t_qs_stats){stats->med, stats->high, stats->med}, 'a', new_push);
+	quicksort(stacks, &(t_qs_stats){stats->low, stats->med, stats->med}, 'b', 0);
 }
 
 

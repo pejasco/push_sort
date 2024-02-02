@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/01 23:27:52 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:49:35 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ typedef struct s_stacks
 
 typedef struct s_qs_stats
 {
-	int high;
-	int low;
-	int med;
-	int rotate;
+	int		med;
+	int		high;
+	int		low;
 }	t_qs_stats;
 
 typedef struct s_stat
