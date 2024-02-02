@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/02 15:49:35 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:59:28 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ void		auto_reverse_a(t_list **stack_a, int no_of_time, int print);
 
 //quicksort.c
 void		sort_mgt(t_stacks *stacks, int nbr_of_args);
-void    	quicksort(t_stacks *stacks, t_qs_stats *stats, char from, int push);
+void		quicksort(t_stacks *stacks, t_qs_stats stats, char from);
 
 //void    	quicksort(t_stacks *stacks, int low, int high, char from);
 //void    	quicksort(t_stacks *stacks, int low, int high, char from);

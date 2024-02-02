@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/02/02 17:24:56 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:17:18 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@
 
 void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 {
-	t_qs_stats	*stats;
+	int			high;
+	int			low;
+	t_qs_stats	stats; // 0x55555555
 
-	stats = malloc(sizeof(t_qs_stats));
-	if (stats == NULL)
-		return;
 	stacks->nbr_of_args = nbr_of_args;
 	if ((if_stack_a_sorted(&(stacks->stack_a))))
 		return ;
@@ -34,13 +33,68 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 		sort_five(stacks);
 		return ;
 	}
-	stats->high = max_in_rank(&(stacks->stack_a));
-	stats->low = min_in_rank(&(stacks->stack_a));
-	quicksort(stacks, stats, 'a', 0);
-	free(stats);
+	stats.high = max_in_rank(&(stacks->stack_a));
+	stats.low = min_in_rank(&(stacks->stack_a));
+	quicksort(stacks, stats, 'a');
 	return ;
 }
 
+
+
+void    quicksort(t_stacks *stacks, t_qs_stats stats, char from)
+{
+	int	med;
+	int	i;
+	int	rotate;
+	int	push;
+
+	med = (stats.low + stats.high + 1) / 2;
+	i = stats.low;
+	rotate = 0;
+	push = 0;
+	if (stats.low > stats.high || (stats.low == stats.high && from == 'a'))
+		return ;
+	while (i <= stats.high && push <= (stats.high - stats.low) / 2 && (stats.high - stats.low > 1 || from == 'b'))
+	{
+		if (from == 'a' && stacks->stack_a->rank < med)
+		{
+			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
+			push++;
+		}
+		else if (from == 'a' && stacks->stack_a->rank >= med)
+		{
+			rotate_a(&(stacks->stack_a), 1);
+			rotate++;
+		}
+		else if (from == 'b' && stacks->stack_b->rank >= med)
+		{
+			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
+			push++;
+		}
+		else if (from == 'b' && stacks->stack_b->rank < med)
+		{
+			rotate_b(&(stacks->stack_b), 1);
+			rotate++;
+		}
+		i++;
+	}
+	if ((stats.high - stats.low) == 1  && (stacks->stack_a->rank) > (stacks->stack_a->next->rank))
+		swap_a(&(stacks->stack_a), 1);
+	while (rotate-- && !(stats.low == 1 || stats.high == (stacks->nbr_of_args)))
+	{
+		if (from == 'a')
+			reverse_a(&(stacks->stack_a), 1);
+		else
+			reverse_b(&(stacks->stack_b), 1);
+	}
+
+	quicksort(stacks, (t_qs_stats){.low = med, .high = stats.high},'a');
+	quicksort(stacks, (t_qs_stats){.low = stats.low, .high = (med - 1)}, 'b');
+}
+
+
+
+/*
 void	quicksort(t_stacks *stacks, t_qs_stats *stats, char from, int push)
 {
 	int	i;
@@ -98,9 +152,10 @@ void	quicksort(t_stacks *stacks, t_qs_stats *stats, char from, int push)
 		else
 			reverse_b(&(stacks->stack_b), 1);
 	}
-	quicksort(stacks, &(t_qs_stats){stats->med, stats->high, stats->med}, 'a', new_push);
-	quicksort(stacks, &(t_qs_stats){stats->low, stats->med, stats->med}, 'b', 0);
+	quicksort(stacks, (t_qs_stats){stats->med, stats->high, stats->med}, 'a', new_push);
+	quicksort(stacks, (t_qs_stats){stats->low, stats->med, stats->med}, 'b', 0);
 }
+*/
 
 
 
@@ -272,59 +327,62 @@ void	quicksort(t_stacks *stacks, int low, int high, char from)
 	quicksort(stacks, low, ((low + high + 1) / 2 - 1), 'b');
 }
 */
-/*
-void    quicksort(t_stacks *stacks, int low, int high, char from)
-{
-	int		med;
-	int		i;
-	int		rotate;
-	int		push;
 
-	med = (low + high + 1) / 2;
-	i = low;
-	rotate = 0;
-	push = 0;
-	if (low > high || (low == high && from == 'a'))
-		return ;
-	while (i <= high && push <= (high - low) / 2 
-		&& (high - low > 1 || from == 'b'))
-	{
-		if (from == 'a' && stacks->stack_a->rank < med)
-		{
-			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
-			push++;
-		}
-		else if (from == 'a' && stacks->stack_a->rank >= med)
-		{
-			rotate_a(&(stacks->stack_a), 1);
-			rotate++;
-		}
-		else if (from == 'b' && stacks->stack_b->rank >= med)
-		{
-			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
-			push++;
-		}
-		else if (from == 'b' && stacks->stack_b->rank < med)
-		{
-			rotate_b(&(stacks->stack_b), 1);
-			rotate++;
-		}
-		i++;
-	}
-	if ((high - low) == 1  && (stacks->stack_a->rank) 
-		> (stacks->stack_a->next->rank))
-		swap_a(&(stacks->stack_a), 1);
-	while (rotate-- && !(low == 1 || high == (stacks->nbr_of_args)))
-	{
-		if (from == 'a')
-			reverse_a(&(stacks->stack_a), 1);
-		else
-			reverse_b(&(stacks->stack_b), 1);
-	}
-	quicksort(stacks, med, high, 'a');
-	quicksort(stacks, low, (med - 1), 'b');
-}
-*/
+
+
+
+// void    quicksort(t_stacks *stacks, int low, int high, char from)
+// {
+// 	int		med;
+// 	int		i;
+// 	int		rotate;
+// 	int		push;
+
+// 	med = (low + high + 1) / 2;
+// 	i = low;
+// 	rotate = 0;
+// 	push = 0;
+// 	if (low > high || (low == high && from == 'a'))
+// 		return ;
+// 	while (i <= high && push <= (high - low) / 2 
+// 		&& (high - low > 1 || from == 'b'))
+// 	{
+// 		if (from == 'a' && stacks->stack_a->rank < med)
+// 		{
+// 			push_b(&(stacks->stack_a), &(stacks->stack_b), 1);
+// 			push++;
+// 		}
+// 		else if (from == 'a' && stacks->stack_a->rank >= med)
+// 		{
+// 			rotate_a(&(stacks->stack_a), 1);
+// 			rotate++;
+// 		}
+// 		else if (from == 'b' && stacks->stack_b->rank >= med)
+// 		{
+// 			push_a(&(stacks->stack_a), &(stacks->stack_b), 1);
+// 			push++;
+// 		}
+// 		else if (from == 'b' && stacks->stack_b->rank < med)
+// 		{
+// 			rotate_b(&(stacks->stack_b), 1);
+// 			rotate++;
+// 		}
+// 		i++;
+// 	}
+// 	if ((high - low) == 1  && (stacks->stack_a->rank) 
+// 		> (stacks->stack_a->next->rank))
+// 		swap_a(&(stacks->stack_a), 1);
+// 	while (rotate-- && !(low == 1 || high == (stacks->nbr_of_args)))
+// 	{
+// 		if (from == 'a')
+// 			reverse_a(&(stacks->stack_a), 1);
+// 		else
+// 			reverse_b(&(stacks->stack_b), 1);
+// 	}
+// 	quicksort(stacks, med, high, 'a');
+// 	quicksort(stacks, low, (med - 1), 'b');
+// }
+
 /*
 void    quicksort_old(t_stacks *stacks, 
 	int low, int high, char from, int pa_count)
