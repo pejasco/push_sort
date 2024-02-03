@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 16:15:02 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:34:38 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,42 @@ int	*input_mgt(int argc, char **argv)
 
 	if (argc == 1 || (argc == 2 && !argv[1][0]) || !input_ctrl(argv))
 	{
-		printf("Error - Invalid Input(s) T-T\n");
+		write(1, "Error\n", 6);
 		return (NULL);
 	}
 	if (!limit_ctrl(argv))
 	{
-		printf("Error - Input(s) Over Int Limit T-T\n");
+		write(1, "Error\n", 6);
 		return (NULL);
 	}
 	arry_of_ints = ft_arry_of_ints(argc, argv);
 	if (!dupli_ctrl(argc, arry_of_ints))
 	{
-		printf("Error - Duplicate Inputs T-T\n");
+		write(1, "Error\n", 6);
 		return (NULL);
 	}
 	return (arry_of_ints);
 }
 
+int	main(int argc, char **argv)
+{
+	t_stacks		stacks;
+	t_list			*a_copy;
+	int				*arry_of_ints;
+
+	stacks.stack_a = NULL;
+	stacks.stack_b = NULL;
+	arry_of_ints = input_mgt(argc, argv);
+	if (arry_of_ints == NULL)
+		return (1);
+	init_stack_a(&(stacks.stack_a), arry_of_ints);
+	a_copy = copy_init_a(&(stacks.stack_a));
+	a_copy = rank_in_stack(&a_copy);
+	rank_from_copy_a_to_a(&(stacks.stack_a), &a_copy);
+	sort_mgt(&stacks, (argc -1));
+}
+
+/*
 void	print_list_rank(char stackname, t_list **stack)
 {
 	t_list	*temp;
@@ -102,6 +121,7 @@ void	print_list(char stackname, t_list **stack)
 	printf("----\n");
 	printf("%c\n\n", stackname);
 }
+*/
 /*
 void stack_mgt(t_list **stack_a, t_list **stack_b)
 {
@@ -126,24 +146,6 @@ void stack_mgt(t_list **stack_a, t_list **stack_b)
 	reverse_anb(stack_a, stack_b);
 }
 */
-
-int	main(int argc, char **argv)
-{
-	t_stacks		stacks;
-	t_list			*a_copy;
-	int				*arry_of_ints;
-
-	stacks.stack_a = NULL;
-	stacks.stack_b = NULL;
-	arry_of_ints = input_mgt(argc, argv);
-	if (arry_of_ints == NULL)
-		return (1);
-	init_stack_a(&(stacks.stack_a), arry_of_ints);
-	a_copy = copy_init_a(&(stacks.stack_a));
-	a_copy = rank_in_stack(&a_copy);
-	rank_from_copy_a_to_a(&(stacks.stack_a), &a_copy);
-	sort_mgt(&stacks, (argc -1));
-}
 
 /*
 	//print_list('a', &a);

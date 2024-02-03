@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:20:03 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 16:17:07 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:19:07 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	push_a(t_list **stack_a, t_list **stack_b, int print)
 	tail_of_a = push(tail_of_a, nbr, rank);
 	*stack_a = tail_of_a->next;
 	if (print == 1)
-		printf("pa\n");
+		write(1, "pa\n", 3);
 }
 
 void	push_b(t_list **stack_a, t_list **stack_b, int print)
@@ -59,7 +59,7 @@ void	push_b(t_list **stack_a, t_list **stack_b, int print)
 	tail_of_b = push(tail_of_b, nbr, rank);
 	*stack_b = tail_of_b->next;
 	if (print == 1)
-		printf("pb\n");
+		write(1, "pb\n", 3);
 }
 
 // void push_b(t_list **stack_a, t_list **stack_b, int print) XXXX

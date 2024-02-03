@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:05:57 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 14:28:36 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:22:00 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void swap_a(t_list **stack_a, int print)
 	(*stack_a)->next = temp;
 	temp->prev = (*stack_a);
 	if (print == 1)
-		printf("sa\n");
+		write(1, "sa\n", 3);
 }
 
 void swap_b(t_list **stack_b, int print)
@@ -49,7 +49,7 @@ void swap_b(t_list **stack_b, int print)
 	(*stack_b)->next = temp;
 	temp->prev = (*stack_b);
 	if (print == 1)
-		printf("sb\n");
+		write(1, "sb\n", 3);
 }
 
 void swap_anb(t_list **stack_a, t_list **stack_b, int print)
@@ -61,5 +61,5 @@ void swap_anb(t_list **stack_a, t_list **stack_b, int print)
 	swap_a(stack_a, 0);
 	swap_b(stack_b, 0);
 	if (print == 1)
-		printf("ss\n");
+		write(1, "ss\n", 3);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:59:04 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 18:33:49 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:29:53 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	items_in_chunk(int nbr_of_nodes, int current_i, int root)
 			nbr_of_nodes = (nbr_of_nodes / 2);
 			i++;
 		}
-		printf("items_in_chunk---->%d\n", nbr_of_nodes);
 		return (nbr_of_nodes);
 	}
 	while (i < current_i)
@@ -59,7 +58,6 @@ int	items_in_chunk(int nbr_of_nodes, int current_i, int root)
 		nbr_of_nodes = (nbr_of_nodes / 2);
 		i++;
 	}
-	printf("items_in_chunk---->%d\n", nbr_of_nodes);
 	return (nbr_of_nodes);
 }
 

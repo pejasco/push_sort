@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:20:33 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 18:04:38 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:28:01 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reverse_a(t_list **stack_a, int print)
 		return ;
 	*stack_a = (*stack_a)->prev;
 	if (print == 1)
-		printf("rra\n");
+		write(1, "rra\n", 4);
 }
 
 void	reverse_b(t_list **stack_b, int print)
@@ -27,7 +27,7 @@ void	reverse_b(t_list **stack_b, int print)
 		return ;
 	*stack_b = (*stack_b)->prev;
 	if (print == 1)
-		printf("rrb\n");
+		write(1, "rrb\n", 4);
 }
 
 void	reverse_anb(t_list **stack_a, t_list **stack_b, int print)
@@ -38,5 +38,5 @@ void	reverse_anb(t_list **stack_a, t_list **stack_b, int print)
 	reverse_a(stack_a, 0);
 	reverse_b(stack_a, 0);
 	if (print == 1)
-		printf("rrr\n");
+		write(1, "rrr\n", 4);
 }

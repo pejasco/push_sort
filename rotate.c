@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Scofield <Scofield@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 13:19:51 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/28 18:15:48 by Scofield         ###   ########.fr       */
+/*   Updated: 2024/02/03 00:20:32 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate_a(t_list **stack_a, int print)
 		return ;
 	*stack_a = (*stack_a)->next;
 	if (print == 1)
-		printf("ra\n");
+		write(1, "ra\n", 3);
 }
 
 void	rotate_b(t_list **stack_b, int print)
@@ -27,7 +27,7 @@ void	rotate_b(t_list **stack_b, int print)
 		return ;
 	*stack_b = (*stack_b)->next;
 	if (print == 1)
-		printf("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	rotate_anb(t_list **stack_a, t_list **stack_b, int print)
@@ -38,5 +38,5 @@ void	rotate_anb(t_list **stack_a, t_list **stack_b, int print)
 	rotate_a(stack_a, 0);
 	rotate_b(stack_b, 0);
 	if (print == 1)
-		printf("rr\n");
+		write(1, "rr\n", 3);
 }

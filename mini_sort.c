@@ -51,9 +51,7 @@ void sort_2_rank(t_list **stack, int rank_exist)
 		return ;
 	i = 0;
 	max = max_in_stack(stack);
-	printf("max--->%d\n", max);
 	min = min_in_stack(stack);
-	printf("min--->%d\n", min);
 	current = *stack;
 	while (i < 2)
 	{
@@ -77,9 +75,7 @@ void sort_3_rank(t_list **stack, int rank_exist)
 		return ;
 	i = 0;
 	max = max_in_stack(stack);
-	printf("max--->%d\n", max);
 	min = min_in_stack(stack);
-	printf("min--->%d\n", min);
 	current = *stack;
 	while (i < 2)
 	{
