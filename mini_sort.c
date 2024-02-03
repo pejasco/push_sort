@@ -12,40 +12,40 @@
 
 #include "push_swap.h"
 
-void sort_3_algo(t_list **stack, t_list **fir_node, 
+void	sort_3_algo(t_list **stack, t_list **fir_node,
 		t_list **sec_node, t_list **thi_node)
 {
 	if (((*thi_node)->rank > (*fir_node)->rank)
-			&& (*fir_node)->rank > (*sec_node)->rank)
+		&& (*fir_node)->rank > (*sec_node)->rank)
 		swap_a(stack, 1);
 	else if (((*fir_node)->rank > (*sec_node)->rank)
-			&& (*sec_node)->rank > (*thi_node)->rank)
+		&& (*sec_node)->rank > (*thi_node)->rank)
 	{
 		rotate_a(stack, 1);
 		swap_a(stack, 1);
 	}
 	else if (((*fir_node)->rank > (*thi_node)->rank)
-			&& (*thi_node)->rank > (*sec_node)->rank)
+		&& (*thi_node)->rank > (*sec_node)->rank)
 		rotate_a(stack, 1);
 	else if (((*sec_node)->rank > (*thi_node)->rank)
-			&& (*thi_node)->rank > (*fir_node)->rank)
-	{    
+		&& (*thi_node)->rank > (*fir_node)->rank)
+	{
 		swap_a(stack, 1);
 		rotate_a(stack, 1);
 	}
 	else if (((*sec_node)->rank > (*fir_node)->rank)
-			&& (*fir_node)->rank > (*thi_node)->rank)
+		&& (*fir_node)->rank > (*thi_node)->rank)
 		reverse_a(stack, 1);
 	else
 		return ;
 }
 
-void sort_3_rank(t_list **stack, int rank_exist)
+void	sort_3_rank(t_list **stack, int rank_exist)
 {
-	int     max;
-	int     min;
-	int     i;
-	t_list    *current;
+	int		max;
+	int		min;
+	int		i;
+	t_list	*current;
 
 	if (rank_exist == 1)
 		return ;
@@ -66,24 +66,24 @@ void sort_3_rank(t_list **stack, int rank_exist)
 	}
 }
 
-void sort_3(t_list **stack)
+void	sort_3(t_list **stack)
 {
-	t_list    *fir_node;
-	t_list    *sec_node;
-	t_list    *thi_node;
-	int     exist_res;
+	t_list		*fir_node;
+	t_list		*sec_node;
+	t_list		*thi_node;
+	int			exist_res;
 
 	exist_res = rank_exist(stack);
 	sort_3_rank(stack, exist_res);
-	fir_node = *stack; 
+	fir_node = *stack;
 	sec_node = (*stack)->next;
 	thi_node = (*stack)->next->next;
 	sort_3_algo(stack, &fir_node, &sec_node, &thi_node);
 }
 
-void mini_sort(t_list **stack)
+void	mini_sort(t_list **stack)
 {
-	int     count;
+	int	count;
 
 	count = count_in_stack(stack);
 	if (count <= 1 || count > 3)

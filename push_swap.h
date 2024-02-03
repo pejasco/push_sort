@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/03 20:40:31 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:24:56 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ typedef struct s_qs_stats
 	char	from;
 }	t_qs_stats;
 
-
 //dupli_ctrl.c
 int			dupli_ctrl(int argc, int *arry_of_ints);
 
@@ -69,9 +68,9 @@ void		swap_anb(t_list **stack_a, t_list **stack_b, int print);
 // push.c
 void		push_a(t_list **stack_a, t_list **stack_b, int print);
 void		push_b(t_list **stack_a, t_list **stack_b, int print);
-void		auto_push_a(t_list **stack_a, t_list **stack_b, 
+void		auto_push_a(t_list **stack_a, t_list **stack_b,
 				int no_of_time, int print);
-void		auto_push_b(t_list **stack_a, t_list **stack_b, 
+void		auto_push_b(t_list **stack_a, t_list **stack_b,
 				int no_of_time, int print);
 
 // rotate.c
@@ -104,22 +103,18 @@ int			rank_exist(t_list **stack);
 int			max_in_rank(t_list **stack);
 int			min_in_rank(t_list **stack);
 
-
 //mini_sort.c
 void		sort_3(t_list **stack);
 void		mini_sort(t_list **stack);
 
 //sort_2.c
-void 		sort_2(t_list **stack);
+void		sort_2(t_list **stack);
 
 //sort_5.c
-void 		sort_5(t_stacks *stacks);
+void		sort_5(t_stacks *stacks);
 
 //quicksort.c
 void		sort_mgt(t_stacks *stacks, int nbr_of_args);
 void		quicksort(t_stacks *stacks, t_qs_stats stats);
-
-
-
 
 #endif

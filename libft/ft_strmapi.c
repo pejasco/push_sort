@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 15:59:32 by chuleung          #+#    #+#             */
-/*   Updated: 2023/11/13 14:27:44 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:40:25 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 char	ft_toupperft(unsigned int index, char c)
 {
 	if (!(index % 2))
-	{		
+	{
 		if (c >= 'a' && c <= 'z')
 			c -= 32;
 		index++;

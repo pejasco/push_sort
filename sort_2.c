@@ -6,17 +6,17 @@
 /*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 19:55:51 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/03 19:59:43 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:19:38 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_2_rank(t_list **stack, int rank_exist)
+void	sort_2_rank(t_list **stack, int rank_exist)
 {
-	int     max;
-	int     min;
-	int     i;
+	int		max;
+	int		min;
+	int		i;
 	t_list	*current;
 
 	if (rank_exist == 1)
@@ -36,12 +36,12 @@ void sort_2_rank(t_list **stack, int rank_exist)
 	}
 }
 
-void sort_2(t_list **stack)
+void	sort_2(t_list **stack)
 {
-	int     exist_res;
+	int	exist_res;
 
 	exist_res = rank_exist(stack);
 	sort_2_rank(stack, exist_res);
-	if((*stack)->rank > (*stack)->next->rank)
+	if ((*stack)->rank > (*stack)->next->rank)
 		swap_a(stack, 1);
 }

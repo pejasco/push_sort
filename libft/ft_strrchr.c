@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:29:23 by chuleung          #+#    #+#             */
-/*   Updated: 2023/11/13 17:56:38 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:40:27 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strrchr(const char*s, int c)
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
-	}	
+	}
 	return (NULL);
 }
 

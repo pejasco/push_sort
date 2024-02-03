@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/03 20:40:19 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 23:15:06 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_list	*copy_init_a(t_list **stack)
 	while (tail_of_stack_a != stack_a)
 	{
 		tail_of_copy_a = append(tail_of_copy_a,
-			tail_of_stack_a->data, stack_a->rank);
+				tail_of_stack_a->data, stack_a->rank);
 		tail_of_stack_a = tail_of_stack_a->next;
 	}
 	return (copy_of_a);
@@ -191,23 +191,4 @@ void stack_mgt(t_list **stack_a, t_list **stack_b)
 	reverse_b(stack_b);
 	reverse_anb(stack_a, stack_b);
 }
-*/
-
-/*
-	//print_list('a', &a);
-	//print_list_rank('a', &a);
-	//sort_mgt_a_to_b(&(stacks->stack_a), &(stacks->stack_b), (argc-1));
-	//print_list('A', &(stacks.stack_a));
-	//print_list_rank('A', &(stacks.stack_a));
-	// print_list('B', &(stacks.stack_b));
-	// print_list_rank('B', &(stacks.stack_b));
-	/*test_tail = tail_find(&a);
-	if (test_tail == NULL)
-		return (0);
-	else
-	{
-		test = test_tail->data;
-		printf("%d", test);
-	}
-	return (0);
 */

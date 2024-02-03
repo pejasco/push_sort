@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 19:41:33 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/03 19:55:19 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 22:25:21 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,10 @@ int	min_in_rank(t_list **stack)
 	return (min);
 }
 
-int rank_exist(t_list **stack)
+int	rank_exist(t_list **stack)
 {
 	if ((*stack)->rank > -1)
 		return (1);
 	else
 		return (0);
 }
-

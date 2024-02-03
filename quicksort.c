@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/02/03 19:35:59 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 23:17:01 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 {
-	int			high;
-	int			low;
 	t_qs_stats	stats;
 
 	stacks->nbr_of_args = nbr_of_args;
@@ -66,7 +64,7 @@ void	quick_op(t_stacks *stacks, t_qs_stats *stats, char c)
 
 void	qs_algo(t_stacks *stacks, t_qs_stats *stats, int med)
 {
-	if ((stats->high - stats->low) == 1 && (stacks->stack_a->rank) \
+	if ((stats->high - stats->low) == 1 && (stacks->stack_a->rank)
 		> (stacks->stack_a->next->rank))
 		swap_a(&(stacks->stack_a), 1);
 	while (stats->rotate-- && !(stats->low == 1 \
@@ -77,9 +75,9 @@ void	qs_algo(t_stacks *stacks, t_qs_stats *stats, int med)
 		else
 			reverse_b(&(stacks->stack_b), 1);
 	}
-	quicksort(stacks, (t_qs_stats){.low = med, \
+	quicksort(stacks, (t_qs_stats){.low = med,
 		.high = stats->high, .from = 'a'});
-	quicksort(stacks, (t_qs_stats){.low = stats->low, \
+	quicksort(stacks, (t_qs_stats){.low = stats->low,
 		.high = (med - 1), .from = 'b'});
 }
 
@@ -92,10 +90,10 @@ void	quicksort(t_stacks *stacks, t_qs_stats stats)
 	stats.rotate = 0;
 	med = (stats.low + stats.high + 1) / 2;
 	i = stats.low;
-	if (stats.low > stats.high || (stats.low == stats.high \
-		&& stats.from == 'a'))
+	if (stats.low > stats.high || (stats.low == stats.high
+			&& stats.from == 'a'))
 		return ;
-	while (i <= stats.high && stats.push <= (stats.high - stats.low) / 2 \
+	while (i <= stats.high && stats.push <= (stats.high - stats.low) / 2
 		&& (stats.high - stats.low > 1 || stats.from == 'b'))
 	{
 		if (stats.from == 'a' && stacks->stack_a->rank < med)
