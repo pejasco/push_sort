@@ -40,30 +40,6 @@ void sort_3_algo(t_list **stack, t_list **fir_node,
 		return ;
 }
 
-void sort_2_rank(t_list **stack, int rank_exist)
-{
-	int     max;
-	int     min;
-	int     i;
-	t_list    *current;
-
-	if (rank_exist == 1)
-		return ;
-	i = 0;
-	max = max_in_stack(stack);
-	min = min_in_stack(stack);
-	current = *stack;
-	while (i < 2)
-	{
-		if (current->data == max)
-			(current)->rank = 1;
-		if (current->data == min)
-			(current)->rank = 0;
-		current = current->next;
-		i++;
-	}
-}
-
 void sort_3_rank(t_list **stack, int rank_exist)
 {
 	int     max;
@@ -88,24 +64,6 @@ void sort_3_rank(t_list **stack, int rank_exist)
 		current = current->next;
 		i++;
 	}
-}
-
-int rank_exist(t_list **stack)
-{
-	if ((*stack)->rank > -1)
-		return (1);
-	else
-		return (0);
-}
-
-void sort_2(t_list **stack)
-{
-	int     exist_res;
-
-	exist_res = rank_exist(stack);
-	sort_2_rank(stack, exist_res);
-	if((*stack)->rank > (*stack)->next->rank)
-		swap_a(stack, 1);
 }
 
 void sort_3(t_list **stack)

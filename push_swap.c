@@ -3,14 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/03 00:34:38 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 20:40:19 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_list	*copy_init_a(t_list **stack)
+{
+	t_list	*stack_a;
+	t_list	*copy_of_a;
+	t_list	*tail_of_stack_a;
+	t_list	*tail_of_copy_a;
+
+	if ((*stack) == NULL || stack == NULL)
+		return (NULL);
+	tail_of_stack_a = NULL;
+	tail_of_copy_a = NULL;
+	stack_a = *stack;
+	tail_of_copy_a = append(tail_of_copy_a, stack_a->data, stack_a->rank);
+	copy_of_a = tail_of_copy_a;
+	tail_of_stack_a = stack_a->next;
+	while (tail_of_stack_a != stack_a)
+	{
+		tail_of_copy_a = append(tail_of_copy_a,
+			tail_of_stack_a->data, stack_a->rank);
+		tail_of_stack_a = tail_of_stack_a->next;
+	}
+	return (copy_of_a);
+}
+
+t_list	*init_stack_a(t_list **ptr_to_stack, int *arry_of_ints)
+{
+	int		i;
+	t_list	*tail;
+
+	i = 1;
+	if (arry_of_ints == NULL)
+		return (NULL);
+	tail = NULL;
+	tail = append(tail, arry_of_ints[i], 0);
+	*ptr_to_stack = tail;
+	i++;
+	while (i < arry_of_ints[0])
+	{
+		tail = append(tail, arry_of_ints[i], 0);
+		i++;
+	}
+	free(arry_of_ints);
+	arry_of_ints = NULL;
+	return (tail);
+}
 
 int	*ft_arry_of_ints(int argc, char **argv)
 {

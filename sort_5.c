@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 22:26:39 by chuleung          #+#    #+#             */
-/*   Updated: 2024/01/30 16:27:36 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:33:50 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push_one_n_two(t_stacks *stacks)
 	}
 }
 
-void	sort_five(t_stacks *stacks)
+void	sort_5(t_stacks *stacks)
 {
 	int		count_b;
 

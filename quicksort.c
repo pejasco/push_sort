@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/02/03 01:07:20 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 19:35:59 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sort_mgt(t_stacks *stacks, int nbr_of_args)
 	}
 	if (nbr_of_args == 5)
 	{
-		sort_five(stacks);
+		sort_5(stacks);
 		return ;
 	}
 	stats.high = max_in_rank(&(stacks->stack_a));

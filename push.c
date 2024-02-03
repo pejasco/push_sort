@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:20:03 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/03 00:19:07 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 20:02:40 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,32 @@ void	push_b(t_list **stack_a, t_list **stack_b, int print)
 	*stack_b = tail_of_b->next;
 	if (print == 1)
 		write(1, "pb\n", 3);
+}
+
+void	auto_push_a(t_list **stack_a, t_list **stack_b
+		, int no_of_time, int print)
+{
+	int	i;
+
+	i = 0;
+	while (i < no_of_time)
+	{
+		push_a(stack_a, stack_b, print);
+		i++;
+	}
+}
+
+void	auto_push_b(t_list **stack_a, t_list **stack_b
+		, int no_of_time, int print)
+{
+	int	i;
+
+	i = 0;
+	while (i < no_of_time)
+	{
+		push_b(stack_a, stack_b, print);
+		i++;
+	}
 }
 
 // void push_b(t_list **stack_a, t_list **stack_b, int print) XXXX
