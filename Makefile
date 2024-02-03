@@ -52,7 +52,7 @@ $(STATIC_LIBFT):
 	$(MAKE) -C libft all
 
 clean :
-	rm -f ./bin/*.o
+	rm -f $(OBJ_DIR)/*.o
 	$(MAKE) -C libft clean
 
 fclean : clean
