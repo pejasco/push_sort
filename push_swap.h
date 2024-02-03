@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 14:25:18 by chuleung          #+#    #+#             */
-/*   Updated: 2024/02/02 21:58:00 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/03 01:08:59 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,6 @@ typedef struct s_qs_stats
 	char	from;
 }	t_qs_stats;
 
-typedef struct s_stat
-{
-	int			max;
-	int			min;
-	int			med;
-}	t_stat;
-
-/*
-typedef struct s_stac
-{
-	int		_count;
-	int		sb_count;
-	int		ra_count;
-	int		rb_count;
-} t_stac;
-*/
 
 //dupli_ctrl.c
 int			dupli_chk(int argc, int *arry_of_ints);
@@ -75,11 +59,8 @@ int			limit_chk(char **argv);
 int			limit_ctrl(char **argv);
 
 //push_swap.c
-int			*arry_of_ints(char **argv);
+int			*ft_arry_of_ints(int argc, char **argv);
 int			*input_mgt(int argc, char **argv);
-void		print_list(char stackname, t_list **stack);
-void		print_list_rank(char stackname, t_list **stack);
-void		stack_mgt(t_list **stack_a, t_list **stack_b);
 
 //linked_list_mgt.c
 t_list		*addtoempty(int data, int rank);
@@ -90,8 +71,6 @@ t_list		*poplast(t_list *tail);
 
 //stack_in_out.c
 t_list		*init_stack_a(t_list **ptr_to_stack, int *arry_of_ints);
-t_list		*stack_in(t_list **ptr_to_stack, t_list **tail, int data);
-t_list		*stack_out(t_list **ptr_to_stack, t_list **tail);
 
 //linked_list_utili.c
 t_list		*tail_find(t_list **stack);
@@ -169,15 +148,6 @@ void		auto_push_b(t_list **stack_a, t_list **stack_b, \
 			int no_of_time, int print);
 void		mini_sort_rev(t_list **stack_a, t_list **stack_b);
 
-/*
-//small_sort.c
-void		sort_5_op_pt2(t_stacks *stacks, int rank);
-void		sort_5_op(t_stacks *stacks);
-void		sort_4(t_stacks *stacks);
-void		sort_5(t_stacks *stacks);
-void		small_sort(t_stacks *stack);
-*/
-
 //sort_five.c
 void 		sort_five(t_stacks *stacks);
 
@@ -191,7 +161,7 @@ void		auto_reverse_a(t_list **stack_a, int no_of_time, int print);
 void		sort_mgt(t_stacks *stacks, int nbr_of_args);
 void		quicksort(t_stacks *stacks, t_qs_stats stats);
 
-//void    	quicksort(t_stacks *stacks, int low, int high, char from);
-//void    	quicksort(t_stacks *stacks, int low, int high, char from);
+
+
 
 #endif
