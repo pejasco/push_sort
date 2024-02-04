@@ -6,7 +6,7 @@
 /*   By: chuleung <chuleung@student.42.london.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 15:36:39 by mayeung           #+#    #+#             */
-/*   Updated: 2024/02/03 23:17:01 by chuleung         ###   ########.fr       */
+/*   Updated: 2024/02/04 18:06:15 by chuleung         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	qs_algo(t_stacks *stacks, t_qs_stats *stats, int med)
 	if ((stats->high - stats->low) == 1 && (stacks->stack_a->rank)
 		> (stacks->stack_a->next->rank))
 		swap_a(&(stacks->stack_a), 1);
-	while (stats->rotate-- && !(stats->low == 1 \
-		|| stats->high == (stacks->nbr_of_args)))
+	while (stats->rotate-- && !(stats->low == 1
+			|| stats->high == (stacks->nbr_of_args)))
 	{
 		if (stats->from == 'a')
 			reverse_a(&(stacks->stack_a), 1);
